@@ -1,3 +1,9 @@
+## Running
+type  
+`cargo run --bin dayNN`  
+e.g.  
+`cargo run --bin day01`  
+
 ## Improvements
 These take a long time to run
 
