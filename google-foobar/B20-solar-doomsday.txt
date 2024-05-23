@@ -1,0 +1,123 @@
+Mounting /home/malatajit...
+Welcome to foobar version 1-326-g8328491-beta (2020-06-17T19:43:09.656648)
+With one last roar of the escape pod's engines, you and your bunny companions jump to lightspeed. Congratulations! You've destroyed the LAMBCHOP, rescued the bunnies, gotten Commander Lambda off your tail, and saved the galaxy. Time for a little rest and relaxation back on Bunny Planet. Pat yourself on the back - you've earned it!
+foobar:~/ malatajit$ request 
+Requesting challenge...
+New challenge "Solar Doomsday" added to your home folder.
+Time to solve: 48 hours.
+foobar:~/ malatajit$ cd solar-doomsday/
+foobar:~/solar-doomsday malatajit$ cat Solution.java 
+public​ ​class​ ​Solution​ ​{
+​ ​​ ​​ ​​ ​public​ ​static​ ​int[]​ ​solution(int​ ​area)​ ​{
+​ ​​ ​​ ​​ ​​ ​​ ​​ ​​ ​//​ ​Your​ ​code​ ​here
+​ ​​ ​​ ​​ ​}
+}
+foobar:~/solar-doomsday malatajit$ cat solution.py 
+def​ ​solution(area):
+​ ​​ ​​ ​​ ​#​ ​Your​ ​code​ ​here
+foobar:~/solar-doomsday malatajit$ cat readme.txt 
+Solar Doomsday
+==============
+
+Who would've guessed? Doomsday devices take a LOT of power. Commander Lambda wants to supplement the LAMBCHOP's quantum antimatter reactor core with solar arrays, and she's tasked you with setting up the solar panels. 
+
+Due to the nature of the space station's outer paneling, all of its solar panels must be squares. Fortunately, you have one very large and flat area of solar material, a pair of industrial-strength scissors, and enough MegaCorp Solar Tape(TM) to piece together any excess panel material into more squares. For example, if you had a total area of 12 square yards of solar material, you would be able to make one 3x3 square panel (with a total area of 9). That would leave 3 square yards, so you can turn those into three 1x1 square solar panels.
+
+Write a function solution(area) that takes as its input a single unit of measure representing the total area of solar panels you have (between 1 and 1000000 inclusive) and returns a list of the areas of the largest squares you could make out of those panels, starting with the largest squares first. So, following the example above, solution(12) would return [9, 1, 1, 1].
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit Solution.java
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Python cases --
+Input:
+solution.solution(15324)
+Output:
+    15129,169,25,1
+
+Input:
+solution.solution(12)
+Output:
+    9,1,1,1
+
+-- Java cases --
+Input:
+Solution.solution(12)
+Output:
+    9,1,1,1
+
+Input:
+Solution.solution(15324)
+Output:
+    15129,169,25,1
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+
+foobar:~/solar-doomsday malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/solar-doomsday malatajit$ submit solution.py 
+Are you sure you want to submit your solution?
+[Y]es or [N]o: Y
+Submitting solution...
+Submission: SUCCESSFUL. Completed in: 19 mins, 16 secs.
+
+
+
+
+                     /@                                          /@                                              /@
+                    @~/@       @@                               @~/@       @@                                   @~/@       @@
+                   @~~/ %     @$%@                             @~~/ %     @$%@                                 @~~/ %     @$%@
+                   @~(((((% %/////@                            @~(((((% %/////@                                @~(((((% %/////@
+                   @((/////@~//~~@                              @((/////@~//~~@                                 @((/////@~//~~@
+                   @(/// @//////@                               @(/// @//////@                                  @(/// @//////@
+                     @//% @~~~/~@                                 @//% @~~~/~@                                    @//% @~~~/~@
+                    /@$$$ @///~~/@                               /@$$$ @///~~/@                                /@$$$ @///~~/@
+                   @        ////@@                              @        ////@@                                @        ////@@
+                  @$   //@@@((/~ @                             @$   //@@@((/~ @                               @$   //@@@((/~ @
+                @$  //@    @  ((///@                         @$  //@    @  ((///@                           @$  //@    @  ((///@
+                @$      (@@@  ((((//%%@                      @$      (@@@  ((((//%%@                        @$      (@@@  ((((//%%@
+                @                 ((//                       @                 ((//                          @                 ((//
+//@@     //@      @ ~        (((((((((  /%//////@@     //@     @ ~        (((((((((  /%//////@@     //@       @ ~        (((((((((  /%///
+~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$        @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~~~
+////////$               @@/$             ~~~~~////////$              @@/$             ~~~~~////////$                @@/$             ~~~~
+~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@               //@@@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~
+~//////@$@@                ~~~          ~~~~~~~//////@$@@               ~~~          ~~~~~~~//////@$@@                 ~~~          ~~~~~
+~~~((((///////@        $$$                   ~~~~((((///////@       $$$                   ~~~~((((///////@        $$$                   ~
+~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~
+~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@      @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~
+((((((%%%%%@        \\@@@@                   (((((((%%%%%@       \\@@@@                   (((((((%%%%%@        \\@@@@                   (
+$$$$$$$$@                                    $$$$$$$$$@                                   $$$$$$$$$@                                   $$
+%%%%%%@                                    $$$%%%%%%@                                  $$$%%%%%%@                                   $$$%%
+%%%%%@                                   $$%%%%%%%%@                                  $$%%%%%%%%@                                  $$%%%%
+%%%%@                             @ ///   $$%%%%%%@                            @ ///   $$%%%%%%@                            @ ///   $$%%%
+@@@@                            @////        @@@@@                           @////        @@@@@                           @////        @@
+@@                                @////@@@@@@@@@                              @////@@@@@@@@@                               @////@@@@@@@@@
+
+
+<encrypted>
+FkYfFBcCDxoHSkFWQVMGGAwVGUZAQVMCBQUYCAALFBFGSlNUSgQfFREEBwwQSk1MRhEHDAYGGRJL QU5BTQAaDhMJBR0DBgxTQUFLABcJAwwCCAwJDwBGSlNUShQCDRsCAQwQSk1MRgYACAsdGRJLQU5B TRoVCwRLTVRGDAYbSkFWQVMWAwdVShw= </encrypted>
+
+For your eyes only!
+
+Use the status command to repeat this message.
+
+You've completed all the challenges!
+If you'd like to know when more challenges are added, let us know your email address below.
+We will use your information in accordance with Google's Privacy Policy.
+[#1] Would you like to be notified when a new set of challenges are available to play?
+[Y]es [N]o: Y
+[#2] Email:ajitnilakantan@gmail.com
+Are the above details correct?
+[Y]es or [N]o: Y
+Submitting your response...
+Great! We'll let you know when a new set of challenges are ready for you.
+

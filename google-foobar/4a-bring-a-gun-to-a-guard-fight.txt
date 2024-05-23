@@ -1,0 +1,146 @@
+Mounting /home/malatajit...
+Welcome to foobar version 1-325-g43507c9-beta (2020-05-26T17:44:23.992585)
+Excellent! You've destroyed Commander Lambda's doomsday device and saved Bunny Planet! But there's one small problem: the LAMBCHOP was a wool-y important part of her space station, and when you blew it up, you triggered a chain reaction that's tearing the station apart. Can you rescue the imprisoned bunnies and escape before the entire thing explodes?
+foobar:~/ malatajit$ ls
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cat journal.txt 
+Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top...
+
+Commander Lambda sure is a task-master, isn't she? You're being worked to the bone!
+
+You survived a week in Commander Lambda's organization, and you even managed to get yourself promoted. Hooray! Henchmen still don't have the kind of security access you'll need to take down Commander Lambda, though, so you'd better keep working. Chop chop!
+
+The perks are definitely better as a Henchman than as a Minion. You're even allowed to sleep lying down!
+
+Rumor has it the prison guards are inexplicably fond of bananas. You're an apple person yourself, but you file the information away for future reference. You never know when you might need to bribe a guard (or three)...
+
+Awesome! Commander Lambda was so impressed by your efforts that she's made you her personal assistant. You'll be helping her directly with her work, which means you'll have access to all of her files-including the ones on the LAMBCHOP doomsday device. This is the chance you've been waiting for. Can you use your new access to finally topple Commander Lambda's evil empire?
+
+One of these days you're going to manage to glimpse Commander Lambda's password over her shoulder. But she's very careful about security, and you haven't managed it yet...
+
+Commander Lambda has six suits, three dress uniforms, four casual outfits, and one Dress-Uniform-For-Important-Speeches-Only. You know this because you've already had to take all of them to the dry cleaner's. Twice!
+
+Who the heck puts clover and coffee creamer in their tea? Commander Lambda, apparently. When you signed up to infiltrate her organization, you didn't think you'd get such an up-close and personal look at her more... unusual tastes.
+
+Excellent! You've destroyed Commander Lambda's doomsday device and saved Bunny Planet! But there's one small problem: the LAMBCHOP was a wool-y important part of her space station, and when you blew it up, you triggered a chain reaction that's tearing the station apart. Can you rescue the imprisoned bunnies and escape before the entire thing explodes?
+foobar:~/ malatajit$ cat start_here.txt 
+Type request to request a challenge. Type help for a list of commands.
+foobar:~/ malatajit$ request
+Requesting challenge...
+There are a lot of difficult things about being undercover as Commander Lambda's personal assistant, but you have to say, the personal spa and private hot cocoa bar are pretty awesome.
+New challenge "Bringing a Gun to a Guard Fight" added to your home folder.
+Time to solve: 360 hours.
+foobar:~/ malatajit$ ls
+bringing-a-gun-to-a-guard-fight
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cd bringing-a-gun-to-a-guard-fight/
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ cat solution.py 
+def​ ​solution(dimensions,​ ​your_position,​ ​guard_position,​ ​distance):
+​ ​​ ​​ ​​ ​#Your​ ​code​ ​here
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ cat constraints.txt 
+Java
+====
+Your code will be compiled using standard Java 8. All tests will be run by calling the solution() method inside the Solution class
+
+Execution time is limited.
+
+Wildcard imports and some specific classes are restricted (e.g. java.lang.ClassLoader). You will receive an error when you verify your solution if you have used a blacklisted class.
+
+Third-party libraries, input/output operations, spawning threads or processes and changes to the execution environment are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+
+Python
+======
+Your code will run inside a Python 2.7.13 sandbox. All tests will be run by calling the solution() function.
+
+Standard libraries are supported except for bz2, crypt, fcntl, mmap, pwd, pyexpat, select, signal, termios, thread, time, unicodedata, zipimport, zlib.
+
+Input/output operations are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ cat readme.txt 
+Bringing a Gun to a Guard Fight
+===============================
+
+Uh-oh - you've been cornered by one of Commander Lambdas elite guards! Fortunately, you grabbed a beam weapon from an abandoned guard post while you were running through the station, so you have a chance to fight your way out. But the beam weapon is potentially dangerous to you as well as to the elite guard: its beams reflect off walls, meaning you'll have to be very careful where you shoot to avoid bouncing a shot toward yourself!
+
+Luckily, the beams can only travel a certain maximum distance before becoming too weak to cause damage. You also know that if a beam hits a corner, it will bounce back in exactly the same direction. And of course, if the beam hits either you or the guard, it will stop immediately (albeit painfully). 
+
+Write a function solution(dimensions, your_position, guard_position, distance) that gives an array of 2 integers of the width and height of the room, an array of 2 integers of your x and y coordinates in the room, an array of 2 integers of the guard's x and y coordinates in the room, and returns an integer of the number of distinct directions that you can fire to hit the elite guard, given the maximum distance that the beam can travel.
+
+The room has integer dimensions [1 < x_dim <= 1250, 1 < y_dim <= 1250]. You and the elite guard are both positioned on the integer lattice at different distinct positions (x, y) inside the room such that [0 < x < x_dim, 0 < y < y_dim]. Finally, the maximum distance that the beam can travel before becoming harmless will be given as an integer 1 < distance <= 10000.
+
+For example, if you and the elite guard were positioned in a room with dimensions [3, 2], your_position [1, 1], guard_position [2, 1], and a maximum shot distance of 4, you could shoot in seven different directions to hit the elite guard (given as vector bearings from your location): [1, 0], [1, 2], [1, -2], [3, 2], [3, -2], [-3, 2], and [-3, -2]. As specific examples, the shot at bearing [1, 0] is the straight line horizontal shot of distance 1, the shot at bearing [-3, -2] bounces off the left wall and then the bottom wall before hitting the elite guard with a total shot distance of sqrt(13), and the shot at bearing [1, 2] bounces off just the top wall before hitting the elite guard with a total shot distance of sqrt(5).
+
+Languages
+=========
+
+To provide a Java solution, edit Solution.java
+To provide a Python solution, edit solution.py
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Java cases --
+Input:
+Solution.solution([3,2], [1,1], [2,1], 4)
+Output:
+    7
+
+Input:
+Solution.solution([300,275], [150,150], [185,100], 500)
+Output:
+    9
+
+-- Python cases --
+Input:
+solution.solution([3,2], [1,1], [2,1], 4)
+Output:
+    7
+
+Input:
+solution.solution([300,275], [150,150], [185,100], 500)
+Output:
+    9
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/bringing-a-gun-to-a-guard-fight malatajit$ submit solution.py 
+Are you sure you want to submit your solution?
+[Y]es or [N]o: Y
+Submitting solution...
+Submission: SUCCESSFUL. Completed in: 10 hrs, 12 mins, 13 secs.
+
+Current level: 4
+Challenges left to complete level: 1
+
+Level 1: 100% [==========================================]
+Level 2: 100% [==========================================]
+Level 3: 100% [==========================================]
+Level 4:  50% [=====================.....................]
+Level 5:   0% [..........................................]
+
+Type request to request a new challenge now, or come back later.
+
+The code is strong with this one...
+You can now share your solutions with a Google recruiter!
+If you opt in, Google staffing may reach out to you regarding career opportunities.
+We will use your information in accordance with our Applicant and Candidate Privacy Policy.
+[#1] Do you wish to proceed?
+[Y]es [N]o [A]sk me later: A
+Response: contact postponed.
+To share your progress at any time, use the recruitme command.
+

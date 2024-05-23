@@ -1,0 +1,181 @@
+foobar:~/ malatajit$ ls
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cat journal.txt 
+Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top...
+
+Commander Lambda sure is a task-master, isn't she? You're being worked to the bone!
+
+You survived a week in Commander Lambda's organization, and you even managed to get yourself promoted. Hooray! Henchmen still don't have the kind of security access you'll need to take down Commander Lambda, though, so you'd better keep working. Chop chop!
+
+The perks are definitely better as a Henchman than as a Minion. You're even allowed to sleep lying down!
+
+Rumor has it the prison guards are inexplicably fond of bananas. You're an apple person yourself, but you file the information away for future reference. You never know when you might need to bribe a guard (or three)...
+
+Awesome! Commander Lambda was so impressed by your efforts that she's made you her personal assistant. You'll be helping her directly with her work, which means you'll have access to all of her files-including the ones on the LAMBCHOP doomsday device. This is the chance you've been waiting for. Can you use your new access to finally topple Commander Lambda's evil empire?
+
+One of these days you're going to manage to glimpse Commander Lambda's password over her shoulder. But she's very careful about security, and you haven't managed it yet...
+
+Commander Lambda has six suits, three dress uniforms, four casual outfits, and one Dress-Uniform-For-Important-Speeches-Only. You know this because you've already had to take all of them to the dry cleaner's. Twice!
+
+Who the heck puts clover and coffee creamer in their tea? Commander Lambda, apparently. When you signed up to infiltrate her organization, you didn't think you'd get such an up-close and personal look at her more... unusual tastes.
+
+Excellent! You've destroyed Commander Lambda's doomsday device and saved Bunny Planet! But there's one small problem: the LAMBCHOP was a wool-y important part of her space station, and when you blew it up, you triggered a chain reaction that's tearing the station apart. Can you rescue the imprisoned bunnies and escape before the entire thing explodes?
+
+There are a lot of difficult things about being undercover as Commander Lambda's personal assistant, but you have to say, the personal spa and private hot cocoa bar are pretty awesome.
+foobar:~/ malatajit$ cat start_here.txt 
+Type request to request a challenge. Type help for a list of commands.
+foobar:~/ malatajit$ request
+Requesting challenge...
+It's a good thing bunnies are relatively small and light. You're pretty sure they're packing the escape pods well past the legal maximum occupancy.
+New challenge "Free the Bunny Prisoners" added to your home folder.
+Time to solve: 360 hours.
+foobar:~/ malatajit$ ls
+free-the-bunny-prisoners
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cd free-the-bunny-prisoners/
+foobar:~/free-the-bunny-prisoners malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/free-the-bunny-prisoners malatajit$ cat solution.py 
+def​ ​solution(num_buns,​ ​num_required):
+​ ​​ ​​ ​​ ​#​ ​Your​ ​code​ ​here
+foobar:~/free-the-bunny-prisoners malatajit$ cat constraints.txt 
+Java
+====
+Your code will be compiled using standard Java 8. All tests will be run by calling the solution() method inside the Solution class
+
+Execution time is limited.
+
+Wildcard imports and some specific classes are restricted (e.g. java.lang.ClassLoader). You will receive an error when you verify your solution if you have used a blacklisted class.
+
+Third-party libraries, input/output operations, spawning threads or processes and changes to the execution environment are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+
+Python
+======
+Your code will run inside a Python 2.7.13 sandbox. All tests will be run by calling the solution() function.
+
+Standard libraries are supported except for bz2, crypt, fcntl, mmap, pwd, pyexpat, select, signal, termios, thread, time, unicodedata, zipimport, zlib.
+
+Input/output operations are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+foobar:~/free-the-bunny-prisoners malatajit$ cat readme.txt 
+Free the Bunny Prisoners
+========================
+
+You need to free the bunny prisoners before Commander Lambda's space station explodes! Unfortunately, the commander was very careful with her highest-value prisoners - they're all held in separate, maximum-security cells. The cells are opened by putting keys into each console, then pressing the open button on each console simultaneously. When the open button is pressed, each key opens its corresponding lock on the cell. So, the union of the keys in all of the consoles must be all of the keys. The scheme may require multiple copies of one key given to different minions.
+
+The consoles are far enough apart that a separate minion is needed for each one. Fortunately, you have already freed some bunnies to aid you - and even better, you were able to steal the keys while you were working as Commander Lambda's assistant. The problem is, you don't know which keys to use at which consoles. The consoles are programmed to know which keys each minion had, to prevent someone from just stealing all of the keys and using them blindly. There are signs by the consoles saying how many minions had some keys for the set of consoles. You suspect that Commander Lambda has a systematic way to decide which keys to give to each minion such that they could use the consoles.
+
+You need to figure out the scheme that Commander Lambda used to distribute the keys. You know how many minions had keys, and how many consoles are by each cell.  You know that Command Lambda wouldn't issue more keys than necessary (beyond what the key distribution scheme requires), and that you need as many bunnies with keys as there are consoles to open the cell.
+
+Given the number of bunnies available and the number of locks required to open a cell, write a function solution(num_buns, num_required) which returns a specification of how to distribute the keys such that any num_required bunnies can open the locks, but no group of (num_required - 1) bunnies can.
+
+Each lock is numbered starting from 0. The keys are numbered the same as the lock they open (so for a duplicate key, the number will repeat, since it opens the same lock). For a given bunny, the keys they get is represented as a sorted list of the numbers for the keys. To cover all of the bunnies, the final answer is represented by a sorted list of each individual bunny's list of keys.  Find the lexicographically least such key distribution - that is, the first bunny should have keys sequentially starting from 0.
+
+num_buns will always be between 1 and 9, and num_required will always be between 0 and 9 (both inclusive).  For example, if you had 3 bunnies and required only 1 of them to open the cell, you would give each bunny the same key such that any of the 3 of them would be able to open it, like so:
+[
+  [0],
+  [0],
+  [0],
+]
+If you had 2 bunnies and required both of them to open the cell, they would receive different keys (otherwise they wouldn't both actually be required), and your answer would be as follows:
+[
+  [0],
+  [1],
+]
+Finally, if you had 3 bunnies and required 2 of them to open the cell, then any 2 of the 3 bunnies should have all of the keys necessary to open the cell, but no single bunny would be able to do it.  Thus, the answer would be:
+[
+  [0, 1],
+  [0, 2],
+  [1, 2],
+]
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit Solution.java
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Python cases --
+Input:
+solution.solution(2, 1)
+Output:
+    [[0], [0]]
+
+Input:
+solution.solution(4, 4)
+Output:
+    [[0], [1], [2], [3]]
+
+Input:
+solution.solution(5, 3)
+Output:
+    [[0, 1, 2, 3, 4, 5], [0, 1, 2, 6, 7, 8], [0, 3, 4, 6, 7, 9], [1, 3, 5, 6, 8, 9], [2, 4, 5, 7, 8, 9]]
+
+-- Java cases --
+Input:
+Solution.solution(2, 1)
+Output:
+    [[0], [0]]
+
+Input:
+Solution.solution(5, 3)
+Output:
+    [[0, 1, 2, 3, 4, 5], [0, 1, 2, 6, 7, 8], [0, 3, 4, 6, 7, 9], [1, 3, 5, 6, 8, 9], [2, 4, 5, 7, 8, 9]]
+
+Input:
+Solution.solution(4, 4)
+Output:
+    [[0], [1], [2], [3]]
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+foobar:~/free-the-bunny-prisoners malatajit$ 
+foobar:~/free-the-bunny-prisoners malatajit$ verify solution.py
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/free-the-bunny-prisoners malatajit$ submit solution.py
+Are you sure you want to submit your solution?
+[Y]es or [N]o: 
+[Y]es or [N]o: Y
+Submitting solution...
+Oh no! You escaped Commander Lambda's exploding space station - but so did she, and she's definitely not happy with you. She's chasing you in her heavily-armed starfighter, while you and your bunny refugees are stuck in these lumbering escape pods. It'll take all your wits and cleverness to escape such a hare-y situation, so you'd better hop to it!
+Submission: SUCCESSFUL. Completed in: 1 day, 20 hrs, 7 mins, 2 secs.
+
+Level 4 complete
+You are now on level 5
+Challenges left to complete level: 1
+
+Level 1: 100% [==========================================]
+Level 2: 100% [==========================================]
+Level 3: 100% [==========================================]
+Level 4: 100% [==========================================]
+Level 5:   0% [..........................................]
+
+It's dangerous to go alone! To invite a friend to try a challenge, send the link below. This is a single-use code, so choose wisely.
+
+Refer a friend: "https://foobar.withgoogle.com/?eid=9hbMi" (Unused)
+Refer a friend: "https://foobar.withgoogle.com/?eid=b9u7v" (Used)
+
+Type request to request a new challenge now, or come back later.
+
+The code is strong with this one...
+You can now share your solutions with a Google recruiter!
+If you opt in, Google staffing may reach out to you regarding career opportunities.
+We will use your information in accordance with our Applicant and Candidate Privacy Policy.
+[#1] Do you wish to proceed?
+[Y]es [N]o [A]sk me later: A
+Response: contact postponed.
+To share your progress at any time, use the recruitme command.
+foobar:~/ malatajit$  

@@ -1,0 +1,3153 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://foobar.withgoogle.com/
+Subject: foo.bar
+Date: Mon, 1 Jun 2020 23:17:03 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----"
+
+
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/html
+Content-ID: <frame-98A39096B76E024778F967477E708264@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://foobar.withgoogle.com/
+
+<!DOCTYPE html><!--[if IE 9 ]><html class=3D"ie9" dir=3D"ltr" lang=3D"en"><=
+![endif]--><!--[if (gt IE 9)|!(IE)]><!--><html dir=3D"ltr" lang=3D"en"><!--=
+<![endif]--><head><meta http-equiv=3D"Content-Type" content=3D"text/html; c=
+harset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-=
+6e11a06d-1f4e-41e4-86a5-9e9f2c1b0125@mhtml.blink" /><link rel=3D"stylesheet=
+" type=3D"text/css" href=3D"cid:css-8015a24b-ec69-46c2-9ab5-ed347ddcf061@mh=
+tml.blink" /><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-17d=
+260c8-2d37-40ff-a8cb-2390a99b5e3e@mhtml.blink" /><link rel=3D"stylesheet" t=
+ype=3D"text/css" href=3D"cid:css-5a6b3718-0252-4dcc-a60a-e2a6fcc180ea@mhtml=
+.blink" />
+	=09
+		<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">
+		<meta name=3D"theme-color" content=3D"#000">
+		<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+
+		<title>foo.bar</title>
+
+		<link rel=3D"dns-prefetch" href=3D"https://www.google-analytics.com/">
+		<link rel=3D"stylesheet" href=3D"https://foobar.withgoogle.com/static/css=
+/rhgame.1a562476.css">
+	</head>
+
+	<body>
+	=09
+
+<div class=3D"content">
+=09
+
+	<header class=3D"logo">
+		<img src=3D"https://foobar.withgoogle.com/static/svg/logo.733f842a.svg" a=
+lt=3D"" role=3D"presentation">
+	</header><!--
+	--><div class=3D"interface console--is-active" data-initial-message=3D"<sp=
+an class=3D&quot;term-story&quot;>Traveling through a nebula is a really ba=
+d idea, but with Commander Lambda hot on your tail, you don't have many opt=
+ions. Hopefully you can lose her once you're inside!</span><br>" data-usern=
+ame=3D"malatajit" data-player-id=3D"" data-os-version=3D"1-325-g43507c9" da=
+ta-os-boot=3D"2020-06-01T19:58:44.338251" data-requested=3D"true" data-on-d=
+esktop=3D"true">
+		<section class=3D"console terminal active">
+		<div class=3D"terminal-output"><div role=3D"alert"><div style=3D"width: 1=
+00%;">Mounting <span class=3D"term-blue">/home/malatajit</span>...</div></d=
+iv><div role=3D"alert"><div style=3D"width: 100%;"><span class=3D"term-yell=
+ow">Welcome to foobar version 1-325-g43507c9-beta (2020-06-01T19:58:44.3382=
+51)</span><br></div></div><div role=3D"alert"><div style=3D"width: 100%;"><=
+span class=3D"term-story">Traveling through a nebula is a really bad idea, =
+but with Commander Lambda hot on your tail, you don't have many options. Ho=
+pefully you can lose her once you're inside!</span><br></div></div><div rol=
+e=3D"alert"><div style=3D"width: 100%;"><div class=3D"output--prompt"><span=
+>foobar:~/ malatajit$ </span>ls</div></div></div><div role=3D"alert"><div s=
+tyle=3D"width: 100%;"><span class=3D"list--folder">disorderly-escape</span>=
+<br><span class=3D"list--file">journal.txt</span><br><span class=3D"list--f=
+ile">start_here.txt</span><br></div></div><div role=3D"alert"><div style=3D=
+"width: 100%;"><div class=3D"output--prompt"><span>foobar:~/ malatajit$ </s=
+pan></div></div></div><div role=3D"alert"><div style=3D"width: 100%;"><div =
+class=3D"output--prompt"><span>foobar:~/ malatajit$ </span>cd&nbsp;disorder=
+ly-escape/</div></div></div><div role=3D"alert"><div style=3D"width: 100%;"=
+><div class=3D"output--prompt"><span>foobar:~/disorderly-escape malatajit$ =
+</span>edit&nbsp;solution.py&nbsp;</div></div></div><div role=3D"alert"><di=
+v style=3D"width: 100%;"><div class=3D"output--prompt"><span>foobar:~/disor=
+derly-escape malatajit$ </span>verify&nbsp;solution.py&nbsp;</div></div></d=
+iv><div role=3D"alert"><div style=3D"width: 100%;">Verifying&nbsp;solution.=
+..</div></div><div role=3D"alert"><div style=3D"width: 100%;"><span class=
+=3D"term-green">All test cases passed.</span> Use <span class=3D"term-yello=
+w">submit solution.py</span> to submit your solution</div></div><div role=
+=3D"alert"><div style=3D"width: 100%;"><div class=3D"output--prompt"><span>=
+foobar:~/disorderly-escape malatajit$ </span>recruitme</div></div></div><di=
+v role=3D"alert"><div style=3D"width: 100%;">Checking&nbsp;your&nbsp;permis=
+sions...</div></div><div role=3D"alert"><div style=3D"width: 100%;">
+    You can share your solutions with a Google recruiter.<br>
+    If you opt in, Google staffing may reach out to you regarding career op=
+portunities. <br>
+    We will use your information in accordance with our
+    <a class=3D"btn" target=3D"_blank" href=3D"https://careers.google.com/p=
+rivacy-policy">Applicant and Candidate Privacy Policy.</a>
+</div></div><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"=
+" class=3D"term-white" data-text=3D"[">[</span><span style=3D"" class=3D"te=
+rm-green" data-text=3D"#1">#1</span><span style=3D"" class=3D"term-white" d=
+ata-text=3D"]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-wh=
+ite" data-text=3D"Do&nbsp;you&nbsp;wish&nbsp;to&nbsp;proceed?">Do&nbsp;you&=
+nbsp;wish&nbsp;to&nbsp;proceed?</span></div></div><div role=3D"alert"><div =
+style=3D"width: 100%;"><span style=3D"" class=3D"term-white" data-text=3D"[=
+">[</span><span style=3D"font-weight:bold;" class=3D"term-white" data-text=
+=3D"Y">Y</span><span style=3D"" class=3D"term-white" data-text=3D"]">]</spa=
+n><span style=3D"" class=3D"term-white" data-text=3D"es">es</span><span>&nb=
+sp;</span><span style=3D"" class=3D"term-white" data-text=3D"[">[</span><sp=
+an style=3D"font-weight:bold;" class=3D"term-white" data-text=3D"N">N</span=
+><span style=3D"" class=3D"term-white" data-text=3D"]">]</span><span style=
+=3D"" class=3D"term-white" data-text=3D"o">o</span><span>&nbsp;</span><span=
+ style=3D"" class=3D"term-white" data-text=3D"[">[</span><span style=3D"fon=
+t-weight:bold;" class=3D"term-white" data-text=3D"A">A</span><span style=3D=
+"" class=3D"term-white" data-text=3D"]">]</span><span style=3D"" class=3D"t=
+erm-white" data-text=3D"sk&nbsp;me&nbsp;later:">sk&nbsp;me&nbsp;later:</spa=
+n><span>&nbsp;</span>Y</div></div><div role=3D"alert"><div style=3D"width: =
+100%;">
+    Please tell us a bit about yourself to help us connect you with the rig=
+ht recruiter.
+    By answering these questions you agree to our
+    <a class=3D"btn" target=3D"_blank" href=3D"https://careers.google.com/p=
+rivacy-policy">Applicant and Candidate Privacy Policy.</a>
+</div></div><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"=
+" class=3D"term-white" data-text=3D"[">[</span><span style=3D"" class=3D"te=
+rm-green" data-text=3D"#2">#2</span><span style=3D"" class=3D"term-white" d=
+ata-text=3D"]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-wh=
+ite" data-text=3D"First&nbsp;name:">First&nbsp;name:</span>Ajit</div></div>=
+<div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" class=3D"t=
+erm-white" data-text=3D"[">[</span><span style=3D"" class=3D"term-green" da=
+ta-text=3D"#3">#3</span><span style=3D"" class=3D"term-white" data-text=3D"=
+]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-white" data-te=
+xt=3D"Last&nbsp;name:">Last&nbsp;name:</span>Nilakantan</div></div><div rol=
+e=3D"alert"><div style=3D"width: 100%;"><span style=3D"" class=3D"term-whit=
+e" data-text=3D"[">[</span><span style=3D"" class=3D"term-green" data-text=
+=3D"#4">#4</span><span style=3D"" class=3D"term-white" data-text=3D"]">]</s=
+pan><span>&nbsp;</span><span style=3D"" class=3D"term-white" data-text=3D"E=
+mail:">Email:</span>ajitnilakantan@gmail.com</div></div><div role=3D"alert"=
+><div style=3D"width: 100%;">Use&nbsp;tab&nbsp;key&nbsp;twice&nbsp;to&nbsp;=
+see&nbsp;list&nbsp;of&nbsp;available&nbsp;country/region&nbsp;choices.</div=
+></div><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" cla=
+ss=3D"term-white" data-text=3D"[">[</span><span style=3D"" class=3D"term-gr=
+een" data-text=3D"#5">#5</span><span style=3D"" class=3D"term-white" data-t=
+ext=3D"]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-white" =
+data-text=3D"Country/Region:">Country/Region:</span>Canada</div></div><div =
+role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" class=3D"term-w=
+hite" data-text=3D"[">[</span><span style=3D"" class=3D"term-green" data-te=
+xt=3D"#6">#6</span><span style=3D"" class=3D"term-white" data-text=3D"]">]<=
+/span><span>&nbsp;</span><span style=3D"" class=3D"term-white" data-text=3D=
+"Phone&nbsp;number:">Phone&nbsp;number:</span>778-883-5772</div></div><div =
+role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" class=3D"term-w=
+hite" data-text=3D"[">[</span><span style=3D"" class=3D"term-green" data-te=
+xt=3D"#7">#7</span><span style=3D"" class=3D"term-white" data-text=3D"]">]<=
+/span><span>&nbsp;</span><span style=3D"" class=3D"term-white" data-text=3D=
+"Other&nbsp;helpful&nbsp;links:">Other&nbsp;helpful&nbsp;links:</span>n/a</=
+div></div><div role=3D"alert"><div style=3D"width: 100%;">Are the above det=
+ails correct?</div></div><div><div style=3D"width: 100%;"><div class=3D"out=
+put--prompt"><span>[Y]es or [N]o: </span>Y</div></div></div><div role=3D"al=
+ert"><div style=3D"width: 100%;">Submitting&nbsp;your&nbsp;response...</div=
+></div><div role=3D"alert"><div style=3D"width: 100%;">Response saved.</div=
+></div><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" cla=
+ss=3D"term-white" data-text=3D"[">[</span><span style=3D"" class=3D"term-gr=
+een" data-text=3D"#1">#1</span><span style=3D"" class=3D"term-white" data-t=
+ext=3D"]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-white" =
+data-text=3D"Enter&nbsp;current&nbsp;status&nbsp;to&nbsp;be&nbsp;routed&nbs=
+p;to&nbsp;optimal&nbsp;recruiter:">Enter&nbsp;current&nbsp;status&nbsp;to&n=
+bsp;be&nbsp;routed&nbsp;to&nbsp;optimal&nbsp;recruiter:</span></div></div><=
+div role=3D"alert"><div style=3D"width: 100%;">[1]&nbsp;Currently&nbsp;in&n=
+bsp;high&nbsp;school</div></div><div role=3D"alert"><div style=3D"width: 10=
+0%;">[2]&nbsp;Currently&nbsp;pursuing&nbsp;a&nbsp;degree</div></div><div ro=
+le=3D"alert"><div style=3D"width: 100%;">[3]&nbsp;Will&nbsp;complete&nbsp;d=
+egree&nbsp;within&nbsp;1&nbsp;year</div></div><div role=3D"alert"><div styl=
+e=3D"width: 100%;">[4]&nbsp;Professional</div></div><div role=3D"alert"><di=
+v style=3D"width: 100%;">[5]&nbsp;Other</div></div><div><div style=3D"width=
+: 100%;"><div class=3D"output--prompt"><span>Enter 1-5: </span>4</div></div=
+></div><div role=3D"alert"><div style=3D"width: 100%;">Are the above detail=
+s correct?</div></div><div><div style=3D"width: 100%;"><div class=3D"output=
+--prompt"><span>[Y]es or [N]o: </span>Y</div></div></div><div role=3D"alert=
+"><div style=3D"width: 100%;">Submitting&nbsp;your&nbsp;response...</div></=
+div><div role=3D"alert"><div style=3D"width: 100%;">Your progress will be r=
+eviewed.<br>But the challenge is not over yet.<br>Request now.</div></div><=
+div><div style=3D"width: 100%;"><div class=3D"output--prompt"><span>foobar:=
+~/disorderly-escape malatajit$ </span>submit&nbsp;solution.py&nbsp;</div></=
+div></div><div role=3D"alert"><div style=3D"width: 100%;">Are you sure you =
+want to submit your solution?</div></div><div><div style=3D"width: 100%;"><=
+div class=3D"output--prompt"><span>[Y]es or [N]o: </span>Y</div></div></div=
+><div role=3D"alert"><div style=3D"width: 100%;">Submitting&nbsp;solution..=
+.</div></div><div role=3D"alert"><div style=3D"width: 100%;"><span class=3D=
+"term-story">With one last roar of the escape pod's engines, you and your b=
+unny companions jump to lightspeed. Congratulations! You've destroyed the L=
+AMBCHOP, rescued the bunnies, gotten Commander Lambda off your tail, and sa=
+ved the galaxy. Time for a little rest and relaxation back on Bunny Planet.=
+ Pat yourself on the back - you've earned it!</span><br><span class=3D"term=
+-white">Submission: SUCCESSFUL. Completed in: 3 days, 21 hrs, 23 mins, 27 s=
+ecs.</span><br><br><div class=3D"animation" data-frame-duration=3D"100" dat=
+a-end-pause=3D"300">
+<div class=3D"animation__frame animation__frame--visible">
+
+      /@                                            /@                     =
+                     /@
+     @~/@       @@                                 @~/@       @@           =
+                    @~/@       @@
+    @~~/ %     @$%@                               @~~/ %     @$%@          =
+                   @~~/ %     @$%@
+    @~(((((% %/////@                              @~(((((% %/////@         =
+                   @~(((((% %/////@
+    @((/////@~//~~@                               @((/////@~//~~@          =
+                    @((/////@~//~~@
+    @(/// @//////@                                @(/// @//////@           =
+                    @(/// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @        ////@@                               @        ////@@          =
+                    @        ////@@
+   @$   //@@@((/~ @                              @$   //@@@((/~ @          =
+                   @$   //@@@((/~ @
+  @$  //@    @  ((///@                         @$  //@    @  ((///@        =
+                 @$  //@    @  ((///@
+ @$      (@@@  ((((//%%@                       @$      (@@@  ((((//%%@     =
+                 @$      (@@@  ((((//%%@
+ @                 ((//                        @                 ((//      =
+                 @                 ((//
+   @ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//=
+////@@     //@     @ ~        (((((((((  /%//////@@     //@
+     @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~=
+~~~~~~/   /@$        @~                 %  ~~~~~~~~/   /@$
+         @@/$             ~~~~~////////$               @@/$             ~~~=
+~~////////$              @@/$             ~~~~~////////$
+           //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~=
+~~~~~~~~///@               //@@@%%/~~      ~~~~~~~~~~///@
+            ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~=
+~~~//////@$@@               ~~~          ~~~~~~~//////@$@@
+        $$$                   ~~~~((((///////@        $$$                  =
+ ~~~~((((///////@       $$$                   ~~~~((((///////@
+      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~=
+~~~(////////(($@      $~~~~ %%%   /         ~~~~(////////(($@
+     @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/           =
+ ~~~~((((((%%%@      @$$~~ @   $$/            ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                  =
+ (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                   =
+ $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                  $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                            @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+
+</div>
+<div class=3D"animation__frame">
+      /@                                            /@                     =
+                       /@
+   @~/@     @@                                   @~/@     @@               =
+                    @~/@     @@
+  @~~/ %   @$%@                                 @~~/ %   @$%@              =
+                   @~~/ %   @$%@
+ @~(((((%/////@                                @~(((((%/////@              =
+                  @~(((((%/////@
+ @((/////@~//~~@                               @((/////@~//~~@             =
+                  @((/////@~//~~@
+ @(/// @//////@                                @(/// @//////@              =
+                  @(/// @//////@
+  @//% @~~~/~@                                  @//% @~~~/~@               =
+                   @//% @~~~/~@
+ /@$$$ @///~~/@                                /@$$$ @///~~/@              =
+                  /@$$$ @///~~/@
+@        ////@@                               @        ////@@              =
+                 @        ////@@
+@$   //@@@((/~ @                              @$   //@@@((/~ @             =
+                 @$   //@@@((/~ @
+  //@    @  ((///@                          @$  //@    @  ((///@           =
+               @$  //@    @  ((///@
+     (@@@  ((((//%%@                       @$      (@@@  ((((//%%@         =
+              @$      (@@@  ((((//%%@                       @$
+               ((//                        @                 ((//          =
+              @                 ((//                        @
+ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//////=
+@@     //@      @ ~        (((((((((  /%//////@@     //@
+ @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~=
+~~/   /@$         @~                 %  ~~~~~~~~/   /@$
+     @@/$             ~~~~~////////$               @@/$             ~~~~~//=
+//////$               @@/$             ~~~~~////////$
+       //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~=
+~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@
+        ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~~~~/=
+/////@$@@                ~~~          ~~~~~~~//////@$@@
+    $$$                   ~~~~((((///////@        $$$                   ~~~=
+~((((///////@        $$$                   ~~~~((((///////@
+  $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(=
+////////(($@       $~~~~ %%%   /         ~~~~(////////(($@
+ @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~=
+~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@
+ \\@@@@                   (((((((%%%%%@        \\@@@@                   (((=
+((((%%%%%@        \\@@@@                   (((((((%%%%%@
+                          $$$$$$$$$@                                    $$$=
+$$$$$$@                                    $$$$$$$$$@
+                        $$$%%%%%%@                                    $$$%%=
+%%%%@                                    $$$%%%%%%@
+                      $$%%%%%%%%@                                   $$%%%%%=
+%%%@                                   $$%%%%%%%%@
+                  @ /// $$%%%%%%@                               @ /// $$%%%=
+%%%@                               @ /// $$%%%%%%@
+               @////       @@@@@                             @////       @@=
+@@@                             @////       @@@@@
+               @////@@@@@@@@@                                @////@@@@@@@@@=
+                                @////@@@@@@@@@
+              @////@                                        @////@         =
+                               @////@
+
+</div>
+<div class=3D"animation__frame">
+@                                             /@                           =
+                  /@
+/@    @                                      @~/@    @                     =
+                 @~/@    @
+ %  @$%@                                   @~~/ %  @$%@                    =
+               @~~/ %  @$%@
+(%/////@                                  @~((((%/////@                    =
+              @~((((%/////@                                  @
+//@~//~~@                                @((/////@~//~~@                   =
+            @((/////@~//~~@                               @((/
+@//////@                                 @(/// @//////@                    =
+            @(/// @//////@                                @(//
+@~~~/~@                                   @//% @~~~/~@                     =
+             @//% @~~~/~@                                  @//
+$ @///~~/@                                 /@$$$ @///~~/@                  =
+              /@$$$ @///~~/@                                /@
+  ////@@                                @        ////@@                    =
+           @        ////@@                               @
+@@((/~ @                               @$   //@@@((/~ @                    =
+          @$   //@@@((/~ @                              @$   /
+  @  ((///@                           @$  //@    @  ((///@                 =
+         @$  //@    @  ((///@                          @$  //@
+@@@  ((((//%%@                        @$      (@@@  ((((//%%@              =
+         @$      (@@@  ((((//%%@                       @$
+        ((//                         @                 ((//                =
+        @                 ((//                        @
+   (((((((((  /%//////@@     //@       @ ~        (((((((((  /%//////@@    =
+ //@      @ ~        (((((((((  /%//////@@     //@       @ ~
+             %  ~~~~~~~~/   /@$          @~                 %  ~~~~~~~~/   =
+/@$         @~                 %  ~~~~~~~~/   /@$         @~
+/$             ~~~~~////////$                @@/$             ~~~~~////////=
+$              @@/$             ~~~~~////////$              @@
+//@@@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~~~~~~~~//=
+/@                //@@@%%/~~      ~~~~~~~~~~///@
+$$            ~~~~~~~//////@$@@               $$$            ~~~~~~~//////@=
+$@@             $$$            ~~~~~~~//////@$@@             $
+~ %%%   /          ~~~~((((///////@        $~~~~ %%%   /          ~~~~((((/=
+//////@       $~~~~ %%%   /          ~~~~((((///////@       $~
+@   $$/         ~~~~(////////(($@        @$$~~ @   $$/         ~~~~(///////=
+/(($@       @$$~~ @   $$/         ~~~~(////////(($@       @$$~
+@                  ~~~~((((((%%%@         \\@@@@                  ~~~~(((((=
+(%%%@        \\@@@@                  ~~~~((((((%%%@        \\@
+                  (((((((%%%%%@                                  (((((((%%%=
+%%@                                (((((((%%%%%@
+                   $$$$$$$$$@                                     $$$$$$$$$=
+@                                  $$$$$$$$$@
+                 $$$%%%%%%@                                     $$$%%%%%%@ =
+                                  $$$%%%%%%@
+               $$%%%%%%%%@                                    $$%%%%%%%%@  =
+                               $$%%%%%%%%@
+            @ ///$$%%%%%%@                                 @ ///$$%%%%%%@  =
+                            @ ///$$%%%%%%@
+         @////      @@@@@                               @////      @@@@@   =
+                          @////      @@@@@
+        @////@@@@@@@@@                                 @////@@@@@@@@@      =
+                         @////@@@@@@@@@
+       @///@                                          @///@                =
+                        @///@
+        @/                                             @/                  =
+                         @/
+</div>
+<div class=3D"animation__frame">
+
+                                          /@                               =
+             /@                                            /@
+    @@                                   @~/@     @@                       =
+            @~/@     @@                                   @~/@
+   @$%@                                 @~~/ %   @$%@                      =
+           @~~/ %   @$%@                                 @~~/ %
+%/////@                                @~(((((%/////@                      =
+          @~(((((%/////@                                @~((((
+/@~//~~@                               @((/////@~//~~@                     =
+          @((/////@~//~~@                               @((///
+//////@                                @(/// @//////@                      =
+          @(/// @//////@                                @(///
+~~~/~@                                  @//% @~~~/~@                       =
+           @//% @~~~/~@                                  @//%
+///~~/@                                /@$$$ @///~~/@                      =
+          /@$$$ @///~~/@                                /@$$$
+ ////@@                               @        ////@@                      =
+         @        ////@@                               @
+@((/~ @                              @$   //@@@((/~ @                      =
+        @$   //@@@((/~ @                              @$   //@
+ @  ((///@                          @$  //@    @  ((///@                   =
+       @$  //@    @  ((///@                          @$  //@
+@  ((((//%%@                       @$      (@@@  ((((//%%@                 =
+      @$      (@@@  ((((//%%@                       @$      (@
+       ((//                        @                 ((//                  =
+      @                 ((//                        @
+  (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//////@@     /=
+/@      @ ~        (((((((((  /%//////@@     //@      @ ~
+            %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@=
+$         @~                 %  ~~~~~~~~/   /@$         @~
+$             ~~~~~////////$               @@/$             ~~~~~////////$ =
+              @@/$             ~~~~~////////$               @@
+/@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@=
+                //@@@%%/~~      ~~~~~~~~~~///@
+~~~          ~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@=
+@                ~~~          ~~~~~~~//////@$@@
+                  ~~~~((((///////@        $$$                   ~~~~((((///=
+////@        $$$                   ~~~~((((///////@        $$$
+%%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////=
+(($@       $~~~~ %%%   /         ~~~~(////////(($@       $~~~~
+   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%=
+%%@       @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~
+                  (((((((%%%%%@        \\@@@@                   (((((((%%%%=
+%@        \\@@@@                   (((((((%%%%%@        \\@@@@
+                  $$$$$$$$$@                                    $$$$$$$$$@ =
+                                   $$$$$$$$$@
+                $$$%%%%%%@                                    $$$%%%%%%@   =
+                                 $$$%%%%%%@
+              $$%%%%%%%%@                                   $$%%%%%%%%@    =
+                               $$%%%%%%%%@
+          @ /// $$%%%%%%@                               @ /// $$%%%%%%@    =
+                           @ /// $$%%%%%%@
+       @////       @@@@@                             @////       @@@@@     =
+                        @////       @@@@@
+       @////@@@@@@@@@                                @////@@@@@@@@@        =
+                        @////@@@@@@@@@
+      @////@                                        @////@                 =
+                       @////@
+</div>
+<div class=3D"animation__frame">
+
+
+                                      /@                                   =
+       /@                                              /@
+ @@                                  @~/@       @@                         =
+      @~/@       @@                                   @~/@
+@$%@                                @~~/ %     @$%@                        =
+     @~~/ %     @$%@                                 @~~/ %
+/////@                               @~(((((% %/////@                      =
+      @~(((((% %/////@                                @~(((((%
+/~~@                                @((/////@~//~~@                        =
+      @((/////@~//~~@                                 @((/////
+///@                                 @(/// @//////@                        =
+       @(/// @//////@                                  @(/// @
+/~@                                   @//% @~~~/~@                         =
+        @//% @~~~/~@                                    @//% @
+~~/@                                 /@$$$ @///~~/@                        =
+       /@$$$ @///~~/@                                /@$$$ @//
+//@@                                @        ////@@                        =
+      @        ////@@                                @
+/~ @                               @$   //@@@((/~ @                        =
+     @$   //@@@((/~ @                               @$   //@@@
+ ((///@                          @$  //@    @  ((///@                      =
+   @$  //@    @  ((///@                           @$  //@    @
+((((//%%@                        @$      (@@@  ((((//%%@                   =
+   @$      (@@@  ((((//%%@                        @$      (@@@
+    ((//                         @                 ((//                    =
+   @                 ((//                          @
+((((((((  /%//////@@     //@       @ ~        (((((((((  /%//////@@     //@=
+     @ ~        (((((((((  /%//////@@     //@       @ ~
+         %  ~~~~~~~~/   /@$          @~                 %  ~~~~~~~~/   /@$ =
+       @~                 %  ~~~~~~~~/   /@$         @~
+           ~~~~~////////$                @@/$             ~~~~~////////$   =
+           @@/$             ~~~~~////////$                @@/$
+@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~~~~~~~~///@  =
+             //@@@%%/~~      ~~~~~~~~~~///@                 //
+          ~~~~~~~//////@$@@                 ~~~          ~~~~~~~//////@$@@ =
+              ~~~          ~~~~~~~//////@$@@                 ~
+               ~~~~((((///////@         $$$                   ~~~~((((/////=
+//@       $$$                   ~~~~((((///////@        $$$
+   /         ~~~~(////////(($@        $~~~~ %%%   /         ~~~~(////////((=
+$@      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%
+$$/            ~~~~((((((%%%@        @$$~~ @   $$/            ~~~~((((((%%%=
+@      @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @
+               (((((((%%%%%@         \\@@@@                   (((((((%%%%%@=
+       \\@@@@                   (((((((%%%%%@        \\@@@@
+               $$$$$$$$$@                                     $$$$$$$$$@   =
+                                $$$$$$$$$@
+             $$$%%%%%%@                                     $$$%%%%%%@     =
+                             $$$%%%%%%@
+           $$%%%%%%%%@                                    $$%%%%%%%%@      =
+                            $$%%%%%%%%@
+    @ ///   $$%%%%%%@                              @ ///   $$%%%%%%@       =
+                     @ ///   $$%%%%%%@
+  @////        @@@@@                             @////        @@@@@        =
+                   @////        @@@@@
+    @////@@@@@@@@@                                 @////@@@@@@@@@          =
+                    @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+                                      /@                                   =
+       /@                                              /@
+ @@                                  @~/@       @@                         =
+      @~/@       @@                                   @~/@
+@$%@                                @~~/ %     @$%@                        =
+     @~~/ %     @$%@                                 @~~/ %
+/////@                               @~(((((% %/////@                      =
+      @~(((((% %/////@                                @~(((((%
+/~~@                                @((/////@~//~~@                        =
+      @((/////@~//~~@                                 @((/////
+///@                                 @(/// @//////@                        =
+       @(/// @//////@                                  @(/// @
+/~@                                   @//% @~~~/~@                         =
+        @//% @~~~/~@                                    @//% @
+~~/@                                 /@$$$ @///~~/@                        =
+       /@$$$ @///~~/@                                /@$$$ @//
+//@@                                @        ////@@                        =
+      @        ////@@                                @
+/~ @                               @$   //@@@((/~ @                        =
+     @$   //@@@((/~ @                               @$   //@@@
+ ((///@                          @$  //@    @  ((///@                      =
+   @$  //@    @  ((///@                           @$  //@    @
+((((//%%@                        @$      (@@@  ((((//%%@                   =
+   @$      (@@@  ((((//%%@                        @$      (@@@
+    ((//                         @                 ((//                    =
+   @                 ((//                          @
+((((((((  /%//////@@     //@       @ ~        (((((((((  /%//////@@     //@=
+     @ ~        (((((((((  /%//////@@     //@       @ ~
+         %  ~~~~~~~~/   /@$          @~                 %  ~~~~~~~~/   /@$ =
+       @~                 %  ~~~~~~~~/   /@$         @~
+           ~~~~~////////$                @@/$             ~~~~~////////$   =
+           @@/$             ~~~~~////////$                @@/$
+@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~~~~~~~~///@  =
+             //@@@%%/~~      ~~~~~~~~~~///@                 //
+          ~~~~~~~//////@$@@                 ~~~          ~~~~~~~//////@$@@ =
+              ~~~          ~~~~~~~//////@$@@                 ~
+               ~~~~((((///////@         $$$                   ~~~~((((/////=
+//@       $$$                   ~~~~((((///////@        $$$
+   /         ~~~~(////////(($@        $~~~~ %%%   /         ~~~~(////////((=
+$@      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%
+$$/            ~~~~((((((%%%@        @$$~~ @   $$/            ~~~~((((((%%%=
+@      @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @
+               (((((((%%%%%@         \\@@@@                   (((((((%%%%%@=
+       \\@@@@                   (((((((%%%%%@        \\@@@@
+               $$$$$$$$$@                                     $$$$$$$$$@   =
+                                $$$$$$$$$@
+             $$$%%%%%%@                                     $$$%%%%%%@     =
+                             $$$%%%%%%@
+           $$%%%%%%%%@                                    $$%%%%%%%%@      =
+                            $$%%%%%%%%@
+    @ ///   $$%%%%%%@                              @ ///   $$%%%%%%@       =
+                     @ ///   $$%%%%%%@
+  @////        @@@@@                             @////        @@@@@        =
+                   @////        @@@@@
+    @////@@@@@@@@@                                 @////@@@@@@@@@          =
+                    @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+                                   /@                                      =
+      /@                                            /@
+                                  @~/@     @@                              =
+     @~/@     @@                                   @~/@     @@
+                                 @~~/ %   @$%@                             =
+    @~~/ %   @$%@                                 @~~/ %   @$%
+                                @~(((((%/////@                             =
+   @~(((((%/////@                                @~(((((%/////
+@                               @((/////@~//~~@                            =
+   @((/////@~//~~@                               @((/////@~//~
+                                @(/// @//////@                             =
+   @(/// @//////@                                @(/// @//////
+                                 @//% @~~~/~@                              =
+    @//% @~~~/~@                                  @//% @~~~/~@
+                                /@$$$ @///~~/@                             =
+   /@$$$ @///~~/@                                /@$$$ @///~~/
+                               @        ////@@                             =
+  @        ////@@                               @        ////@
+                              @$   //@@@((/~ @                             =
+ @$   //@@@((/~ @                              @$   //@@@((/~
+//@                          @$  //@    @  ((///@                          =
+@$  //@    @  ((///@                          @$  //@    @  ((
+//%%@                       @$      (@@@  ((((//%%@                       @=
+$      (@@@  ((((//%%@                       @$      (@@@  ((
+((//                        @                 ((//                        @=
+                 ((//                        @
+((((  /%//////@@     //@      @ ~        (((((((((  /%//////@@     //@     =
+ @ ~        (((((((((  /%//////@@     //@      @ ~        ((((
+     %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$      =
+   @~                 %  ~~~~~~~~/   /@$         @~
+       ~~~~~////////$               @@/$             ~~~~~////////$        =
+       @@/$             ~~~~~////////$               @@/$
+~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@       =
+         //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%
+      ~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@@      =
+          ~~~          ~~~~~~~//////@$@@                ~~~
+           ~~~~((((///////@        $$$                   ~~~~((((///////@  =
+      $$$                   ~~~~((((///////@        $$$
+         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@   =
+    $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%
+           ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@    =
+   @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/
+           (((((((%%%%%@        \\@@@@                   (((((((%%%%%@     =
+   \\@@@@                   (((((((%%%%%@        \\@@@@
+           $$$$$$$$$@                                    $$$$$$$$$@        =
+                            $$$$$$$$$@
+         $$$%%%%%%@                                    $$$%%%%%%@          =
+                          $$$%%%%%%@
+       $$%%%%%%%%@                                   $$%%%%%%%%@           =
+                        $$%%%%%%%%@
+   @ /// $$%%%%%%@                               @ /// $$%%%%%%@           =
+                    @ /// $$%%%%%%@
+@////       @@@@@                             @////       @@@@@            =
+                 @////       @@@@@
+@////@@@@@@@@@                                @////@@@@@@@@@               =
+                 @////@@@@@@@@@
+ @////@                                        @////@                      =
+                  @////@
+</div>
+<div class=3D"animation__frame">
+                              /@                                           =
+  /@                                             /@
+                             @~/@    @                                     =
+ @~/@    @                                      @~/@    @
+                           @~~/ %  @$%@                                   @=
+~~/ %  @$%@                                   @~~/ %  @$%@
+                          @~((((%/////@                                  @~=
+((((%/////@                                  @~((((%/////@
+                         @((/////@~//~~@                               @((/=
+////@~//~~@                               @((/////@~//~~@
+                         @(/// @//////@                                @(//=
+/ @//////@                                @(/// @//////@
+                          @//% @~~~/~@                                  @//=
+% @~~~/~@                                  @//% @~~~/~@
+                           /@$$$ @///~~/@                                /@=
+$$$ @///~~/@                                /@$$$ @///~~/@
+                        @        ////@@                               @    =
+    ////@@                               @        ////@@
+                       @$   //@@@((/~ @                              @$   /=
+/@@@((/~ @                              @$   //@@@((/~ @
+                      @$  //@    @  ((///@                          @$  //@=
+    @  ((///@                          @$  //@    @  ((///@
+                      @$      (@@@  ((((//%%@                       @$     =
+ (@@@  ((((//%%@                       @$      (@@@  ((((//%%@
+                     @                 ((//                        @       =
+          ((//                        @                 ((//
+//////@@     //@       @ ~        (((((((((  /%//////@@     //@      @ ~   =
+     (((((((((  /%//////@@     //@       @ ~        (((((((((
+~~~~~~~~/   /@$          @~                 %  ~~~~~~~~/   /@$         @~  =
+               %  ~~~~~~~~/   /@$         @~                 %
+~~~~////////$                @@/$             ~~~~~////////$              @=
+@/$             ~~~~~////////$              @@/$             ~
+~~~~~~~~~~///@                 //@@@%%/~~      ~~~~~~~~~~///@              =
+  //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~
+~~~~~//////@$@@               $$$            ~~~~~~~//////@$@@             =
+$$$            ~~~~~~~//////@$@@             $$$            ~~
+   ~~~~((((///////@        $~~~~ %%%   /          ~~~~((((///////@       $~=
+~~~ %%%   /          ~~~~((((///////@       $~~~~ %%%   /
+~~~~(////////(($@        @$$~~ @   $$/         ~~~~(////////(($@       @$$~=
+~ @   $$/         ~~~~(////////(($@       @$$~~ @   $$/
+   ~~~~((((((%%%@         \\@@@@                  ~~~~((((((%%%@        \\@=
+@@@                  ~~~~((((((%%%@        \\@@@@
+  (((((((%%%%%@                                  (((((((%%%%%@             =
+                   (((((((%%%%%@
+   $$$$$$$$$@                                     $$$$$$$$$@               =
+                   $$$$$$$$$@
+ $$$%%%%%%@                                     $$$%%%%%%@                 =
+                  $$$%%%%%%@
+$%%%%%%%%@                                    $$%%%%%%%%@                  =
+               $$%%%%%%%%@                                $$%%
+/$$%%%%%%@                                 @ ///$$%%%%%%@                  =
+            @ ///$$%%%%%%@                              @ ///$
+    @@@@@                               @////      @@@@@                   =
+          @////      @@@@@                            @////
+@@@@@@                                 @////@@@@@@@@@                      =
+         @////@@@@@@@@@                               @////@@@@@@@@@
+                                      @///@                                =
+        @///@                                        @///@
+                                       @/                                  =
+         @/                                           @/
+</div>
+<div class=3D"animation__frame">
+
+                         /@                                            /@  =
+                                          /@
+                        @~/@     @@                                   @~/@ =
+    @@                                   @~/@     @@
+                       @~~/ %   @$%@                                 @~~/ %=
+   @$%@                                 @~~/ %   @$%@
+                      @~(((((%/////@                                @~(((((=
+%/////@                                @~(((((%/////@
+                      @((/////@~//~~@                               @((////=
+/@~//~~@                               @((/////@~//~~@
+                      @(/// @//////@                                @(/// @=
+//////@                                @(/// @//////@
+                       @//% @~~~/~@                                  @//% @=
+~~~/~@                                  @//% @~~~/~@
+                      /@$$$ @///~~/@                                /@$$$ @=
+///~~/@                                /@$$$ @///~~/@
+                     @        ////@@                               @       =
+ ////@@                               @        ////@@
+                    @$   //@@@((/~ @                              @$   //@@=
+@((/~ @                              @$   //@@@((/~ @
+                   @$  //@    @  ((///@                          @$  //@   =
+ @  ((///@                          @$  //@    @  ((///@
+                  @$      (@@@  ((((//%%@                       @$      (@@=
+@  ((((//%%@                       @$      (@@@  ((((//%%@
+                  @                 ((//                        @          =
+       ((//                        @                 ((//
+////@@     //@      @ ~        (((((((((  /%//////@@     //@      @ ~      =
+  (((((((((  /%//////@@     //@      @ ~        (((((((((  /%/
+~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$         @~     =
+            %  ~~~~~~~~/   /@$         @~                 %  ~
+~~////////$               @@/$             ~~~~~////////$               @@/=
+$             ~~~~~////////$               @@/$             ~~
+~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@                /=
+/@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~
+~~~//////@$@@                ~~~          ~~~~~~~//////@$@@                =
+~~~          ~~~~~~~//////@$@@                ~~~          ~~~
+ ~~~~((((///////@        $$$                   ~~~~((((///////@        $$$ =
+                  ~~~~((((///////@        $$$
+~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ =
+%%%   /         ~~~~(////////(($@       $~~~~ %%%   /
+ ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @=
+   $$/            ~~~~((((((%%%@       @$$~~ @   $$/
+ (((((((%%%%%@        \\@@@@                   (((((((%%%%%@        \\@@@@ =
+                  (((((((%%%%%@        \\@@@@
+ $$$$$$$$$@                                    $$$$$$$$$@                  =
+                  $$$$$$$$$@
+$$%%%%%%@                                    $$$%%%%%%@                    =
+                $$$%%%%%%@
+%%%%%%%@                                   $$%%%%%%%%@                     =
+              $$%%%%%%%%@                                   $$
+$%%%%%%@                               @ /// $$%%%%%%@                     =
+          @ /// $$%%%%%%@                               @ ///
+  @@@@@                             @////       @@@@@                      =
+       @////       @@@@@                             @////
+@@@@                                @////@@@@@@@@@                         =
+       @////@@@@@@@@@                                @////@@@@
+                                   @////@                                  =
+      @////@                                        @////@
+</div>
+<div class=3D"animation__frame">
+
+
+                     /@                                          /@        =
+                                      /@
+                    @~/@       @@                               @~/@       =
+@@                                   @~/@       @@
+                   @~~/ %     @$%@                             @~~/ %     @=
+$%@                                 @~~/ %     @$%@
+                   @~(((((% %/////@                            @~(((((% %//=
+///@                                @~(((((% %/////@
+                   @((/////@~//~~@                              @((/////@~/=
+/~~@                                 @((/////@~//~~@
+                   @(/// @//////@                               @(/// @////=
+//@                                  @(/// @//////@
+                     @//% @~~~/~@                                 @//% @~~~=
+/~@                                    @//% @~~~/~@
+                    /@$$$ @///~~/@                               /@$$$ @///=
+~~/@                                /@$$$ @///~~/@
+                   @        ////@@                              @        //=
+//@@                                @        ////@@
+                  @$   //@@@((/~ @                             @$   //@@@((=
+/~ @                               @$   //@@@((/~ @
+                @$  //@    @  ((///@                         @$  //@    @  =
+((///@                           @$  //@    @  ((///@
+                @$      (@@@  ((((//%%@                      @$      (@@@  =
+((((//%%@                        @$      (@@@  ((((//%%@
+                @                 ((//                       @             =
+    ((//                          @                 ((//
+//@@     //@      @ ~        (((((((((  /%//////@@     //@     @ ~        (=
+((((((((  /%//////@@     //@       @ ~        (((((((((  /%///
+~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$        @~        =
+         %  ~~~~~~~~/   /@$         @~                 %  ~~~~
+////////$               @@/$             ~~~~~////////$              @@/$  =
+           ~~~~~////////$                @@/$             ~~~~
+~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@               //@@=
+@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~
+~//////@$@@                ~~~          ~~~~~~~//////@$@@               ~~~=
+          ~~~~~~~//////@$@@                 ~~~          ~~~~~
+~~~((((///////@        $$$                   ~~~~((((///////@       $$$    =
+               ~~~~((((///////@        $$$                   ~
+~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@      $~~~~ %%%=
+   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~
+~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@      @$$~~ @   =
+$$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~
+((((((%%%%%@        \\@@@@                   (((((((%%%%%@       \\@@@@    =
+               (((((((%%%%%@        \\@@@@                   (
+$$$$$$$$@                                    $$$$$$$$$@                    =
+               $$$$$$$$$@                                   $$
+%%%%%%@                                    $$$%%%%%%@                      =
+            $$$%%%%%%@                                   $$$%%
+%%%%%@                                   $$%%%%%%%%@                       =
+           $$%%%%%%%%@                                  $$%%%%
+%%%%@                             @ ///   $$%%%%%%@                        =
+    @ ///   $$%%%%%%@                            @ ///   $$%%%
+@@@@                            @////        @@@@@                         =
+  @////        @@@@@                           @////        @@
+@@                                @////@@@@@@@@@                           =
+   @////@@@@@@@@@                               @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+                     /@                                          /@        =
+                                      /@
+                    @~/@       @@                               @~/@       =
+@@                                   @~/@       @@
+                   @~~/ %     @$%@                             @~~/ %     @=
+$%@                                 @~~/ %     @$%@
+                   @~(((((% %/////@                            @~(((((% %//=
+///@                                @~(((((% %/////@
+                   @((/////@~//~~@                              @((/////@~/=
+/~~@                                 @((/////@~//~~@
+                   @(/// @//////@                               @(/// @////=
+//@                                  @(/// @//////@
+                     @//% @~~~/~@                                 @//% @~~~=
+/~@                                    @//% @~~~/~@
+                    /@$$$ @///~~/@                               /@$$$ @///=
+~~/@                                /@$$$ @///~~/@
+                   @        ////@@                              @        //=
+//@@                                @        ////@@
+                  @$   //@@@((/~ @                             @$   //@@@((=
+/~ @                               @$   //@@@((/~ @
+                @$  //@    @  ((///@                         @$  //@    @  =
+((///@                           @$  //@    @  ((///@
+                @$      (@@@  ((((//%%@                      @$      (@@@  =
+((((//%%@                        @$      (@@@  ((((//%%@
+                @                 ((//                       @             =
+    ((//                          @                 ((//
+//@@     //@      @ ~        (((((((((  /%//////@@     //@     @ ~        (=
+((((((((  /%//////@@     //@       @ ~        (((((((((  /%///
+~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$        @~        =
+         %  ~~~~~~~~/   /@$         @~                 %  ~~~~
+////////$               @@/$             ~~~~~////////$              @@/$  =
+           ~~~~~////////$                @@/$             ~~~~
+~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@               //@@=
+@%%/~~      ~~~~~~~~~~///@                 //@@@%%/~~      ~~~
+~//////@$@@                ~~~          ~~~~~~~//////@$@@               ~~~=
+          ~~~~~~~//////@$@@                 ~~~          ~~~~~
+~~~((((///////@        $$$                   ~~~~((((///////@       $$$    =
+               ~~~~((((///////@        $$$                   ~
+~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@      $~~~~ %%%=
+   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~
+~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@      @$$~~ @   =
+$$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~
+((((((%%%%%@        \\@@@@                   (((((((%%%%%@       \\@@@@    =
+               (((((((%%%%%@        \\@@@@                   (
+$$$$$$$$@                                    $$$$$$$$$@                    =
+               $$$$$$$$$@                                   $$
+%%%%%%@                                    $$$%%%%%%@                      =
+            $$$%%%%%%@                                   $$$%%
+%%%%%@                                   $$%%%%%%%%@                       =
+           $$%%%%%%%%@                                  $$%%%%
+%%%%@                             @ ///   $$%%%%%%@                        =
+    @ ///   $$%%%%%%@                            @ ///   $$%%%
+@@@@                            @////        @@@@@                         =
+  @////        @@@@@                           @////        @@
+@@                                @////@@@@@@@@@                           =
+   @////@@@@@@@@@                               @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+                    /@                                            /@       =
+                                     /@
+                   @~/@     @@                                   @~/@     @=
+@                                   @~/@     @@
+                  @~~/ %   @$%@                                 @~~/ %   @$=
+%@                                 @~~/ %   @$%@
+                 @~(((((%/////@                                @~(((((%////=
+/@                                @~(((((%/////@
+                 @((/////@~//~~@                               @((/////@~//=
+~~@                               @((/////@~//~~@
+                 @(/// @//////@                                @(/// @/////=
+/@                                @(/// @//////@
+                  @//% @~~~/~@                                  @//% @~~~/~=
+@                                  @//% @~~~/~@
+                 /@$$$ @///~~/@                                /@$$$ @///~~=
+/@                                /@$$$ @///~~/@
+                @        ////@@                               @        ////=
+@@                               @        ////@@
+               @$   //@@@((/~ @                              @$   //@@@((/~=
+ @                              @$   //@@@((/~ @
+              @$  //@    @  ((///@                          @$  //@    @  (=
+(///@                          @$  //@    @  ((///@
+             @$      (@@@  ((((//%%@                       @$      (@@@  ((=
+((//%%@                       @$      (@@@  ((((//%%@
+             @                 ((//                        @               =
+  ((//                        @                 ((//
+@     //@      @ ~        (((((((((  /%//////@@     //@      @ ~        (((=
+((((((  /%//////@@     //@      @ ~        (((((((((  /%//////
+~/   /@$         @~                 %  ~~~~~~~~/   /@$         @~          =
+       %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~
+/////$               @@/$             ~~~~~////////$               @@/$    =
+         ~~~~~////////$               @@/$             ~~~~~//
+~~~///@                //@@@%%/~~      ~~~~~~~~~~///@                //@@@%=
+%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~
+////@$@@                ~~~          ~~~~~~~//////@$@@                ~~~  =
+        ~~~~~~~//////@$@@                ~~~          ~~~~~~~/
+((((///////@        $$$                   ~~~~((((///////@        $$$      =
+             ~~~~((((///////@        $$$                   ~~~
+///////(($@       $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%  =
+ /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(
+((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$=
+/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~
+(((%%%%%@        \\@@@@                   (((((((%%%%%@        \\@@@@      =
+             (((((((%%%%%@        \\@@@@                   (((
+$$$$$@                                    $$$$$$$$$@                       =
+             $$$$$$$$$@                                    $$$
+%%%@                                    $$$%%%%%%@                         =
+           $$$%%%%%%@                                    $$$%%
+%%@                                   $$%%%%%%%%@                          =
+         $$%%%%%%%%@                                   $$%%%%%
+%%@                               @ /// $$%%%%%%@                          =
+     @ /// $$%%%%%%@                               @ /// $$%%%
+@@                             @////       @@@@@                           =
+  @////       @@@@@                             @////       @@
+                               @////@@@@@@@@@                              =
+  @////@@@@@@@@@                                @////@@@@@@@@@
+                              @////@                                       =
+ @////@                                        @////@
+</div>
+<div class=3D"animation__frame">
+                 /@                                             /@         =
+                                    /@
+                @~/@    @                                      @~/@    @   =
+                                   @~/@    @
+              @~~/ %  @$%@                                   @~~/ %  @$%@  =
+                                 @~~/ %  @$%@
+             @~((((%/////@                                  @~((((%/////@  =
+                                @~((((%/////@
+            @((/////@~//~~@                               @((/////@~//~~@  =
+                             @((/////@~//~~@
+            @(/// @//////@                                @(/// @//////@   =
+                             @(/// @//////@
+             @//% @~~~/~@                                  @//% @~~~/~@    =
+                              @//% @~~~/~@
+              /@$$$ @///~~/@                                /@$$$ @///~~/@ =
+                               /@$$$ @///~~/@
+           @        ////@@                               @        ////@@   =
+                            @        ////@@
+          @$   //@@@((/~ @                              @$   //@@@((/~ @   =
+                           @$   //@@@((/~ @
+         @$  //@    @  ((///@                          @$  //@    @  ((///@=
+                          @$  //@    @  ((///@
+         @$      (@@@  ((((//%%@                       @$      (@@@  ((((//=
+%%@                       @$      (@@@  ((((//%%@
+        @                 ((//                        @                 ((/=
+/                        @                 ((//
+//@       @ ~        (((((((((  /%//////@@     //@      @ ~        ((((((((=
+(  /%//////@@     //@       @ ~        (((((((((  /%//////@@
+@$          @~                 %  ~~~~~~~~/   /@$         @~               =
+  %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/
+               @@/$             ~~~~~////////$              @@/$           =
+  ~~~~~////////$              @@/$             ~~~~~////////$
+@                 //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~ =
+     ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~/
+@@               $$$            ~~~~~~~//////@$@@             $$$          =
+  ~~~~~~~//////@$@@             $$$            ~~~~~~~//////@$
+/////@        $~~~~ %%%   /          ~~~~((((///////@       $~~~~ %%%   /  =
+        ~~~~((((///////@       $~~~~ %%%   /          ~~~~((((
+(($@        @$$~~ @   $$/         ~~~~(////////(($@       @$$~~ @   $$/    =
+     ~~~~(////////(($@       @$$~~ @   $$/         ~~~~(//////
+%%%@         \\@@@@                  ~~~~((((((%%%@        \\@@@@          =
+        ~~~~((((((%%%@        \\@@@@                  ~~~~((((
+%@                                  (((((((%%%%%@                          =
+      (((((((%%%%%@                                (((((((%%%%
+                                     $$$$$$$$$@                            =
+      $$$$$$$$$@                                  $$$$$$$$$@
+                                   $$$%%%%%%@                              =
+     $$$%%%%%%@                                   $$$%%%%%%@
+                                 $$%%%%%%%%@                               =
+  $$%%%%%%%%@                                $$%%%%%%%%@
+                              @ ///$$%%%%%%@                              @=
+ ///$$%%%%%%@                              @ ///$$%%%%%%@
+                           @////      @@@@@                             @//=
+//      @@@@@                            @////      @@@@@
+                          @////@@@@@@@@@                               @///=
+/@@@@@@@@@                               @////@@@@@@@@@
+                         @///@                                        @///@=
+                                        @///@
+                          @/                                           @/  =
+                                         @/
+</div>
+<div class=3D"animation__frame">
+
+            /@                                            /@               =
+                             /@
+           @~/@     @@                                   @~/@     @@       =
+                            @~/@     @@
+          @~~/ %   @$%@                                 @~~/ %   @$%@      =
+                           @~~/ %   @$%@
+         @~(((((%/////@                                @~(((((%/////@      =
+                          @~(((((%/////@
+         @((/////@~//~~@                               @((/////@~//~~@     =
+                          @((/////@~//~~@
+        @(/// @//////@                                @(/// @//////@       =
+                         @(/// @//////@
+          @//% @~~~/~@                                  @//% @~~~/~@       =
+                           @//% @~~~/~@
+         /@$$$ @///~~/@                                /@$$$ @///~~/@      =
+                          /@$$$ @///~~/@
+         @        ////@@                               @        ////@@     =
+                          @        ////@@
+       @$   //@@@((/~ @                              @$   //@@@((/~ @      =
+                        @$   //@@@((/~ @
+      @$  //@    @  ((///@                          @$  //@    @  ((///@   =
+                       @$  //@    @  ((///@
+     @$      (@@@  ((((//%%@                       @$      (@@@  ((((//%%@ =
+                      @$      (@@@  ((((//%%@
+     @                 ((//                        @                 ((//  =
+                      @                 ((//
+@      @ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  =
+/%//////@@     //@      @ ~        (((((((((  /%//////@@     /
+         @~                 %  ~~~~~~~~/   /@$         @~                 %=
+  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@
+             @@/$             ~~~~~////////$               @@/$            =
+ ~~~~~////////$               @@/$             ~~~~~////////$
+               //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~    =
+  ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@
+                ~~~          ~~~~~~~//////@$@@                ~~~          =
+~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@@
+///@        $$$                   ~~~~((((///////@        $$$              =
+     ~~~~((((///////@        $$$                   ~~~~((((///
+($@       $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /      =
+   ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////
+%@       @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/       =
+     ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%
+@        \\@@@@                   (((((((%%%%%@        \\@@@@              =
+     (((((((%%%%%@        \\@@@@                   (((((((%%%%
+                                  $$$$$$$$$@                               =
+     $$$$$$$$$@                                    $$$$$$$$$@
+                                $$$%%%%%%@                                 =
+   $$$%%%%%%@                                    $$$%%%%%%@
+                              $$%%%%%%%%@                                  =
+ $$%%%%%%%%@                                   $$%%%%%%%%@
+                         @ /// $$%%%%%%@                               @ //=
+/ $$%%%%%%@                               @ /// $$%%%%%%@
+                       @////       @@@@@                             @//// =
+      @@@@@                             @////       @@@@@
+                     @////@@@@@@@@@                                @////@@@=
+@@@@@@                                @////@@@@@@@@@
+                      @////@                                        @////@ =
+                                       @////@
+</div>
+<div class=3D"animation__frame">
+
+
+      /@                                            /@                     =
+                     /@
+     @~/@       @@                                 @~/@       @@           =
+                    @~/@       @@
+    @~~/ %     @$%@                               @~~/ %     @$%@          =
+                   @~~/ %     @$%@
+    @~(((((% %/////@                              @~(((((% %/////@         =
+                   @~(((((% %/////@
+    @((/////@~//~~@                               @((/////@~//~~@          =
+                    @((/////@~//~~@
+    @(/// @//////@                                @(/// @//////@           =
+                    @(/// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @        ////@@                               @        ////@@          =
+                    @        ////@@
+   @$   //@@@((/~ @                              @$   //@@@((/~ @          =
+                   @$   //@@@((/~ @
+  @$  //@    @  ((///@                         @$  //@    @  ((///@        =
+                 @$  //@    @  ((///@
+ @$      (@@@  ((((//%%@                       @$      (@@@  ((((//%%@     =
+                 @$      (@@@  ((((//%%@
+ @                 ((//                        @                 ((//      =
+                 @                 ((//
+   @ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//=
+////@@     //@     @ ~        (((((((((  /%//////@@     //@
+     @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~=
+~~~~~~/   /@$        @~                 %  ~~~~~~~~/   /@$
+         @@/$             ~~~~~////////$               @@/$             ~~~=
+~~////////$              @@/$             ~~~~~////////$
+           //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~=
+~~~~~~~~///@               //@@@%%/~~      ~~~~~~~~~~///@
+            ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~=
+~~~//////@$@@               ~~~          ~~~~~~~//////@$@@
+        $$$                   ~~~~((((///////@        $$$                  =
+ ~~~~((((///////@       $$$                   ~~~~((((///////@
+      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~=
+~~~(////////(($@      $~~~~ %%%   /         ~~~~(////////(($@
+     @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/           =
+ ~~~~((((((%%%@      @$$~~ @   $$/            ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                  =
+ (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                   =
+ $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                  $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                            @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                @@@@@    @                ((//      =
+          @@@@@   @                ((//                @@@@@
+   @ ~          (((((((((/@@/        //@    @@   @ ~          (((((((((/@@/=
+        //@    @@  @ ~          (((((((((/@@/        //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@       @@/@@/$        =
+     ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =
+=C2=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+      $$$                       ~~~~((((/////@      $$$                    =
+   ~~~~((((/////@    $$$                       ~~~~((((/////@
+    $~~~~ %%%   /             ~~~~(//////(($@     $~~~~ %%%   /            =
+ ~~~~(//////(($@    $~~~~ %%%   /             ~~~~(//////(($@
+    @$$~~ @   $$              ~~~~((((((%%%@      @$$~~ @   $$             =
+ ~~~~((((((%%%@     @$$~~ @   $$              ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                  =
+ (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                   =
+ $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                 @@@@@   @                ((//      =
+           @@@@@  @                ((//                 @@@@@
+   @ ~           (((((((((/@@/       //@    @@   @ ~           (((((((((/@@=
+/       //@    @@  @ ~           (((((((((/@@/       //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@      @@/@@/$         =
+    ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =C2=
+=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+       $$$                      ~~~~((((/////@        $$$                  =
+   ~~~~((((/////@      $$$                     ~~~~((((/////@
+      $~~~~ %%%   /           ~~~~(//////(($@       $~~~~ %%%   /          =
+ ~~~~(//////(($@      $~~~~ %%%   /           ~~~~(//////(($@
+      @$$~~ @   $$            ~~~~((((((%%%@        @$$~~ @   $$           =
+ ~~~~((((((%%%@       @$$~~ @   $$            ~~~~((((((%%%@
+        \\@@@@               (((((((%%%%%@           \\@@@@                =
+(((((((%%%%%@          \\@@@@                (((((((%%%%%@
+          @@@@              $$$$$$$$$@                 @@@@                =
+ $$$$$$$$$@              @@@@                $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                 @@@@@   @                ((//      =
+           @@@@@  @                ((//                 @@@@@
+   @ ~           (((((((((/@@/       //@    @@   @ ~           (((((((((/@@=
+/       //@    @@  @ ~           (((((((((/@@/       //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@      @@/@@/$         =
+    ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =C2=
+=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+       $$$                      ~~~~((((/////@        $$$                  =
+   ~~~~((((/////@      $$$                     ~~~~((((/////@
+      $~~~~ %%%   /           ~~~~(//////(($@       $~~~~ %%%   /          =
+ ~~~~(//////(($@      $~~~~ %%%   /           ~~~~(//////(($@
+      @$$~~ @   $$            ~~~~((((((%%%@        @$$~~ @   $$           =
+ ~~~~((((((%%%@       @$$~~ @   $$            ~~~~((((((%%%@
+        \\@@@@               (((((((%%%%%@           \\@@@@                =
+(((((((%%%%%@          \\@@@@                (((((((%%%%%@
+          @@@@              $$$$$$$$$@                 @@@@                =
+ $$$$$$$$$@              @@@@                $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                 @@@@@   @                ((//      =
+           @@@@@  @                ((//                 @@@@@
+   @ ~           (((((((((/@@/       //@    @@   @ ~           (((((((((/@@=
+/       //@    @@  @ ~           (((((((((/@@/       //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@      @@/@@/$         =
+    ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =C2=
+=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+       $$$                      ~~~~((((/////@        $$$                  =
+   ~~~~((((/////@      $$$                     ~~~~((((/////@
+      $~~~~ %%%   /           ~~~~(//////(($@       $~~~~ %%%   /          =
+ ~~~~(//////(($@      $~~~~ %%%   /           ~~~~(//////(($@
+      @$$~~ @   $$            ~~~~((((((%%%@        @$$~~ @   $$           =
+ ~~~~((((((%%%@       @$$~~ @   $$            ~~~~((((((%%%@
+        \\@@@@               (((((((%%%%%@           \\@@@@                =
+(((((((%%%%%@          \\@@@@                (((((((%%%%%@
+          @@@@              $$$$$$$$$@                 @@@@                =
+ $$$$$$$$$@              @@@@                $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                 @@@@@   @                ((//      =
+           @@@@@  @                ((//                 @@@@@
+   @ ~           (((((((((/@@/       //@    @@   @ ~           (((((((((/@@=
+/       //@    @@  @ ~           (((((((((/@@/       //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@      @@/@@/$         =
+    ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =C2=
+=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+       $$$                      ~~~~((((/////@        $$$                  =
+   ~~~~((((/////@      $$$                     ~~~~((((/////@
+      $~~~~ %%%   /           ~~~~(//////(($@       $~~~~ %%%   /          =
+ ~~~~(//////(($@      $~~~~ %%%   /           ~~~~(//////(($@
+      @$$~~ @   $$            ~~~~((((((%%%@        @$$~~ @   $$           =
+ ~~~~((((((%%%@       @$$~~ @   $$            ~~~~((((((%%%@
+        \\@@@@               (((((((%%%%%@           \\@@@@                =
+(((((((%%%%%@          \\@@@@                (((((((%%%%%@
+          @@@@              $$$$$$$$$@                 @@@@                =
+ $$$$$$$$$@              @@@@                $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+<div class=3D"animation__frame">
+
+
+       /@     /@                                     /@     /@             =
+                       /@     /@
+      @~/@    @@                                    @~/@    @@             =
+                      @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@            =
+                     @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@           =
+                     @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@          =
+                     @((////@~//~~@
+     @(// @//////@                                 @(// @//////@           =
+                     @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@           =
+                      @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@          =
+                     /@$$$ @///~~/@
+    @          //@@                               @          //@@          =
+                    @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @         =
+                   @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@       =
+                  @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@      =
+                  @$        @@@   //%%@
+  @                ((//                @@@@@    @                ((//      =
+          @@@@@   @                ((//                @@@@@
+   @ ~          (((((((((/@@/        //@    @@   @ ~          (((((((((/@@/=
+        //@    @@  @ ~          (((((((((/@@/        //@    @@
+    @~              %    ~~~~~~/    /@$      =C2=A2@@   @~              %  =
+ ~~~~~~/    /@$     =C2=A2@@  @~             %    ~~~~~~/    /@$      =C2=
+=A2@@
+       @@/@@/$             ~~~~///////$       =C2=A2@       @@/@@/$        =
+     ~~~~///////$      =C2=A2@     @@/@@/$            ~~~~///////$       =
+=C2=A2@
+           //@@@%%/~~      ~~~~~~~~///@     =C2=A2@@          //@@@%%/~~   =
+   ~~~~~~~~///@     =C2=A2@@         //@@@%%/~~      ~~~~~~~~///@      =C2=
+=A2@@
+            ~~~               ~~~~~~//////@$@@             ~~~             =
+  ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+      $$$                       ~~~~((((/////@      $$$                    =
+   ~~~~((((/////@    $$$                       ~~~~((((/////@
+    $~~~~ %%%   /             ~~~~(//////(($@     $~~~~ %%%   /            =
+ ~~~~(//////(($@    $~~~~ %%%   /             ~~~~(//////(($@
+    @$$~~ @   $$              ~~~~((((((%%%@      @$$~~ @   $$             =
+ ~~~~((((((%%%@     @$$~~ @   $$              ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                  =
+ (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                   =
+ $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $=
+$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%=
+%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$=
+%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////       =
+ @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@=
+@@@@                              @////@@@@@@@@@
+</div>
+</div>
+<span class=3D"term-white"></span><br>
+    <br>
+    &lt;encrypted&gt;<br>
+    <span class=3D"term-blue">FkYfFBcCDxoHSkFWQVMGGAwVGUZAQVMCBQUYCAALFBFGS=
+lNUSgQfFREEBwwQSk1MRhEHDAYGGRJL
+QU5BTQAaDhMJBR0DBgxTQUFLABcJAwwCCAwJDwBGSlNUShQCDRsCAQwQSk1MRgYACAsdGRJLQU5=
+B
+TRoVCwRLTVRGDAYbSkFWQVMWAwdVShw=3D</span>
+    &lt;/encrypted&gt;<br>
+    <br>
+    For <span class=3D"term-red">your</span> eyes only!
+    <br><br>
+    Use the <span class=3D"term-yellow">status</span> command to repeat thi=
+s message.
+
+    <br><br>
+    You've completed all the challenges!<br>
+    If you'd like to know when more challenges are added, let us know your =
+email address below.<br>
+    We will use your information in accordance with <a class=3D"btn" target=
+=3D"_blank" href=3D"https://policies.google.com/privacy">Google's Privacy P=
+olicy.</a>
+</div></div><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"=
+" class=3D"term-white" data-text=3D"[">[</span><span style=3D"" class=3D"te=
+rm-green" data-text=3D"#1">#1</span><span style=3D"" class=3D"term-white" d=
+ata-text=3D"]">]</span><span>&nbsp;</span><span style=3D"" class=3D"term-wh=
+ite" data-text=3D"Would&nbsp;you&nbsp;like&nbsp;to&nbsp;be&nbsp;notified&nb=
+sp;when&nbsp;a&nbsp;new&nbsp;set&nbsp;of&nbsp;challenges&nbsp;are&nbsp;avai=
+lable&nbsp;to&nbsp;play?">Would&nbsp;you&nbsp;like&nbsp;to&nbsp;be&nbsp;not=
+ified&nbsp;when&nbsp;a&nbsp;new&nbsp;set&nbsp;of&nbsp;challenges&nbsp;are&n=
+bsp;avai</span></div><div style=3D"width: 100%;"><span style=3D"" class=3D"=
+term-white" data-text=3D"Would&nbsp;you&nbsp;like&nbsp;to&nbsp;be&nbsp;noti=
+fied&nbsp;when&nbsp;a&nbsp;new&nbsp;set&nbsp;of&nbsp;challenges&nbsp;are&nb=
+sp;available&nbsp;to&nbsp;play?">lable&nbsp;to&nbsp;play?</span></div></div=
+><div role=3D"alert"><div style=3D"width: 100%;"><span style=3D"" class=3D"=
+term-white" data-text=3D"[">[</span><span style=3D"font-weight:bold;" class=
+=3D"term-white" data-text=3D"Y">Y</span><span style=3D"" class=3D"term-whit=
+e" data-text=3D"]">]</span><span style=3D"" class=3D"term-white" data-text=
+=3D"es">es</span><span>&nbsp;</span><span style=3D"" class=3D"term-white" d=
+ata-text=3D"[">[</span><span style=3D"font-weight:bold;" class=3D"term-whit=
+e" data-text=3D"N">N</span><span style=3D"" class=3D"term-white" data-text=
+=3D"]">]</span><span style=3D"" class=3D"term-white" data-text=3D"o:">o:</s=
+pan><span>&nbsp;</span>Y</div></div><div role=3D"alert"><div style=3D"width=
+: 100%;"><span style=3D"" class=3D"term-white" data-text=3D"[">[</span><spa=
+n style=3D"" class=3D"term-green" data-text=3D"#2">#2</span><span style=3D"=
+" class=3D"term-white" data-text=3D"]">]</span><span>&nbsp;</span><span sty=
+le=3D"" class=3D"term-white" data-text=3D"Email:">Email:</span>malatajit@gm=
+ail.com</div></div><div role=3D"alert"><div style=3D"width: 100%;">Are the =
+above details correct?</div></div><div><div style=3D"width: 100%;"><div cla=
+ss=3D"output--prompt"><span>[Y]es or [N]o: </span>Y</div></div></div><div r=
+ole=3D"alert"><div style=3D"width: 100%;">Submitting&nbsp;your&nbsp;respons=
+e...</div></div><div role=3D"alert"><div style=3D"width: 100%;">Great!&nbsp=
+;We'll&nbsp;let&nbsp;you&nbsp;know&nbsp;when&nbsp;a&nbsp;new&nbsp;set&nbsp;=
+of&nbsp;challenges&nbsp;are&nbsp;ready&nbsp;for&nbsp;you</div><div style=3D=
+"width: 100%;">.</div></div><div role=3D"alert"><div style=3D"width: 100%;"=
+></div></div></div><div class=3D"cmd" style=3D"width: 100%; visibility: vis=
+ible;"><span class=3D"prompt">foobar:~/&nbsp;malatajit$&nbsp;</span><span><=
+/span><span class=3D"cursor blink" aria-hidden=3D"true">&nbsp;</span><span>=
+</span><textarea class=3D"clipboard"></textarea></div></section><!--
+
+		--><div class=3D"resizer">
+			<i class=3D"vertical"></i>
+			<i class=3D"horizontal"></i>
+		</div><!--
+
+		--><section class=3D"editor">
+			<div class=3D"editor__head">
+				<button class=3D"editor__close close" title=3D"Close"></button>
+
+				<div class=3D"editor__head__meta-data">
+					<span class=3D"editor__filename">solution.py</span>
+				</div>
+			</div>
+
+			<div class=3D"editor__content"></div>
+
+			<div class=3D"prompter is-hidden">
+				<div class=3D"prompter__text">
+					<p>
+						You have unsaved changes on this file.
+						<br>
+						Are you sure you want to close? (y/N)
+						<input type=3D"text">
+					</p>
+				</div>
+			</div>
+
+			<div class=3D"editor__foot">
+				<button class=3D"btn editor__save" disabled=3D"">Save changes</button>
+
+				<div class=3D"shortcuts shortcuts--mac">
+					<div class=3D"shortcuts__legend">
+						<ul>
+							<li><kbd class=3D"shortcut shortcut--control-command">S</kbd> Save</=
+li>
+							<li><kbd class=3D"shortcut shortcut--control-command">E</kbd> Close<=
+/li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class=3D"countdown-timer__holder"></div>
+
+	<footer class=3D"footer">
+		<ul>
+			<li><a href=3D"https://www.google.com/" target=3D"_blank">Google</a></li=
+>
+			<li><a href=3D"https://www.google.com/intl/en/about/" target=3D"_blank">=
+About Google</a></li>
+			<li><a href=3D"https://www.google.com/intl/en/policies/" target=3D"_blan=
+k">Privacy &amp; Terms</a></li>
+		</ul>
+	</footer>
+
+</div>
+
+
+
+	=09
+
+	=09
+		=09
+			=09
+		=09
+	=09
+=09
+
+</body></html>
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-6e11a06d-1f4e-41e4-86a5-9e9f2c1b0125@mhtml.blink
+
+@charset "utf-8";
+
+.ace-monokai .ace_gutter { background: rgb(47, 49, 41); color: rgb(143, 144=
+, 138); }
+
+.ace-monokai .ace_print-margin { width: 1px; background: rgb(85, 86, 81); }
+
+.ace-monokai { background-color: rgb(39, 40, 34); color: rgb(248, 248, 242)=
+; }
+
+.ace-monokai .ace_cursor { color: rgb(248, 248, 240); }
+
+.ace-monokai .ace_marker-layer .ace_selection { background: rgb(73, 72, 62)=
+; }
+
+.ace-monokai.ace_multiselect .ace_selection.ace_start { box-shadow: rgb(39,=
+ 40, 34) 0px 0px 3px 0px; border-radius: 2px; }
+
+.ace-monokai .ace_marker-layer .ace_step { background: rgb(102, 82, 0); }
+
+.ace-monokai .ace_marker-layer .ace_bracket { margin: -1px 0px 0px -1px; bo=
+rder: 1px solid rgb(73, 72, 62); }
+
+.ace-monokai .ace_marker-layer .ace_active-line { background: rgb(32, 32, 3=
+2); }
+
+.ace-monokai .ace_gutter-active-line { background-color: rgb(39, 39, 39); }
+
+.ace-monokai .ace_marker-layer .ace_selected-word { border: 1px solid rgb(7=
+3, 72, 62); }
+
+.ace-monokai .ace_invisible { color: rgb(82, 82, 77); }
+
+.ace-monokai .ace_entity.ace_name.ace_tag, .ace-monokai .ace_keyword, .ace-=
+monokai .ace_meta.ace_tag, .ace-monokai .ace_storage { color: rgb(249, 38, =
+114); }
+
+.ace-monokai .ace_punctuation, .ace-monokai .ace_punctuation.ace_tag { colo=
+r: rgb(255, 255, 255); }
+
+.ace-monokai .ace_constant.ace_character, .ace-monokai .ace_constant.ace_la=
+nguage, .ace-monokai .ace_constant.ace_numeric, .ace-monokai .ace_constant.=
+ace_other { color: rgb(174, 129, 255); }
+
+.ace-monokai .ace_invalid { color: rgb(248, 248, 240); background-color: rg=
+b(249, 38, 114); }
+
+.ace-monokai .ace_invalid.ace_deprecated { color: rgb(248, 248, 240); backg=
+round-color: rgb(174, 129, 255); }
+
+.ace-monokai .ace_support.ace_constant, .ace-monokai .ace_support.ace_funct=
+ion { color: rgb(102, 217, 239); }
+
+.ace-monokai .ace_fold { background-color: rgb(166, 226, 46); border-color:=
+ rgb(248, 248, 242); }
+
+.ace-monokai .ace_storage.ace_type, .ace-monokai .ace_support.ace_class, .a=
+ce-monokai .ace_support.ace_type { font-style: italic; color: rgb(102, 217,=
+ 239); }
+
+.ace-monokai .ace_entity.ace_name.ace_function, .ace-monokai .ace_entity.ac=
+e_other, .ace-monokai .ace_entity.ace_other.ace_attribute-name, .ace-monoka=
+i .ace_variable { color: rgb(166, 226, 46); }
+
+.ace-monokai .ace_variable.ace_parameter { font-style: italic; color: rgb(2=
+53, 151, 31); }
+
+.ace-monokai .ace_string { color: rgb(230, 219, 116); }
+
+.ace-monokai .ace_comment { color: rgb(117, 113, 94); }
+
+.ace-monokai .ace_indent-guide { background: url("data:image/png;base64,iVB=
+ORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAo=
+xeSgNeAAAAAElFTkSuQmCC") right center repeat-y; }
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-8015a24b-ec69-46c2-9ab5-ed347ddcf061@mhtml.blink
+
+@charset "utf-8";
+
+.ace_editor { position: relative; overflow: hidden; font: 12px Monaco, Menl=
+o, "Ubuntu Mono", Consolas, source-code-pro, monospace; direction: ltr; }
+
+.ace_scroller { position: absolute; overflow: hidden; top: 0px; bottom: 0px=
+; background-color: inherit; user-select: none; cursor: text; }
+
+.ace_content { position: absolute; box-sizing: border-box; min-width: 100%;=
+ }
+
+.ace_dragging .ace_scroller::before { position: absolute; top: 0px; left: 0=
+px; right: 0px; bottom: 0px; content: ""; background: rgba(250, 250, 250, 0=
+.01); z-index: 1000; }
+
+.ace_dragging.ace_dark .ace_scroller::before { background: rgba(0, 0, 0, 0.=
+01); }
+
+.ace_selecting, .ace_selecting * { cursor: text !important; }
+
+.ace_gutter { position: absolute; overflow: hidden; width: auto; top: 0px; =
+bottom: 0px; left: 0px; cursor: default; z-index: 4; user-select: none; }
+
+.ace_gutter-active-line { position: absolute; left: 0px; right: 0px; }
+
+.ace_scroller.ace_scroll-left { box-shadow: rgba(0, 0, 0, 0.4) 17px 0px 16p=
+x -16px inset; }
+
+.ace_gutter-cell { padding-left: 19px; padding-right: 6px; background-repea=
+t: no-repeat; }
+
+.ace_gutter-cell.ace_error { background-image: url("data:image/png;base64,i=
+VBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4w=
+FAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir=
++Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg=
+8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/Q=
+RzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm=
+1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6ej=
+u5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99N=
+fg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24=
+eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78D=
+Pokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMg=
+HFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIO=
+zgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kf=
+R+MMMDGOQAAAABJRU5ErkJggg=3D=3D"); background-repeat: no-repeat; background=
+-position: 2px center; }
+
+.ace_gutter-cell.ace_warning { background-image: url("data:image/png;base64=
+,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAA=
+BPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf//=
+//e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIA=
+AAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neX=
+e5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYE=
+wboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJa=
+UrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLg=
+upWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg=3D=3D"); background-position=
+: 2px center; }
+
+.ace_gutter-cell.ace_info { background-image: url("data:image/png;base64,iV=
+BORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJb=
+WFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDb=
+MegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=
+=3D"); background-position: 2px center; }
+
+.ace_dark .ace_gutter-cell.ace_info { background-image: url("data:image/png=
+;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIA=
+qKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYM=
+APdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC"); }
+
+.ace_scrollbar { position: absolute; right: 0px; bottom: 0px; z-index: 6; }
+
+.ace_scrollbar-inner { position: absolute; cursor: text; left: 0px; top: 0p=
+x; }
+
+.ace_scrollbar-v { overflow: hidden scroll; top: 0px; }
+
+.ace_scrollbar-h { overflow: scroll hidden; left: 0px; }
+
+.ace_print-margin { position: absolute; height: 100%; }
+
+.ace_text-input { position: absolute; z-index: 0; width: 0.5em; height: 1em=
+; opacity: 0; background: transparent; border: none; resize: none; outline:=
+ none; overflow: hidden; font: inherit; padding: 0px 1px; margin: 0px -1px;=
+ text-indent: -1em; user-select: text; }
+
+.ace_text-input.ace_composition { background: inherit; color: inherit; z-in=
+dex: 1000; opacity: 1; text-indent: 0px; }
+
+.ace_layer { z-index: 1; position: absolute; overflow: hidden; overflow-wra=
+p: normal; white-space: pre; height: 100%; width: 100%; box-sizing: border-=
+box; pointer-events: none; }
+
+.ace_gutter-layer { position: relative; width: auto; text-align: right; poi=
+nter-events: auto; }
+
+.ace_text-layer { font: inherit !important; }
+
+.ace_cjk { display: inline-block; text-align: center; }
+
+.ace_cursor-layer { z-index: 4; }
+
+.ace_cursor { z-index: 4; position: absolute; box-sizing: border-box; borde=
+r-left: 2px solid; }
+
+.ace_slim-cursors .ace_cursor { border-left-width: 1px; }
+
+.ace_overwrite-cursors .ace_cursor { border-left-width: 0px; border-bottom:=
+ 1px solid; }
+
+.ace_hidden-cursors .ace_cursor { opacity: 0.2; }
+
+.ace_smooth-blinking .ace_cursor { transition: opacity 0.18s ease 0s; }
+
+.ace_editor.ace_multiselect .ace_cursor { border-left-width: 1px; }
+
+.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack { position: absol=
+ute; z-index: 3; }
+
+.ace_marker-layer .ace_selection { position: absolute; z-index: 5; }
+
+.ace_marker-layer .ace_bracket { position: absolute; z-index: 6; }
+
+.ace_marker-layer .ace_active-line { position: absolute; z-index: 2; }
+
+.ace_marker-layer .ace_selected-word { position: absolute; z-index: 4; box-=
+sizing: border-box; }
+
+.ace_line .ace_fold { box-sizing: border-box; display: inline-block; height=
+: 11px; margin-top: -2px; vertical-align: middle; background-image: url("da=
+ta:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHR=
+Tb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSok=
+D8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErI=
+H0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqN=
+rA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII=3D"), url("data:image/p=
+ng;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZ=
+QBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMC=
+IMAAI3INmXiwf2YAAAAASUVORK5CYII=3D"); background-repeat: no-repeat, repeat-=
+x; background-position: center center, left top; color: transparent; border=
+: 1px solid black; border-radius: 2px; cursor: pointer; pointer-events: aut=
+o; }
+
+.ace_dark .ace_fold { }
+
+.ace_fold:hover { background-image: url("data:image/png;base64,iVBORw0KGgoA=
+AAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR=
+5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQ=
+yMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIa=
+l8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXv=
+gnYAAAAASUVORK5CYII=3D"), url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUg=
+AAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA=
+CBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC"); =
+}
+
+.ace_tooltip { background-color: rgb(255, 255, 255); background-image: line=
+ar-gradient(transparent, rgba(0, 0, 0, 0.1)); border: 1px solid gray; borde=
+r-radius: 1px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px; color: black; ma=
+x-width: 100%; padding: 3px 4px; position: fixed; z-index: 999999; box-sizi=
+ng: border-box; cursor: default; white-space: pre; overflow-wrap: break-wor=
+d; line-height: normal; font-style: normal; font-weight: normal; letter-spa=
+cing: normal; pointer-events: none; }
+
+.ace_folding-enabled > .ace_gutter-cell { padding-right: 13px; }
+
+.ace_fold-widget { box-sizing: border-box; margin: 0px -12px 0px 1px; displ=
+ay: none; width: 11px; vertical-align: top; background-image: url("data:ima=
+ge/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKs=
+Q0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJ=
+RU5ErkJggg=3D=3D"); background-repeat: no-repeat; background-position: cent=
+er center; border-radius: 3px; border: 1px solid transparent; cursor: point=
+er; }
+
+.ace_folding-enabled .ace_fold-widget { display: inline-block; }
+
+.ace_fold-widget.ace_end { background-image: url("data:image/png;base64,iVB=
+ORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI=
+7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg=3D=3D"=
+); }
+
+.ace_fold-widget.ace_closed { background-image: url("data:image/png;base64,=
+iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4=
+EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQm=
+CCXA=3D=3D"); }
+
+.ace_fold-widget:hover { border: 1px solid rgba(0, 0, 0, 0.3); background-c=
+olor: rgba(255, 255, 255, 0.2); box-shadow: rgba(255, 255, 255, 0.7) 0px 1p=
+x 1px; }
+
+.ace_fold-widget:active { border: 1px solid rgba(0, 0, 0, 0.4); background-=
+color: rgba(0, 0, 0, 0.05); box-shadow: rgba(255, 255, 255, 0.8) 0px 1px 1p=
+x; }
+
+.ace_dark .ace_fold-widget { background-image: url("data:image/png;base64,i=
+VBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaL=
+LAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC"); }
+
+.ace_dark .ace_fold-widget.ace_end { background-image: url("data:image/png;=
+base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7=
+wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg=3D=3D"); }
+
+.ace_dark .ace_fold-widget.ace_closed { background-image: url("data:image/p=
+ng;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/A=
+xAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg=3D=3D"); }
+
+.ace_dark .ace_fold-widget:hover { box-shadow: rgba(255, 255, 255, 0.2) 0px=
+ 1px 1px; background-color: rgba(255, 255, 255, 0.1); }
+
+.ace_dark .ace_fold-widget:active { box-shadow: rgba(255, 255, 255, 0.2) 0p=
+x 1px 1px; }
+
+.ace_fold-widget.ace_invalid { background-color: rgb(255, 180, 180); border=
+-color: rgb(222, 85, 85); }
+
+.ace_fade-fold-widgets .ace_fold-widget { transition: opacity 0.4s ease 0.0=
+5s; opacity: 0; }
+
+.ace_fade-fold-widgets:hover .ace_fold-widget { transition: opacity 0.05s e=
+ase 0.05s; opacity: 1; }
+
+.ace_underline { text-decoration: underline; }
+
+.ace_bold { font-weight: bold; }
+
+.ace_nobold .ace_bold { font-weight: normal; }
+
+.ace_italic { font-style: italic; }
+
+.ace_error-marker { background-color: rgba(255, 0, 0, 0.2); position: absol=
+ute; z-index: 9; }
+
+.ace_highlight-marker { background-color: rgba(255, 255, 0, 0.2); position:=
+ absolute; z-index: 8; }
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-17d260c8-2d37-40ff-a8cb-2390a99b5e3e@mhtml.blink
+
+@charset "utf-8";
+
+.ace-tm .ace_gutter { background: rgb(240, 240, 240); color: rgb(51, 51, 51=
+); }
+
+.ace-tm .ace_print-margin { width: 1px; background: rgb(232, 232, 232); }
+
+.ace-tm .ace_fold { background-color: rgb(107, 114, 230); }
+
+.ace-tm { background-color: rgb(255, 255, 255); color: black; }
+
+.ace-tm .ace_cursor { color: black; }
+
+.ace-tm .ace_invisible { color: rgb(191, 191, 191); }
+
+.ace-tm .ace_storage, .ace-tm .ace_keyword { color: blue; }
+
+.ace-tm .ace_constant { color: rgb(197, 6, 11); }
+
+.ace-tm .ace_constant.ace_buildin { color: rgb(88, 72, 246); }
+
+.ace-tm .ace_constant.ace_language { color: rgb(88, 92, 246); }
+
+.ace-tm .ace_constant.ace_library { color: rgb(6, 150, 14); }
+
+.ace-tm .ace_invalid { background-color: rgba(255, 0, 0, 0.1); color: red; =
+}
+
+.ace-tm .ace_support.ace_function { color: rgb(60, 76, 114); }
+
+.ace-tm .ace_support.ace_constant { color: rgb(6, 150, 14); }
+
+.ace-tm .ace_support.ace_type, .ace-tm .ace_support.ace_class { color: rgb(=
+109, 121, 222); }
+
+.ace-tm .ace_keyword.ace_operator { color: rgb(104, 118, 135); }
+
+.ace-tm .ace_string { color: rgb(3, 106, 7); }
+
+.ace-tm .ace_comment { color: rgb(76, 136, 107); }
+
+.ace-tm .ace_comment.ace_doc { color: rgb(0, 102, 255); }
+
+.ace-tm .ace_comment.ace_doc.ace_tag { color: rgb(128, 159, 191); }
+
+.ace-tm .ace_constant.ace_numeric { color: rgb(0, 0, 205); }
+
+.ace-tm .ace_variable { color: rgb(49, 132, 149); }
+
+.ace-tm .ace_xml-pe { color: rgb(104, 104, 91); }
+
+.ace-tm .ace_entity.ace_name.ace_function { color: rgb(0, 0, 162); }
+
+.ace-tm .ace_heading { color: rgb(12, 7, 255); }
+
+.ace-tm .ace_list { color: rgb(185, 6, 144); }
+
+.ace-tm .ace_meta.ace_tag { color: rgb(0, 22, 142); }
+
+.ace-tm .ace_string.ace_regex { color: rgb(255, 0, 0); }
+
+.ace-tm .ace_marker-layer .ace_selection { background: rgb(181, 213, 255); =
+}
+
+.ace-tm.ace_multiselect .ace_selection.ace_start { box-shadow: white 0px 0p=
+x 3px 0px; border-radius: 2px; }
+
+.ace-tm .ace_marker-layer .ace_step { background: rgb(252, 255, 0); }
+
+.ace-tm .ace_marker-layer .ace_stack { background: rgb(164, 229, 101); }
+
+.ace-tm .ace_marker-layer .ace_bracket { margin: -1px 0px 0px -1px; border:=
+ 1px solid rgb(192, 192, 192); }
+
+.ace-tm .ace_marker-layer .ace_active-line { background: rgba(0, 0, 0, 0.07=
+); }
+
+.ace-tm .ace_gutter-active-line { background-color: rgb(220, 220, 220); }
+
+.ace-tm .ace_marker-layer .ace_selected-word { background: rgb(250, 250, 25=
+5); border: 1px solid rgb(200, 200, 250); }
+
+.ace-tm .ace_indent-guide { background: url("data:image/png;base64,iVBORw0K=
+GgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w1=
+1/gAAAABJRU5ErkJggg=3D=3D") right center repeat-y; }
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-5a6b3718-0252-4dcc-a60a-e2a6fcc180ea@mhtml.blink
+
+@charset "utf-8";
+
+.error_widget_wrapper { background: inherit; color: inherit; border: none; =
+}
+
+.error_widget { border-top: 2px solid; border-bottom: 2px solid; margin: 5p=
+x 0px; padding: 10px 40px; white-space: pre-wrap; }
+
+.error_widget.ace_error, .error_widget_arrow.ace_error { border-color: rgb(=
+255, 90, 90); }
+
+.error_widget.ace_warning, .error_widget_arrow.ace_warning { border-color: =
+rgb(241, 216, 23); }
+
+.error_widget.ace_info, .error_widget_arrow.ace_info { border-color: rgb(90=
+, 90, 90); }
+
+.error_widget.ace_ok, .error_widget_arrow.ace_ok { border-color: rgb(90, 17=
+0, 90); }
+
+.error_widget_arrow { position: absolute; border-width: 5px; border-style: =
+solid; border-bottom-color: initial; border-image: initial; top: -5px; bord=
+er-top-color: transparent !important; border-right-color: transparent !impo=
+rtant; border-left-color: transparent !important; }
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://foobar.withgoogle.com/static/css/rhgame.1a562476.css
+
+@charset "utf-8";
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquot=
+e, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt,=
+ em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5,=
+ h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mar=
+k, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small,=
+ span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thea=
+d, time, tr, tt, u, ul, var, video { margin: 0px; padding: 0px; border: 0px=
+; font: inherit; vertical-align: baseline; }
+
+body { margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; li=
+ne-height: 1; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, =
+nav, section { display: block; }
+
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+
+blockquote::after, blockquote::before, q::after, q::before { content: none;=
+ }
+
+table { border-collapse: collapse; border-spacing: 0px; }
+
+.footer ul, .grid { list-style: none; padding: 0px; margin: 0px 0px 0px -24=
+px; }
+
+.grid__item { display: inline-block; vertical-align: top; width: 100%; box-=
+sizing: border-box; }
+
+.console, .console .terminal-output .output--column, .grid__item { padding-=
+left: 24px; }
+
+.console, .console .terminal-output .output--column, .editor { display: inl=
+ine-block; vertical-align: top; box-sizing: border-box; }
+
+.grid--rev { direction: rtl; text-align: left; }
+
+.console .terminal-output .grid--rev > .output--column, .grid--rev > .conso=
+le, .grid--rev > .editor, .grid--rev > .grid__item { direction: ltr; text-a=
+lign: left; }
+
+.grid--full { margin-left: 0px; }
+
+.console .terminal-output .grid--full > .output--column, .grid--full > .con=
+sole, .grid--full > .editor, .grid--full > .grid__item { padding-left: 0px;=
+ }
+
+.grid--right { text-align: right; }
+
+.console .terminal-output .grid--center > .output--column, .console .termin=
+al-output .grid--right > .output--column, .grid--center > .console, .grid--=
+center > .editor, .grid--center > .grid__item, .grid--right > .console, .gr=
+id--right > .editor, .grid--right > .grid__item { text-align: left; }
+
+.grid--center { text-align: center; }
+
+.console .terminal-output .grid--middle > .output--column, .grid--middle > =
+.console, .grid--middle > .editor, .grid--middle > .grid__item { vertical-a=
+lign: middle; }
+
+.console .terminal-output .grid--bottom > .output--column, .grid--bottom > =
+.console, .grid--bottom > .editor, .grid--bottom > .grid__item { vertical-a=
+lign: bottom; }
+
+.grid--narrow { margin-left: -12px; }
+
+.console .terminal-output .grid--narrow > .output--column, .grid--narrow > =
+.console, .grid--narrow > .editor, .grid--narrow > .grid__item { padding-le=
+ft: 12px; }
+
+.grid--wide { margin-left: -48px; }
+
+.console .terminal-output .grid--wide > .output--column, .grid--wide > .con=
+sole, .grid--wide > .editor, .grid--wide > .grid__item { padding-left: 48px=
+; }
+
+.one-whole { width: 100%; }
+
+.five-tenths, .four-eighths, .one-half, .six-twelfths, .three-sixths, .two-=
+quarters { width: 50%; }
+
+.console .terminal-output .output--column, .four-twelfths, .one-third, .two=
+-sixths { width: 33.333%; }
+
+.eight-twelfths, .four-sixths, .two-thirds { width: 66.666%; }
+
+.one-quarter, .three-twelfths, .two-eighths { width: 25%; }
+
+.nine-twelfths, .six-eighths, .three-quarters { width: 75%; }
+
+.one-fifth, .two-tenths { width: 20%; }
+
+.four-tenths, .two-fifths { width: 40%; }
+
+.six-tenths, .three-fifths { width: 60%; }
+
+.eight-tenths, .four-fifths { width: 80%; }
+
+.one-sixth, .two-twelfths { width: 16.666%; }
+
+.five-sixths, .ten-twelfths { width: 83.333%; }
+
+.one-eighth { width: 12.5%; }
+
+.three-eighths { width: 37.5%; }
+
+.five-eighths { width: 62.5%; }
+
+.seven-eighths { width: 87.5%; }
+
+.one-tenth { width: 10%; }
+
+.three-tenths { width: 30%; }
+
+.seven-tenths { width: 70%; }
+
+.nine-tenths { width: 90%; }
+
+.one-twelfth { width: 8.333%; }
+
+.five-twelfths { width: 41.666%; }
+
+.seven-twelfths { width: 58.333%; }
+
+.eleven-twelfths { width: 91.666%; }
+
+@media only screen and (max-width: 480px) {
+  .palm--one-whole { width: 100%; }
+  .palm--five-tenths, .palm--four-eighths, .palm--one-half, .palm--six-twel=
+fths, .palm--three-sixths, .palm--two-quarters { width: 50%; }
+  .palm--four-twelfths, .palm--one-third, .palm--two-sixths { width: 33.333=
+%; }
+  .palm--eight-twelfths, .palm--four-sixths, .palm--two-thirds { width: 66.=
+666%; }
+  .palm--one-quarter, .palm--three-twelfths, .palm--two-eighths { width: 25=
+%; }
+  .palm--nine-twelfths, .palm--six-eighths, .palm--three-quarters { width: =
+75%; }
+  .palm--one-fifth, .palm--two-tenths { width: 20%; }
+  .palm--four-tenths, .palm--two-fifths { width: 40%; }
+  .palm--six-tenths, .palm--three-fifths { width: 60%; }
+  .palm--eight-tenths, .palm--four-fifths { width: 80%; }
+  .palm--one-sixth, .palm--two-twelfths { width: 16.666%; }
+  .palm--five-sixths, .palm--ten-twelfths { width: 83.333%; }
+  .palm--one-eighth { width: 12.5%; }
+  .palm--three-eighths { width: 37.5%; }
+  .palm--five-eighths { width: 62.5%; }
+  .palm--seven-eighths { width: 87.5%; }
+  .palm--one-tenth { width: 10%; }
+  .palm--three-tenths { width: 30%; }
+  .palm--seven-tenths { width: 70%; }
+  .palm--nine-tenths { width: 90%; }
+  .palm--one-twelfth { width: 8.333%; }
+  .palm--five-twelfths { width: 41.666%; }
+  .palm--seven-twelfths { width: 58.333%; }
+  .palm--eleven-twelfths { width: 91.666%; }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 481px) {
+  .lap--one-whole { width: 100%; }
+  .lap--five-tenths, .lap--four-eighths, .lap--one-half, .lap--six-twelfths=
+, .lap--three-sixths, .lap--two-quarters { width: 50%; }
+  .lap--four-twelfths, .lap--one-third, .lap--two-sixths { width: 33.333%; =
+}
+  .lap--eight-twelfths, .lap--four-sixths, .lap--two-thirds { width: 66.666=
+%; }
+  .lap--one-quarter, .lap--three-twelfths, .lap--two-eighths { width: 25%; =
+}
+  .lap--nine-twelfths, .lap--six-eighths, .lap--three-quarters { width: 75%=
+; }
+  .lap--one-fifth, .lap--two-tenths { width: 20%; }
+  .lap--four-tenths, .lap--two-fifths { width: 40%; }
+  .lap--six-tenths, .lap--three-fifths { width: 60%; }
+  .lap--eight-tenths, .lap--four-fifths { width: 80%; }
+  .lap--one-sixth, .lap--two-twelfths { width: 16.666%; }
+  .lap--five-sixths, .lap--ten-twelfths { width: 83.333%; }
+  .lap--one-eighth { width: 12.5%; }
+  .lap--three-eighths { width: 37.5%; }
+  .lap--five-eighths { width: 62.5%; }
+  .lap--seven-eighths { width: 87.5%; }
+  .lap--one-tenth { width: 10%; }
+  .lap--three-tenths { width: 30%; }
+  .lap--seven-tenths { width: 70%; }
+  .lap--nine-tenths { width: 90%; }
+  .lap--one-twelfth { width: 8.333%; }
+  .lap--five-twelfths { width: 41.666%; }
+  .lap--seven-twelfths { width: 58.333%; }
+  .lap--eleven-twelfths { width: 91.666%; }
+}
+
+@media only screen and (max-width: 1023px) {
+  .console, .editor, .portable--one-whole { width: 100%; }
+  .portable--five-tenths, .portable--four-eighths, .portable--one-half, .po=
+rtable--six-twelfths, .portable--three-sixths, .portable--two-quarters { wi=
+dth: 50%; }
+  .portable--four-twelfths, .portable--one-third, .portable--two-sixths { w=
+idth: 33.333%; }
+  .portable--eight-twelfths, .portable--four-sixths, .portable--two-thirds =
+{ width: 66.666%; }
+  .portable--one-quarter, .portable--three-twelfths, .portable--two-eighths=
+ { width: 25%; }
+  .portable--nine-twelfths, .portable--six-eighths, .portable--three-quarte=
+rs { width: 75%; }
+  .portable--one-fifth, .portable--two-tenths { width: 20%; }
+  .portable--four-tenths, .portable--two-fifths { width: 40%; }
+  .portable--six-tenths, .portable--three-fifths { width: 60%; }
+  .portable--eight-tenths, .portable--four-fifths { width: 80%; }
+  .portable--one-sixth, .portable--two-twelfths { width: 16.666%; }
+  .portable--five-sixths, .portable--ten-twelfths { width: 83.333%; }
+  .portable--one-eighth { width: 12.5%; }
+  .portable--three-eighths { width: 37.5%; }
+  .portable--five-eighths { width: 62.5%; }
+  .portable--seven-eighths { width: 87.5%; }
+  .portable--one-tenth { width: 10%; }
+  .portable--three-tenths { width: 30%; }
+  .portable--seven-tenths { width: 70%; }
+  .portable--nine-tenths { width: 90%; }
+  .portable--one-twelfth { width: 8.333%; }
+  .portable--five-twelfths { width: 41.666%; }
+  .portable--seven-twelfths { width: 58.333%; }
+  .portable--eleven-twelfths { width: 91.666%; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .desk--one-whole { width: 100%; }
+  .desk--five-tenths, .desk--four-eighths, .desk--one-half, .desk--six-twel=
+fths, .desk--three-sixths, .desk--two-quarters { width: 50%; }
+  .desk--four-twelfths, .desk--one-third, .desk--two-sixths { width: 33.333=
+%; }
+  .desk--eight-twelfths, .desk--four-sixths, .desk--two-thirds { width: 66.=
+666%; }
+  .desk--one-quarter, .desk--three-twelfths, .desk--two-eighths { width: 25=
+%; }
+  .desk--nine-twelfths, .desk--six-eighths, .desk--three-quarters { width: =
+75%; }
+  .desk--one-fifth, .desk--two-tenths { width: 20%; }
+  .desk--four-tenths, .desk--two-fifths { width: 40%; }
+  .desk--six-tenths, .desk--three-fifths { width: 60%; }
+  .desk--eight-tenths, .desk--four-fifths { width: 80%; }
+  .desk--one-sixth, .desk--two-twelfths { width: 16.666%; }
+  .desk--five-sixths, .desk--ten-twelfths { width: 83.333%; }
+  .desk--one-eighth { width: 12.5%; }
+  .desk--three-eighths { width: 37.5%; }
+  .desk--five-eighths { width: 62.5%; }
+  .desk--seven-eighths { width: 87.5%; }
+  .desk--one-tenth { width: 10%; }
+  .desk--three-tenths { width: 30%; }
+  .desk--seven-tenths { width: 70%; }
+  .desk--nine-tenths { width: 90%; }
+  .desk--one-twelfth { width: 8.333%; }
+  .desk--five-twelfths { width: 41.666%; }
+  .desk--seven-twelfths { width: 58.333%; }
+  .desk--eleven-twelfths { width: 91.666%; }
+}
+
+.cmd .format, .cmd .prompt div, .footer li, .terminal .terminal-output .for=
+mat, .terminal .terminal-output div span { display: inline-block; }
+
+.cmd .clipboard { position: absolute; top: 0px; left: 0px; opacity: 0.01; w=
+idth: 2px; }
+
+.terminal { padding: 10px; position: relative; overflow: hidden; }
+
+.cmd { padding: 0px; margin: 0px; height: 1.3em; }
+
+.cmd .cursor.blink { animation: 1s steps(1, start) 0s infinite normal none =
+running blink; }
+
+@-webkit-keyframes blink {=20
+  0%, 100% { background-color: rgb(17, 17, 17); color: rgb(244, 128, 32); }
+  50% { background-color: rgb(244, 128, 32); color: rgb(17, 17, 17); }
+}
+
+@keyframes blink {=20
+  0%, 100% { background-color: rgb(17, 17, 17); color: rgb(244, 128, 32); }
+  50% { background-color: rgb(244, 128, 32); color: rgb(17, 17, 17); }
+}
+
+.cmd .prompt, .terminal .terminal-output div div { display: block; line-hei=
+ght: 14px; height: auto; }
+
+.cmd .prompt, .cmd span { float: left; }
+
+.cmd, .terminal { font-family: FreeMono, monospace; color: rgb(170, 170, 17=
+0); background-color: rgb(0, 0, 0); font-size: 12px; line-height: 14px; }
+
+.terminal-output > div { min-height: 14px; word-break: break-word; overflow=
+-wrap: break-word; }
+
+.cmd .cursor.blink, .cmd .inverted, .terminal .inverted { background-color:=
+ rgb(244, 128, 32); color: rgb(17, 17, 17); }
+
+.terminal .terminal-output div.error, .terminal .terminal-output div.error =
+div { color: red; }
+
+.tilda { position: fixed; top: 0px; left: 0px; width: 100%; z-index: 1100; =
+}
+
+.clear { clear: both; }
+
+@font-face { font-family: share_tech_monoregular; src: url("../font/sharete=
+chmono-regular-webfont.daae68a7.eot?#iefix") format("embedded-opentype"), u=
+rl("../font/sharetechmono-regular-webfont.4f5fecd1.woff") format("woff"), u=
+rl("../font/sharetechmono-regular-webfont.d6a7e58b.ttf") format("truetype")=
+, url("../font/sharetechmono-regular-webfont.b418792a.svg#share_tech_monore=
+gular") format("svg"); font-weight: 400; font-style: normal; }
+
+@keyframes blink {=20
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgb(244, 128, 32); }
+}
+
+@-webkit-keyframes fadeInUp {=20
+  0% { opacity: 0; transform: translate3d(0px, 100%, 0px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@keyframes fadeInUp {=20
+  0% { opacity: 0; transform: translate3d(0px, 100%, 0px); }
+  100% { opacity: 1; transform: none; }
+}
+
+@-webkit-keyframes fadeOutDown {=20
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(0px, 100%, 0px); }
+}
+
+@keyframes fadeOutDown {=20
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(0px, 100%, 0px); }
+}
+
+@-webkit-keyframes flash {=20
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+@keyframes flash {=20
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.fadeInUp, .fadeOutDown { animation-duration: 0.3s; animation-fill-mode: bo=
+th; }
+
+.fadeOutDown { animation-name: fadeOutDown; }
+
+.fadeInUp { animation-name: fadeInUp; }
+
+.close, .grab-bg, .grab-bg-h, .resizer i.horizontal, .resizer i.vertical { =
+background-image: url("../img/sprite.png"); background-repeat: no-repeat; }
+
+.grab-bg, .resizer i.vertical { background-position: 0px 0px; width: 9px; h=
+eight: 32px; }
+
+.grab-bg-h, .resizer i.horizontal { background-position: -9px 0px; width: 3=
+2px; height: 9px; }
+
+.close { background-position: -9px -9px; width: 18px; height: 18px; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 1), not all, not all, no=
+t all, screen and (min-resolution: 1dppx) {
+  .close, .grab-bg, .grab-bg-h, .resizer i.horizontal, .resizer i.vertical =
+{ background-image: url("../img/sprite.png"); background-size: 41px 32px; }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2), not all, not all, no=
+t all, screen and (min-resolution: 2dppx) {
+  .close, .grab-bg, .grab-bg-h, .resizer i.horizontal, .resizer i.vertical =
+{ background-image: url("../img/sprite@2x.png"); background-size: 41px 32px=
+; }
+}
+
+*, ::after, ::before { box-sizing: border-box; }
+
+body, html { height: 100%; }
+
+body { background-color: rgb(43, 45, 45); color: rgb(255, 255, 255); font: =
+16px / 1.2 share_tech_monoregular, monospace; -webkit-font-smoothing: antia=
+liased; }
+
+.contact, .content { height: 100%; position: relative; }
+
+.content::after, .content::before { content: " "; display: table; }
+
+.content::after { clear: both; }
+
+.contact { height: 10%; }
+
+.contact::after, .contact::before { content: " "; display: table; }
+
+.contact::after { clear: both; }
+
+@media only screen and (min-width: 1024px) {
+  .logo { border-right: 1px solid rgb(53, 189, 184); float: left; height: 1=
+00%; position: relative; text-align: center; width: 140px; }
+  .logo img { margin-top: 25%; width: 55%; }
+}
+
+@media only screen and (max-width: 1023px) {
+  .logo img { margin-left: 3%; margin-top: 3%; height: 3%; width: 7%; }
+}
+
+.footer { position: absolute; bottom: 0px; color: rgb(153, 153, 153); left:=
+ 0px; right: 0px; height: 50px; z-index: 3; padding: 17px 0px 15px; backgro=
+und-color: rgb(61, 61, 61); font-size: 16px; }
+
+.footer ul { margin: 0px; padding: 0px 0px 0px 16px; white-space: nowrap; o=
+verflow: hidden; text-overflow: ellipsis; }
+
+.footer li { margin-right: 16px; }
+
+.footer li:last-child, .shortcuts__legend li:last-child { margin-right: 0px=
+; }
+
+.btn, .footer a { color: rgb(215, 215, 215); text-decoration: none; }
+
+.footer a:hover { color: rgb(53, 189, 184); }
+
+.console.terminal .animation { overflow: hidden; }
+
+.console.terminal .animation__frame { width: 999em; white-space: pre; displ=
+ay: none; font-size: 12px !important; line-height: 14px !important; }
+
+.console.terminal .animation__frame--visible { display: block; }
+
+.btn { background-color: rgb(239, 103, 165); color: rgb(17, 17, 17); paddin=
+g: 0px 0.1em; border: none; outline: none; font-family: inherit; font-size:=
+ inherit; cursor: pointer; }
+
+.interface { z-index: 1; overflow: hidden; background-color: rgb(17, 17, 17=
+); transition: background-color 0.15s ease 0s; position: absolute; bottom: =
+50px; right: 0px; }
+
+@media only screen and (max-width: 1023px) {
+  .interface { top: 70px; left: 0px; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .interface { top: 0px; left: 140px; }
+}
+
+.interface.editor--opened { background-color: rgb(43, 45, 45); }
+
+.interface.is-resizing { cursor: col-resize; }
+
+.interface .console { border: 2px solid transparent; }
+
+.interface .console:focus { border-color: rgb(244, 180, 0); }
+
+.interface .editor .editor__head { border-width: 2px 2px 1px; border-style:=
+ solid; border-color: transparent transparent rgb(53, 189, 184); border-ima=
+ge: initial; }
+
+.interface .editor .editor__foot { border-width: 1px 2px 2px; border-style:=
+ solid; border-color: rgb(53, 189, 184) transparent transparent; border-ima=
+ge: initial; }
+
+.interface .editor .editor__content { border-left: 2px solid transparent; b=
+order-right: 2px solid transparent; }
+
+.interface .editor:focus .editor__content, .interface .editor:focus .editor=
+__head { border-left-color: rgb(244, 180, 0); border-right-color: rgb(244, =
+180, 0); }
+
+.interface .editor:focus .editor__head { border-top-color: rgb(244, 180, 0)=
+; }
+
+.interface .editor:focus .editor__foot { border-color: rgb(53, 189, 184) rg=
+b(244, 180, 0) rgb(244, 180, 0); border-top-width: 1px; border-top-style: s=
+olid; }
+
+.console { width: 100%; height: 100%; overflow-y: auto; padding-right: 32px=
+; z-index: 2; }
+
+.console::-webkit-scrollbar-track { background-color: rgb(38, 40, 40); }
+
+.console::-webkit-scrollbar { width: 10px; background-color: rgb(91, 91, 91=
+); padding: 3px; }
+
+.console::-webkit-scrollbar-thumb { background-color: rgb(91, 91, 91); }
+
+@media only screen and (max-width: 1023px) {
+  .console { padding-right: 10px; padding-bottom: 32px; bottom: 0px; }
+}
+
+.editor--opened .console { width: 49%; }
+
+@media only screen and (max-width: 1023px) {
+  .editor--opened .console { height: 49%; width: 100% !important; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .editor--opened .console { height: 100% !important; }
+}
+
+.console, .console .cmd { background-color: rgb(43, 45, 45); transition: ba=
+ckground-color 0.15s ease 0s; }
+
+.console.active, .console.active .cmd { background-color: rgb(17, 17, 17); =
+}
+
+.question__options li { padding-left: 36px; position: relative; }
+
+.question__options li::before { content: "=E2=AC=A1"; position: absolute; l=
+eft: 6px; top: -1px; }
+
+.question__options li.option--selected::before { content: "=E2=AC=A2"; colo=
+r: rgb(0, 229, 117); }
+
+.question__options li.option--selected::after { content: "=E2=9D=AF"; posit=
+ion: absolute; left: -5px; top: 0px; }
+
+.console, .console .cmd { font-family: share_tech_monoregular, monospace; c=
+olor: rgb(255, 255, 255); }
+
+.console, .console .cmd, .console .cmd .prompt, .console.terminal .terminal=
+-output div div { font-size: 16px; line-height: 1.4; }
+
+.console.terminal .terminal-output div div { margin-bottom: 8px; }
+
+.console .terminal-output .output--prompt, .console .terminal-output .prefo=
+rmatted { white-space: pre-wrap; }
+
+.console .terminal-output .output--column:nth-child(3n+1) { padding-left: 0=
+px; }
+
+.console .terminal-output .terminal-list { display: table-row; margin: 20px=
+ 0px; }
+
+.console .terminal-output .list--padded { display: table-cell; }
+
+.console .terminal-output .list--padded:not(.preformatted) { width: 12ex; }
+
+.console .terminal-output .list--definition { display: table-cell; position=
+: relative; text-transform: lowercase; }
+
+.console .terminal-output .list--definition::before { content: "- "; positi=
+on: absolute; left: -2ex; }
+
+.output--prompt { word-break: break-all; }
+
+.console .prompt, .terminal-output .output--prompt span { color: rgb(244, 1=
+28, 32); }
+
+.console .prompt.is-disabled { pointer-events: none; display: none; }
+
+.console .cmd .cursor { background-color: rgb(244, 128, 32); color: rgb(255=
+, 255, 255); }
+
+.term-pink { color: rgb(239, 103, 165); }
+
+.console .terminal-output .list--folder, .term-blue { color: rgb(53, 189, 1=
+84); }
+
+.term-green { color: rgb(0, 229, 117); }
+
+.term-orange { color: rgb(244, 128, 32); }
+
+.term-red { color: rgb(236, 27, 82); }
+
+.term-yellow { color: rgb(244, 180, 0); }
+
+.console .prompt + span, .term-white { color: rgb(255, 255, 255); }
+
+.term-grey { color: rgb(101, 101, 101); }
+
+.term-story { border-left: 8px solid rgb(239, 103, 165); color: rgb(53, 189=
+, 184); padding: 5px 10px; margin: 12px 0px; }
+
+.editor { height: 100%; opacity: 0; overflow: hidden; padding: 0px; positio=
+n: relative; transform: translate3d(100%, 0px, 0px); transition: transform =
+0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s; width: 49%; z-index: 4; }
+
+@media only screen and (max-width: 1023px) {
+  .editor { height: 49%; transform: translate3d(0px, 100%, 0px); width: 100=
+% !important; }
+}
+
+@media only screen and (min-width: 1024px) {
+  .editor { height: 100% !important; }
+}
+
+.editor.editor--opened { opacity: 1; transform: translate3d(0px, 0px, 0px);=
+ }
+
+.editor.editor--dirty .editor__filename::after { content: "*"; }
+
+.editor.editor--dirty .editor__save:not(.editor__save--disabled) { cursor: =
+pointer; background-color: rgb(239, 103, 165); color: rgb(43, 45, 45); }
+
+.editor.active .editor__resizer { background-color: rgb(43, 45, 45); }
+
+.editor.active .editor__resizer:hover { background-color: rgb(55, 58, 58); =
+}
+
+.ace_editor { font-family: share_tech_monoregular, monospace !important; li=
+ne-height: 1.4 !important; font-size: 16px !important; }
+
+.ace_scrollbar::-webkit-scrollbar-track { background-color: rgb(38, 40, 40)=
+; }
+
+.ace_scrollbar::-webkit-scrollbar { width: 10px; background-color: rgb(91, =
+91, 91); padding: 3px; }
+
+.ace_scrollbar::-webkit-scrollbar-thumb { background-color: rgb(91, 91, 91)=
+; }
+
+.editor__content { top: 34px; bottom: 38px; left: 0px; right: 0px; position=
+: absolute !important; }
+
+.editor__content.ace-monokai, .editor__content.ace-monokai .ace_gutter, .ed=
+itor__content.ace-monokai .ace_gutter-active-line { background-color: rgb(4=
+3, 45, 45); transition: background-color 0.15s ease 0s; }
+
+.editor__content.ace_editor.ace-monokai .ace_marker-layer .ace_selection { =
+background: rgb(68, 68, 68); }
+
+.editor__content.active, .editor__content.active .ace-content { background-=
+color: rgb(17, 17, 17); }
+
+.editor__content.active .ace-content .ace_gutter, .editor__content.active .=
+ace_gutter { background-color: rgb(0, 0, 0) !important; }
+
+.editor__content.ace-monokai.active .ace_gutter-active-line { background-co=
+lor: rgb(39, 39, 39); }
+
+.editor__content.ace-monokai .ace_comment { color: rgb(134, 129, 107); }
+
+.editor.editor-prompter--active .editor__content { pointer-events: none !im=
+portant; }
+
+.editor.editor-prompter--active .editor__content .ace_cursor { display: non=
+e; }
+
+.editor__head { height: 34px; top: 0px; border-bottom: 1px solid rgb(53, 18=
+9, 184); }
+
+.editor__foot, .editor__head { position: absolute; width: 100%; background-=
+color: rgb(102, 102, 102); padding: 8px 10px; }
+
+.editor__head__meta-data { overflow: hidden; white-space: nowrap; text-over=
+flow: ellipsis; }
+
+.editor__close { float: right; cursor: pointer; border: none; outline: none=
+; background-color: transparent; margin: 0px; }
+
+.editor__save { cursor: default; background-color: transparent; color: rgb(=
+240, 240, 240); transition: background-color 0.2s ease-in-out 0s, color 0.2=
+s ease-in-out 0s; }
+
+.editor__save[disabled] { cursor: not-allowed; }
+
+.editor__foot { top: auto; bottom: 0px; border-bottom: none; border-top: 1p=
+x solid rgb(53, 189, 184); z-index: 10; height: 38px; transform: translate3=
+d(0px, 0px, 0px); transition: transform 0.2s ease-out 0s, opacity 0.2s ease=
+-out 0s; }
+
+.editor.editor-prompter--active .editor__foot { opacity: 0; transform: tran=
+slate3d(0px, 40px, 0px); }
+
+.error { position: absolute; top: 50%; left: 20%; width: 60%; height: 40%; =
+text-align: center; }
+
+.error__logo { width: 130px; height: 120px; }
+
+.error__message { margin-top: 60px; line-height: 1.6; }
+
+.error__message a { color: rgb(255, 255, 255); background-color: rgb(53, 18=
+9, 184); text-decoration: none; }
+
+.countdown-timer__holder { position: absolute; bottom: 50px; left: 0px; z-i=
+ndex: 20; }
+
+.countdown-timer .countdown-timer__time { background-color: rgb(102, 102, 1=
+02); transition: background-color 0.15s ease 0s; }
+
+.countdown-timer__text { background-color: rgb(102, 102, 102); }
+
+.countdown-timer--low .countdown-timer__text, .countdown-timer--low .countd=
+own-timer__time { background-color: rgb(236, 27, 82); }
+
+.countdown-timer--low { animation: 1s ease 0.75s 2 normal both running flas=
+h; }
+
+.countdown-timer__time { padding: 9px 8px; }
+
+.countdown-timer { display: none; width: 139px; text-align: center; positio=
+n: relative; border-top: 1px solid rgb(43, 45, 45); cursor: default; }
+
+.countdown-timer:first-child { border-top: 0px; }
+
+.countdown-timer__text { position: absolute; bottom: 0px; white-space: nowr=
+ap; padding: 9px 10px; z-index: -1; transform: translate3d(-100%, 0px, 0px)=
+; transition: transform 0.2s ease-out 0s; }
+
+.ie9 .countdown-timer__text { left: -300px; }
+
+.countdown-timer__time, .prompter { width: 100%; display: block; position: =
+relative; z-index: 2; }
+
+.countdown-timer__time:hover + .countdown-timer__text { transform: translat=
+e3d(130px, 0px, 0px); }
+
+.ie9 .countdown-timer__time:hover + .countdown-timer__text { left: 139px; }
+
+.prompter { position: absolute; bottom: 0px; opacity: 1; z-index: 20; paddi=
+ng: 20px; border-top: 1px solid rgb(53, 189, 184); background-color: rgb(10=
+2, 102, 102); color: rgb(255, 255, 255); transition: all 0.3s ease-out 0s; =
+}
+
+.prompter.is-hidden { bottom: -30px; opacity: 0; z-index: -1; }
+
+.prompter__text input { font-family: share_tech_monoregular, monospace; fon=
+t-size: 16px; line-height: 1.2; -webkit-font-smoothing: antialiased; border=
+: none; color: inherit; margin: 0px; padding: 0px; background-color: transp=
+arent; outline-style: none; box-shadow: none; }
+
+.resizer { display: none; position: relative; height: 100%; width: 2%; back=
+ground-color: rgb(17, 17, 17); transition: background-color 0.15s ease 0s; =
+cursor: col-resize; z-index: 10; }
+
+.editor--opened .resizer { display: inline-block; }
+
+.editor--is-active .resizer { background-color: rgb(43, 45, 45); }
+
+.resizer:hover { background-color: rgb(30, 30, 30); }
+
+.resizer i { position: absolute; top: 50%; left: 50%; }
+
+.resizer i.vertical { margin: -16px 0px 0px -5px; cursor: col-resize; }
+
+.resizer i.horizontal { margin: -5px 0px 0px -16px; cursor: row-resize; dis=
+play: none; }
+
+@media only screen and (max-width: 1023px) {
+  .resizer { width: 100%; height: 2%; cursor: row-resize; }
+  .resizer i.vertical { display: none; }
+  .editor--opened .resizer, .resizer i.horizontal { display: block; }
+}
+
+.shortcuts { position: absolute; bottom: 9px; right: 10px; z-index: 12; fon=
+t-size: 14px; color: rgb(240, 240, 240); }
+
+.shortcuts__legend li { display: inline-block; margin-right: 10px; }
+
+.shortcut.shortcut--control-command::before, .shortcut.shortcut--control::b=
+efore { content: "^"; }
+
+.shortcuts--mac .shortcut--control-command::before { content: "=E2=8C=98"; =
+}
+
+.support { position: absolute; top: 0px; left: 20%; width: 60%; height: 40%=
+; text-align: center; }
+
+.support__message { margin-top: 50px; line-height: 1.6; }
+
+.support__message a { color: rgb(255, 255, 255); text-decoration: underline=
+; }
+
+.cf::after, .cf::before { content: " "; display: table; }
+
+.cf::after { clear: both; }
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: font/woff
+Content-Transfer-Encoding: base64
+Content-Location: https://foobar.withgoogle.com/static/font/sharetechmono-regular-webfont.4f5fecd1.woff
+
+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
+VBEHyIxoINcfBs9TQwAAAAABU9ajvAAA
+
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH----
+Content-Type: image/svg+xml
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://foobar.withgoogle.com/static/svg/logo.733f842a.svg
+
+<svg xmlns=3D"http://www.w3.org/2000/svg" xmlns:xlink=3D"http://www.w3.org/=
+1999/xlink" width=3D"65" height=3D"60" shape-rendering=3D"crispEdges"><styl=
+e type=3D"text/css"><![CDATA[
+	.st0{fill:#EE67A4;}
+	.st1{fill:#231F20;}
+	.st2{fill:#35BEB8;}
+]]></style><symbol id=3D"logo" viewBox=3D"0 -60 65 60"><path class=3D"st0" =
+d=3D"M60-60H0V0h60z"/><path class=3D"st1" d=3D"M60-41h-5v10h5z"/><path clas=
+s=3D"st2" d=3D"M65-41h-5v10h5z"/></symbol><use xlink:href=3D"#logo" width=
+=3D"65" height=3D"60" id=3D"XMLID_14_" y=3D"-60" transform=3D"scale(1 -1)" =
+overflow=3D"visible"/></svg>
+------MultipartBoundary--AHopU7qlJzrcWGNZBQUPxhp5BGq3c0b0aGDoONwEhH------

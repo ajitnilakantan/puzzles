@@ -1,0 +1,116 @@
+foobar:~/ malatajit$ ls
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cat journal.txt 
+Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top...
+
+Commander Lambda sure is a task-master, isn't she? You're being worked to the bone!
+
+You survived a week in Commander Lambda's organization, and you even managed to get yourself promoted. Hooray! Henchmen still don't have the kind of security access you'll need to take down Commander Lambda, though, so you'd better keep working. Chop chop!
+
+The perks are definitely better as a Henchman than as a Minion. You're even allowed to sleep lying down!
+
+Rumor has it the prison guards are inexplicably fond of bananas. You're an apple person yourself, but you file the information away for future reference. You never know when you might need to bribe a guard (or three)...
+
+Awesome! Commander Lambda was so impressed by your efforts that she's made you her personal assistant. You'll be helping her directly with her work, which means you'll have access to all of her files-including the ones on the LAMBCHOP doomsday device. This is the chance you've been waiting for. Can you use your new access to finally topple Commander Lambda's evil empire?
+
+One of these days you're going to manage to glimpse Commander Lambda's password over her shoulder. But she's very careful about security, and you haven't managed it yet...
+foobar:~/ malatajit$ cat start_here.txt 
+
+Type request to request a challenge. Type help for a list of commands.
+foobar:~/ malatajit$
+
+foobar:~/ malatajit$ request
+Requesting challenge...
+Commander Lambda has six suits, three dress uniforms, four casual outfits, and one Dress-Uniform-For-Important-Speeches-Only. You know this because you've already had to take all of them to the dry cleaner's. Twice!
+New challenge "Find the Access Codes" added to your home folder.
+Time to solve: 96 hours.
+
+
+foobar:~/ malatajit$ ls
+find-the-access-codes
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cd find-the-access-codes/
+foobar:~/find-the-access-codes malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/find-the-access-codes malatajit$ cat solution.py
+def​ ​solution(l):
+​ ​​ ​​ ​​ ​#​ ​Your​ ​code​ ​here
+foobar:~/find-the-access-codes malatajit$ cat constraints.txt
+Java
+====
+Your code will be compiled using standard Java 8. All tests will be run by calling the solution() method inside the Solution class
+
+Execution time is limited.
+
+Wildcard imports and some specific classes are restricted (e.g. java.lang.ClassLoader). You will receive an error when you verify your solution if you have used a blacklisted class.
+
+Third-party libraries, input/output operations, spawning threads or processes and changes to the execution environment are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+
+Python
+======
+Your code will run inside a Python 2.7.13 sandbox. All tests will be run by calling the solution() function.
+
+Standard libraries are supported except for bz2, crypt, fcntl, mmap, pwd, pyexpat, select, signal, termios, thread, time, unicodedata, zipimport, zlib.
+
+Input/output operations are not allowed.
+
+Your solution must be under 32000 characters in length including new lines and and other non-printing characters.
+foobar:~/find-the-access-codes malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/find-the-access-codes malatajit$ cat readme.txt
+Find the Access Codes
+=====================
+
+In order to destroy Commander Lambda's LAMBCHOP doomsday device, you'll need access to it. But the only door leading to the LAMBCHOP chamber is secured with a unique lock system whose number of passcodes changes daily. Commander Lambda gets a report every day that includes the locks' access codes, but only she knows how to figure out which of several lists contains the access codes. You need to find a way to determine which list contains the access codes once you're ready to go in.
+
+Fortunately, now that you're Commander Lambda's personal assistant, she's confided to you that she made all the access codes "lucky triples" in order to help her better find them in the lists. A "lucky triple" is a tuple (x, y, z) where x divides y and y divides z, such as (1, 2, 4). With that information, you can figure out which list contains the number of access codes that matches the number of locks on the door when you're ready to go in (for example, if there's 5 passcodes, you'd need to find a list with 5 "lucky triple" access codes).
+
+Write a function solution(l) that takes a list of positive integers l and counts the number of "lucky triples" of (li, lj, lk) where the list indices meet the requirement i < j < k.  The length of l is between 2 and 2000 inclusive.  The elements of l are between 1 and 999999 inclusive.  The answer fits within a signed 32-bit integer. Some of the lists are purposely generated without any access codes to throw off spies, so if no triples are found, return 0.
+
+For example, [1, 2, 3, 4, 5, 6] has the triples: [1, 2, 4], [1, 2, 6], [1, 3, 6], making the answer 3 total.
+
+Languages
+=========
+
+To provide a Java solution, edit Solution.java
+To provide a Python solution, edit solution.py
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Java cases --
+Input:
+Solution.solution([1, 1, 1])
+Output:
+    1
+
+Input:
+Solution.solution([1, 2, 3, 4, 5, 6])
+Output:
+    3
+
+-- Python cases --
+Input:
+solution.solution([1, 2, 3, 4, 5, 6])
+Output:
+    3
+
+Input:
+solution.solution([1, 1, 1])
+Output:
+    1
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+

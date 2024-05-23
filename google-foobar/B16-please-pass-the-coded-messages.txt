@@ -1,0 +1,126 @@
+Mounting /home/malatajit...
+Welcome to foobar version 1-326-g8328491-beta (2020-06-15T15:41:26.022902)
+With one last roar of the escape pod's engines, you and your bunny companions jump to lightspeed. Congratulations! You've destroyed the LAMBCHOP, rescued the bunnies, gotten Commander Lambda off your tail, and saved the galaxy. Time for a little rest and relaxation back on Bunny Planet. Pat yourself on the back - you've earned it!
+foobar:~/ malatajit$ request
+Requesting challenge...
+New challenge "Please Pass the Coded Messages" added to your home folder.
+Time to solve: 72 hours.
+foobar:~/ malatajit$ cd please-pass-the-coded-messages/
+foobar:~/please-pass-the-coded-messages malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/please-pass-the-coded-messages malatajit$ cat readme.txt 
+Please Pass the Coded Messages
+==============================
+
+You need to pass a message to the bunny prisoners, but to avoid detection, the code you agreed to use is... obscure, to say the least. The bunnies are given food on standard-issue prison plates that are stamped with the numbers 0-9 for easier sorting, and you need to combine sets of plates to create the numbers in the code. The signal that a number is part of the code is that it is divisible by 3. You can do smaller numbers like 15 and 45 easily, but bigger numbers like 144 and 414 are a little trickier. Write a program to help yourself quickly create large numbers for use in the code, given a limited number of plates to work with.
+
+You have L, a list containing some digits (0 to 9). Write a function solution(L) which finds the largest number that can be made from some or all of these digits and is divisible by 3. If it is not possible to make such a number, return 0 as the solution. L will contain anywhere from 1 to 9 digits.  The same digit may appear multiple times in the list, but each element in the list may only be used once.
+
+Languages
+=========
+
+To provide a Java solution, edit Solution.java
+To provide a Python solution, edit solution.py
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Java cases --
+Input:
+Solution.solution({3, 1, 4, 1})
+Output:
+    4311
+
+Input:
+Solution.solution({3, 1, 4, 1, 5, 9})
+Output:
+    94311
+
+-- Python cases --
+Input:
+solution.solution([3, 1, 4, 1])
+Output:
+    4311
+
+Input:
+solution.solution([3, 1, 4, 1, 5, 9])
+Output:
+    94311
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+foobar:~/please-pass-the-coded-messages malatajit$ cat Solution.java 
+public​ ​class​ ​Solution​ ​{
+​ ​​ ​​ ​​ ​public​ ​static​ ​int​ ​solution(int[]​ ​l)​ ​{
+​ ​​ ​​ ​​ ​​ ​​ ​​ ​​ ​//​ ​Your​ ​code​ ​here
+​ ​​ ​​ ​​ ​}
+}
+foobar:~/please-pass-the-coded-messages malatajit$ cat solution.py 
+def​ ​solution(l):
+​ ​​ ​​ ​​ ​#​ ​Your​ ​code​ ​here
+
+
+foobar:~/please-pass-the-coded-messages malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/please-pass-the-coded-messages malatajit$ submit solution.py 
+Are you sure you want to submit your solution?
+[Y]es or [N]o: Y
+Submitting solution...
+Submission: SUCCESSFUL. Completed in: 1 hr, 4 mins, 43 secs.
+
+
+
+      /@                                            /@                                          /@
+     @~/@       @@                                 @~/@       @@                               @~/@       @@
+    @~~/ %     @$%@                               @~~/ %     @$%@                             @~~/ %     @$%@
+    @~(((((% %/////@                              @~(((((% %/////@                            @~(((((% %/////@
+    @((/////@~//~~@                               @((/////@~//~~@                              @((/////@~//~~@
+    @(/// @//////@                                @(/// @//////@                               @(/// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@                                 @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@                               /@$$$ @///~~/@
+    @        ////@@                               @        ////@@                              @        ////@@
+   @$   //@@@((/~ @                              @$   //@@@((/~ @                             @$   //@@@((/~ @
+  @$  //@    @  ((///@                         @$  //@    @  ((///@                         @$  //@    @  ((///@
+ @$      (@@@  ((((//%%@                       @$      (@@@  ((((//%%@                      @$      (@@@  ((((//%%@
+ @                 ((//                        @                 ((//                       @                 ((//
+   @ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//////@@     //@     @ ~        (((((((((  /%//////@@     //@
+     @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$        @~                 %  ~~~~~~~~/   /@$
+         @@/$             ~~~~~////////$               @@/$             ~~~~~////////$              @@/$             ~~~~~////////$
+           //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@               //@@@%%/~~      ~~~~~~~~~~///@
+            ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@@               ~~~          ~~~~~~~//////@$@@
+        $$$                   ~~~~((((///////@        $$$                   ~~~~((((///////@       $$$                   ~~~~((((///////@
+      $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@      $~~~~ %%%   /         ~~~~(////////(($@
+     @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@      @$$~~ @   $$/            ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                   (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                    $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $$$%%%%%%@                                  $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$%%%%%%@                            @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////        @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@@@@@                              @////@@@@@@@@@
+
+
+
+<encrypted>
+FkYfFBcCDxoHSkFWQVMGGAwVGUZAQVMCBQUYCAALFBFGSlNUSgQfFREEBwwQSk1MRhEHDAYGGRJL QU5BTQAaDhMJBR0DBgxTQUFLABcJAwwCCAwJDwBGSlNUShQCDRsCAQwQSk1MRgYACAsdGRJLQU5B TRoVCwRLTVRGDAYbSkFWQVMWAwdVShw= </encrypted>
+
+For your eyes only!
+
+Use the status command to repeat this message.
+
+You've completed all the challenges!
+If you'd like to know when more challenges are added, let us know your email address below.
+We will use your information in accordance with Google's Privacy Policy.
+[#1] Would you like to be notified when a new set of challenges are available to play?
+[Y]es [N]o: Y
+[#2] Email:ajitnilakantan@gmail.com
+Are the above details correct?
+[Y]es or [N]o: Y
+Submitting your response...
+Great! We'll let you know when a new set of challenges are ready for you.
+

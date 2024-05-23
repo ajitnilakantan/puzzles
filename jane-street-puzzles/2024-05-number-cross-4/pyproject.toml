@@ -1,0 +1,39 @@
+[project]
+name = "number-cross-4"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "ajitnilakantan", email = "ajitnilakantan@users.noreply.github.com" }
+]
+dependencies = [
+    "typing-extensions>=4.11.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/number_cross_4"]
+
+[tool.ruff]
+line-length = 150
+lint.select = [
+  "ANN",     # flake8-annotations
+  #"D",       # pydocstyle
+  "E",       # pycodestyle
+  "F",       # Pyflakes
+]
+lint.ignore = [
+  "F541",    # f-string without any placeholders
+  "ANN101",  # Missing type annotation for `self` in method
+]

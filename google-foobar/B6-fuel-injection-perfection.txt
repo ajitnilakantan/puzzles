@@ -1,0 +1,141 @@
+foobar:~/ malatajit$ request
+Requesting challenge...
+New challenge "Fuel Injection Perfection" added to your home folder.
+Time to solve: 96 hours.
+foobar:~/ malatajit$ ls
+fuel-injection-perfection
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cd fuel-injection-perfection/
+foobar:~/fuel-injection-perfection malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/fuel-injection-perfection malatajit$ cat solution.py 
+def​ ​solution(n):
+​ ​​ ​​ ​​ ​#​ ​Your​ ​code​ ​here
+foobar:~/fuel-injection-perfection malatajit$ cat Solution.java 
+public​ ​class​ ​Solution​ ​{
+​ ​​ ​​ ​​ ​public​ ​static​ ​int​ ​solution(String​ ​x)​ ​{
+​ ​​ ​​ ​​ ​​ ​​ ​​ ​​ ​//​ ​Your​ ​code​ ​here
+​ ​​ ​​ ​​ ​}
+}
+foobar:~/fuel-injection-perfection malatajit$ cat readme.txt 
+Fuel Injection Perfection
+=========================
+
+Commander Lambda has asked for your help to refine the automatic quantum antimatter fuel injection system for her LAMBCHOP doomsday device. It's a great chance for you to get a closer look at the LAMBCHOP - and maybe sneak in a bit of sabotage while you're at it - so you took the job gladly. 
+
+Quantum antimatter fuel comes in small pellets, which is convenient since the many moving parts of the LAMBCHOP each need to be fed fuel one pellet at a time. However, minions dump pellets in bulk into the fuel intake. You need to figure out the most efficient way to sort and shift the pellets down to a single pellet at a time. 
+
+The fuel control mechanisms have three operations: 
+
+1) Add one fuel pellet
+2) Remove one fuel pellet
+3) Divide the entire group of fuel pellets by 2 (due to the destructive energy released when a quantum antimatter pellet is cut in half, the safety controls will only allow this to happen if there is an even number of pellets)
+
+Write a function called solution(n) which takes a positive integer as a string and returns the minimum number of operations needed to transform the number of pellets to 1. The fuel intake control panel can only display a number up to 309 digits long, so there won't ever be more pellets than you can express in that many digits.
+
+For example:
+solution(4) returns 2: 4 -> 2 -> 1
+solution(15) returns 5: 15 -> 16 -> 8 -> 4 -> 2 -> 1
+
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit Solution.java
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Python cases --
+Input:
+solution.solution('15')
+Output:
+    5
+
+Input:
+solution.solution('4')
+Output:
+    2
+
+-- Java cases --
+Input:
+Solution.solution('4')
+Output:
+    2
+
+Input:
+Solution.solution('15')
+Output:
+    5
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+
+
+foobar:~/fuel-injection-perfection malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/fuel-injection-perfection malatajit$ submit solution.py 
+Are you sure you want to submit your solution?
+[Y]es or [N]o: Y
+Submitting solution...
+Submission: SUCCESSFUL. Completed in: 2 days, 7 mins, 58 secs.
+
+
+      /@                                            /@                                            /@
+   @~/@     @@                                   @~/@     @@                                   @~/@     @@
+  @~~/ %   @$%@                                 @~~/ %   @$%@                                 @~~/ %   @$%@
+ @~(((((%/////@                                @~(((((%/////@                                @~(((((%/////@
+ @((/////@~//~~@                               @((/////@~//~~@                               @((/////@~//~~@
+ @(/// @//////@                                @(/// @//////@                                @(/// @//////@
+  @//% @~~~/~@                                  @//% @~~~/~@                                  @//% @~~~/~@
+ /@$$$ @///~~/@                                /@$$$ @///~~/@                                /@$$$ @///~~/@
+@        ////@@                               @        ////@@                               @        ////@@
+@$   //@@@((/~ @                              @$   //@@@((/~ @                              @$   //@@@((/~ @
+  //@    @  ((///@                          @$  //@    @  ((///@                          @$  //@    @  ((///@
+     (@@@  ((((//%%@                       @$      (@@@  ((((//%%@                       @$      (@@@  ((((//%%@                       @$
+               ((//                        @                 ((//                        @                 ((//                        @
+ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//////@@     //@      @ ~        (((((((((  /%//////@@     //@
+ @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$         @~                 %  ~~~~~~~~/   /@$
+     @@/$             ~~~~~////////$               @@/$             ~~~~~////////$               @@/$             ~~~~~////////$
+       //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@                //@@@%%/~~      ~~~~~~~~~~///@
+        ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@@                ~~~          ~~~~~~~//////@$@@
+    $$$                   ~~~~((((///////@        $$$                   ~~~~((((///////@        $$$                   ~~~~((((///////@
+  $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@       $~~~~ %%%   /         ~~~~(////////(($@
+ @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@       @$$~~ @   $$/            ~~~~((((((%%%@
+ \\@@@@                   (((((((%%%%%@        \\@@@@                   (((((((%%%%%@        \\@@@@                   (((((((%%%%%@
+                          $$$$$$$$$@                                    $$$$$$$$$@                                    $$$$$$$$$@
+                        $$$%%%%%%@                                    $$$%%%%%%@                                    $$$%%%%%%@
+                      $$%%%%%%%%@                                   $$%%%%%%%%@                                   $$%%%%%%%%@
+                  @ /// $$%%%%%%@                               @ /// $$%%%%%%@                               @ /// $$%%%%%%@
+               @////       @@@@@                             @////       @@@@@                             @////       @@@@@
+               @////@@@@@@@@@                                @////@@@@@@@@@                                @////@@@@@@@@@
+              @////@                                        @////@                                        @////@
+
+
+
+<encrypted>
+FkYfFBcCDxoHSkFWQVMGGAwVGUZAQVMCBQUYCAALFBFGSlNUSgQfFREEBwwQSk1MRhEHDAYGGRJL QU5BTQAaDhMJBR0DBgxTQUFLABcJAwwCCAwJDwBGSlNUShQCDRsCAQwQSk1MRgYACAsdGRJLQU5B TRoVCwRLTVRGDAYbSkFWQVMWAwdVShw= </encrypted>
+
+For your eyes only!
+
+Use the status command to repeat this message.
+
+You've completed all the challenges!
+If you'd like to know when more challenges are added, let us know your email address below.
+We will use your information in accordance with Google's Privacy Policy.
+[#1] Would you like to be notified when a new set of challenges are avail
+able to play?
+[Y]es [N]o: Y
+[#2] Email:ajitnilakantan@gmail.com
+Are the above details correct?
+[Y]es or [N]o: Y
+Submitting your response...
+Great! We'll let you know when a new set of challenges are ready for you.
+

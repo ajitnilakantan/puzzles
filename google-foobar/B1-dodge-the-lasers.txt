@@ -1,0 +1,176 @@
+Mounting /home/malatajit...
+Welcome to foobar version 1-325-g43507c9-beta (2020-06-02T15:54:05.465024)
+With one last roar of the escape pod's engines, you and your bunny companions jump to lightspeed. Congratulations! You've destroyed the LAMBCHOP, rescued the bunnies, gotten Commander Lambda off your tail, and saved the galaxy. Time for a little rest and relaxation back on Bunny Planet. Pat yourself on the back - you've earned it!
+foobar:~/ malatajit$ ls
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cat journal.txt 
+Success! You've managed to infiltrate Commander Lambda's evil organization, and finally earned yourself an entry-level position as a Minion on her space station. From here, you just might be able to subvert her plans to use the LAMBCHOP doomsday device to destroy Bunny Planet. Problem is, Minions are the lowest of the low in the Lambda hierarchy. Better buck up and get working, or you'll never make it to the top...
+
+Commander Lambda sure is a task-master, isn't she? You're being worked to the bone!
+
+You survived a week in Commander Lambda's organization, and you even managed to get yourself promoted. Hooray! Henchmen still don't have the kind of security access you'll need to take down Commander Lambda, though, so you'd better keep working. Chop chop!
+
+The perks are definitely better as a Henchman than as a Minion. You're even allowed to sleep lying down!
+
+Rumor has it the prison guards are inexplicably fond of bananas. You're an apple person yourself, but you file the information away for future reference. You never know when you might need to bribe a guard (or three)...
+
+Awesome! Commander Lambda was so impressed by your efforts that she's made you her personal assistant. You'll be helping her directly with her work, which means you'll have access to all of her files-including the ones on the LAMBCHOP doomsday device. This is the chance you've been waiting for. Can you use your new access to finally topple Commander Lambda's evil empire?
+
+One of these days you're going to manage to glimpse Commander Lambda's password over her shoulder. But she's very careful about security, and you haven't managed it yet...
+
+Commander Lambda has six suits, three dress uniforms, four casual outfits, and one Dress-Uniform-For-Important-Speeches-Only. You know this because you've already had to take all of them to the dry cleaner's. Twice!
+
+Who the heck puts clover and coffee creamer in their tea? Commander Lambda, apparently. When you signed up to infiltrate her organization, you didn't think you'd get such an up-close and personal look at her more... unusual tastes.
+
+Excellent! You've destroyed Commander Lambda's doomsday device and saved Bunny Planet! But there's one small problem: the LAMBCHOP was a wool-y important part of her space station, and when you blew it up, you triggered a chain reaction that's tearing the station apart. Can you rescue the imprisoned bunnies and escape before the entire thing explodes?
+
+There are a lot of difficult things about being undercover as Commander Lambda's personal assistant, but you have to say, the personal spa and private hot cocoa bar are pretty awesome.
+
+It's a good thing bunnies are relatively small and light. You're pretty sure they're packing the escape pods well past the legal maximum occupancy.
+
+Oh no! You escaped Commander Lambda's exploding space station - but so did she, and she's definitely not happy with you. She's chasing you in her heavily-armed starfighter, while you and your bunny refugees are stuck in these lumbering escape pods. It'll take all your wits and cleverness to escape such a hare-y situation, so you'd better hop to it!
+
+Traveling through a nebula is a really bad idea, but with Commander Lambda hot on your tail, you don't have many options. Hopefully you can lose her once you're inside!
+
+With one last roar of the escape pod's engines, you and your bunny companions jump to lightspeed. Congratulations! You've destroyed the LAMBCHOP, rescued the bunnies, gotten Commander Lambda off your tail, and saved the galaxy. Time for a little rest and relaxation back on Bunny Planet. Pat yourself on the back - you've earned it!
+foobar:~/ malatajit$ ls
+journal.txt
+start_here.txt
+foobar:~/ malatajit$ cat start_here.txt 
+Type request to request a challenge. Type help for a list of commands.
+foobar:~/ malatajit$ request 
+Requesting challenge...
+New challenge "Dodge the Lasers!" added to your home folder.
+Time to solve: 528 hours.
+foobar:~/ malatajit$ cd dodge-the-lasers/
+foobar:~/dodge-the-lasers malatajit$ ls
+Solution.java
+constraints.txt
+readme.txt
+solution.py
+foobar:~/dodge-the-lasers malatajit$ cat readme.txt 
+Dodge the Lasers!
+=================
+
+Oh no! You've managed to escape Commander Lambdas collapsing space station in an escape pod with the rescued bunny prisoners - but Commander Lambda isnt about to let you get away that easily. She's sent her elite fighter pilot squadron after you - and they've opened fire!
+
+Fortunately, you know something important about the ships trying to shoot you down. Back when you were still Commander Lambdas assistant, she asked you to help program the aiming mechanisms for the starfighters. They undergo rigorous testing procedures, but you were still able to slip in a subtle bug. The software works as a time step simulation: if it is tracking a target that is accelerating away at 45 degrees, the software will consider the targets acceleration to be equal to the square root of 2, adding the calculated result to the targets end velocity at each timestep. However, thanks to your bug, instead of storing the result with proper precision, it will be truncated to an integer before adding the new velocity to your current position.  This means that instead of having your correct position, the targeting software will erringly report your position as sum(i=1..n, floor(i*sqrt(2))) - not far enough off to fail Commander Lambdas testing, but enough that it might just save your life.
+
+If you can quickly calculate the target of the starfighters' laser beams to know how far off they'll be, you can trick them into shooting an asteroid, releasing dust, and concealing the rest of your escape.  Write a function solution(str_n) which, given the string representation of an integer n, returns the sum of (floor(1*sqrt(2)) + floor(2*sqrt(2)) + ... + floor(n*sqrt(2))) as a string. That is, for every number i in the range 1 to n, it adds up all of the integer portions of i*sqrt(2).
+
+For example, if str_n was "5", the solution would be calculated as
+floor(1*sqrt(2)) +
+floor(2*sqrt(2)) +
+floor(3*sqrt(2)) +
+floor(4*sqrt(2)) +
+floor(5*sqrt(2))
+= 1+2+4+5+7 = 19
+so the function would return "19".
+
+str_n will be a positive integer between 1 and 10^100, inclusive. Since n can be very large (up to 101 digits!), using just sqrt(2) and a loop won't work. Sometimes, it's easier to take a step back and concentrate not on what you have in front of you, but on what you don't.
+
+Languages
+=========
+
+To provide a Java solution, edit Solution.java
+To provide a Python solution, edit solution.py
+
+Test cases
+==========
+Your code should pass the following test cases.
+Note that it may also be run against hidden test cases not shown here.
+
+-- Java cases --
+Input:
+Solution.solution('77')
+Output:
+    4208
+
+Input:
+Solution.solution('5')
+Output:
+    19
+
+-- Python cases --
+Input:
+solution.solution('77')
+Output:
+    4208
+
+Input:
+solution.solution('5')
+Output:
+    19
+
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
+
+foobar:~/dodge-the-lasers malatajit$ cat solution.py 
+def solution(s):
+    # Your code here
+
+foobar:~/dodge-the-lasers malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/dodge-the-lasers malatajit$ verify solution.py 
+Verifying solution...
+All test cases passed. Use submit solution.py to submit your solution
+foobar:~/dodge-the-lasers malatajit$ submit solution.py 
+Are you sure you want to submit your solution?
+[Y]es or [N]o: Y
+Submitting solution...
+Submission: SUCCESSFUL. Completed in: 1 day, 2 hrs, 26 mins, 9 secs.
+
+
+
+
+       /@     /@                                     /@     /@                                    /@     /@
+      @~/@    @@                                    @~/@    @@                                   @~/@    @@
+     @~~/ %  @$%@                                  @~~/ %  @$%@                                 @~~/ %  @$%@
+     @~((((%%////@                                 @~((((%%////@                                @~((((%%////@
+     @((////@~//~~@                                @((////@~//~~@                               @((////@~//~~@
+     @(// @//////@                                 @(// @//////@                                @(// @//////@
+      @//% @~~~/~@                                  @//% @~~~/~@                                 @//% @~~~/~@
+     /@$$$ @///~~/@                                /@$$$ @///~~/@                               /@$$$ @///~~/@
+    @          //@@                               @          //@@                              @          //@@
+   @      //@@@ /~ @                             @      //@@@ /~ @                            @      //@@@ /~ @
+  @$     //@   @  ///@                          @$     //@   @  ///@                         @$     //@   @  ///@
+  @$        @@@   //%%@                         @$        @@@   //%%@                        @$        @@@   //%%@
+  @                ((//                @@@@@    @                ((//                @@@@@   @                ((//                @@@@@
+   @ ~          (((((((((/@@/        //@    @@   @ ~          (((((((((/@@/        //@    @@  @ ~          (((((((((/@@/        //@    @@
+    @~              %    ~~~~~~/    /@$      ¢@@   @~              %   ~~~~~~/    /@$     ¢@@  @~             %    ~~~~~~/    /@$      ¢@@
+       @@/@@/$             ~~~~///////$       ¢@       @@/@@/$             ~~~~///////$      ¢@     @@/@@/$            ~~~~///////$       ¢@
+           //@@@%%/~~      ~~~~~~~~///@     ¢@@          //@@@%%/~~      ~~~~~~~~///@     ¢@@         //@@@%%/~~      ~~~~~~~~///@      ¢@@
+            ~~~               ~~~~~~//////@$@@             ~~~               ~~~~~~//////@$@@            ~~~              ~~~~~~//////@$@@
+      $$$                       ~~~~((((/////@      $$$                       ~~~~((((/////@    $$$                       ~~~~((((/////@
+    $~~~~ %%%   /             ~~~~(//////(($@     $~~~~ %%%   /             ~~~~(//////(($@    $~~~~ %%%   /             ~~~~(//////(($@
+    @$$~~ @   $$              ~~~~((((((%%%@      @$$~~ @   $$              ~~~~((((((%%%@     @$$~~ @   $$              ~~~~((((((%%%@
+     \\@@@@                   (((((((%%%%%@        \\@@@@                   (((((((%%%%%@       \\@@@@                   (((((((%%%%%@
+                              $$$$$$$$$@                                    $$$$$$$$$@                                   $$$$$$$$$@
+                            $$$%%%%%%@                                    $$$%%%%%%@                                   $$$%%%%%%@
+                          $$%%%%%%%%@                                   $$%%%%%%%%@                                  $$%%%%%%%%@
+                   @ ///   $$%%%%%%@                             @ ///   $$%%%%%%@                           @ ///   $$%%%%%%@
+                 @////        @@@@@                            @////        @@@@@                           @////        @@@@@
+                   @////@@@@@@@@@                                @////@@@@@@@@@                              @////@@@@@@@@@
+
+
+<encrypted>
+FkYfFBcCDxoHSkFWQVMGGAwVGUZAQVMCBQUYCAALFBFGSlNUSgQfFREEBwwQSk1MRhEHDAYGGRJL QU5BTQAaDhMJBR0DBgxTQUFLABcJAwwCCAwJDwBGSlNUShQCDRsCAQwQSk1MRgYACAsdGRJLQU5B TRoVCwRLTVRGDAYbSkFWQVMWAwdVShw= </encrypted>
+
+For your eyes only!
+
+Use the status command to repeat this message.
+
+You've completed all the challenges!
+If you'd like to know when more challenges are added, let us know your email address below.
+We will use your information in accordance with Google's Privacy Policy.
+[#1] Would you like to be notified when a new set of cha
+llenges are available to play?
+[Y]es [N]o: Y
+[#2] Email:ajitnilakantan@gmail.com
+Are the above details correct?
+[Y]es or [N]o: Y
+Submitting your response...
+Great! We'll let you know when a new set of challenges a
+re ready for you.
+foobar:~/ malatajit$

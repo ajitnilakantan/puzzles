@@ -1,31 +1,45 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;; Z3
+# Z3
 .z3-trace
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; VSCODE
+# VSCODE
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 !.vscode/*.code-snippets
-
 # Local History for Visual Studio Code
 .history/
-
 # Built Visual Studio Code Extensions
 *.vsix
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;; Backup files
+# Backup files
 *~
 *.BAK
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;; Lock files
+# poetry
 poetry.lock
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+# python generated files
+__pycache__/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# ide
+.vscode
+
+# venv
+.venv/
+venv/
+
+# rye
+requirements.lock
+requirements-dev.lock
+.python-version
 
