@@ -858,7 +858,7 @@ def main_problem() -> None:
     solution = run_solver(line_patterns, inputs)
     solution_sum = get_solution_sum(solution)
     print(f"Solution_sum = {solution_sum}")
-    assert solution_sum == 88243711283, "Example answer should be 88243711283"
+    assert solution_sum == 88243711283, f"Answer should be 88243711283, got {solution_sum}"
     # Valid solution= ['11122233444', '13332.3444.', '1331.734449', '133.100411.', '13.144.4181', '1444.444889', '74444.74888', '7714177.989', '77111779999', '.1144.79992', '444443.3992'] # noqa E501
     # run_solver() executed in 14628.041546s (4hrs)
     # Solution_sum = 88243711283
