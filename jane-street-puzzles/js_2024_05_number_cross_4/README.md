@@ -30,13 +30,3 @@ list of valid numbers (from the subpatterns above) and just check them. This gre
 
 After all this still takes ~4hrs to run. The search is easily parallelizable. Maybe that can be tried next.
 
-## RYE
-```
-rye init
-rye tools install mypy
-rye add typing-extensions
-rye sync
-
-rye lint
-rye run number-cross-4.py
-```

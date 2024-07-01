@@ -46,7 +46,10 @@ class Grid(list[list[T]], Generic[T]):
 
     @classmethod
     def fromsize(
-            cls: Type[TP], height: int, width: int, member_type: Any # noqa: ANN401
+        cls: Type[TP],
+        height: int,
+        width: int,
+        member_type: Any,  # noqa: ANN401
     ) -> TP:  # noqa: ANN401
         return cls([[member_type() for col in range(width)] for row in range(height)])
 
@@ -74,9 +77,7 @@ class SolutionData:
         # 3: (3,3) -> (1,1)
         # 4: none possible
         # Indexed by row, and then by column
-        self.row_col_tuples: Grid[list[tuple[int, ...]]] = Grid.fromsize(
-            height, width, list[tuple[int, ...]]
-        )
+        self.row_col_tuples: Grid[list[tuple[int, ...]]] = Grid.fromsize(height, width, list[tuple[int, ...]])
 
         # Map of normalized digits to list of possible n-digit values
         # self.values: DefaultDict[list[int]] = defaultdict(lambda: [])
@@ -113,18 +114,13 @@ class SolutionData:
         line_pattern = self.line_patterns[row]
         for col in range(0, self.width):
             # Create all the tuples of size 2..(width-col)
-            patterns = [
-                tuple(itertools.islice(line_pattern, col, col + w))
-                for w in range(2, self.width - col + 1)
-            ]
+            patterns = [tuple(itertools.islice(line_pattern, col, col + w)) for w in range(2, self.width - col + 1)]
             for pattern in patterns:
                 ndigits, p = SolutionData.__normalize_pattern(pattern)
                 if p not in self.row_col_tuples[row][col]:
                     self.row_col_tuples[row][col].append(p)
 
-    def get_possible_values(
-        self, row: int, col: int = -1
-    ) -> Generator[int, None, None]:
+    def get_possible_values(self, row: int, col: int = -1) -> Generator[int, None, None]:
         # Get all the numbers matching the subpatterns in a row.
         # e.g. (1,2,2) -> [100, 111,...500,511,522...988,999]
         # i.e. first digit 1-9 (leading digit is never 0), second = third digit and between 0-9
@@ -174,9 +170,7 @@ class SolutionData:
                 result = True
         return result
 
-    def generate_sequence(
-        self, row: int, max_len: int, current: str
-    ) -> Generator[str, None, None]:
+    def generate_sequence(self, row: int, max_len: int, current: str) -> Generator[str, None, None]:
         # Generate all possible numberings for a row in the grid.
         # E.g. for the example, the first row:
         # E.g. [[".343."], ["13.55"], ["13775"], [".3375"], ["7337."]]
@@ -214,18 +208,11 @@ class SolutionData:
 
 
 # Check a single line - make sure each island has a different numbering
-def validate_line(
-    row: int, width: int, solution_line: str, line_patterns: list[list[int]]
-) -> bool:
+def validate_line(row: int, width: int, solution_line: str, line_patterns: list[list[int]]) -> bool:
     # Validate each row - adjacent islands have different number assignments
     for col in range(1, width):
         prev_val, val = line_patterns[row][col - 1], line_patterns[row][col]
-        if (
-            prev_val != val
-            and prev_val != -1
-            and val != -1
-            and solution_line[col - 1] == solution_line[col]
-        ):
+        if prev_val != val and prev_val != -1 and val != -1 and solution_line[col - 1] == solution_line[col]:
             return False
     return True
 
@@ -242,12 +229,7 @@ def validate_solution(
     # Validate each row - adjacent islands have different number assignments
     for row, col in itertools.product(range(height), range(1, width)):
         prev_val, val = line_patterns[row][col - 1], line_patterns[row][col]
-        if (
-            prev_val != val
-            and prev_val != -1
-            and val != -1
-            and solution[row][col - 1] == solution[row][col]
-        ):
+        if prev_val != val and prev_val != -1 and val != -1 and solution[row][col - 1] == solution[row][col]:
             print(f"SHould not be here")
             return (False, row)
 
@@ -260,12 +242,7 @@ def validate_solution(
             return (False, row)
         # Validate each column - adjacent islands have different number assignments
         prev_val, val = line_patterns[row - 1][col], line_patterns[row][col]
-        if (
-            prev_val != val
-            and prev_val != -1
-            and val != -1
-            and solution[row - 1][col] == solution[row][col]
-        ):
+        if prev_val != val and prev_val != -1 and val != -1 and solution[row - 1][col] == solution[row][col]:
             bad_pairs.add((solution[row], solution[row - 1]))
             return (False, row)
 
@@ -321,28 +298,28 @@ def resplit_islands(grid: list[list[int]], solution: Sequence[str]) -> None:
             continue
         val = grid[row][col]
         same_color_count = 0
-        if row > 0 and grid[row-1][col] == val:
+        if row > 0 and grid[row - 1][col] == val:
             same_color_count += 1
-        if row < height-1 and grid[row+1][col] == val:
+        if row < height - 1 and grid[row + 1][col] == val:
             same_color_count += 1
-        if col > 0 and grid[row][col-1] == val:
+        if col > 0 and grid[row][col - 1] == val:
             same_color_count += 1
-        if col < width-1 and grid[row][col+1] == val:
+        if col < width - 1 and grid[row][col + 1] == val:
             same_color_count += 1
         if same_color_count >= 2:
             grid[row][col] = -1
-            if row > 0 and grid[row-1][col] == val:
+            if row > 0 and grid[row - 1][col] == val:
                 offset += 1
-                flood_fill(grid, row-1, col, offset)
-            if row < height-1 and grid[row+1][col] == val:
+                flood_fill(grid, row - 1, col, offset)
+            if row < height - 1 and grid[row + 1][col] == val:
                 offset += 1
-                flood_fill(grid, row+1, col, offset)
-            if col > 0 and grid[row][col-1] == val:
+                flood_fill(grid, row + 1, col, offset)
+            if col > 0 and grid[row][col - 1] == val:
                 offset += 1
-                flood_fill(grid, row, col-1, offset)
-            if col < width-1 and grid[row][col+1] == val:
+                flood_fill(grid, row, col - 1, offset)
+            if col < width - 1 and grid[row][col + 1] == val:
                 offset += 1
-                flood_fill(grid, row, col+1, offset)
+                flood_fill(grid, row, col + 1, offset)
 
     # Mark the shaded cells
     for row in range(height):
@@ -503,9 +480,7 @@ def get_palindromes(min: int, max: int, row: int, sd: SolutionData) -> None:
 
 
 @time_method
-def get_palindromes_plus_n(
-    min: int, max: int, n: int, row: int, sd: SolutionData
-) -> None:
+def get_palindromes_plus_n(min: int, max: int, n: int, row: int, sd: SolutionData) -> None:
     # ret = allPalindromes(min, max - 1)
     # ret = [str(x + n) for x in ret]
     # return ret
@@ -522,9 +497,7 @@ def get_palindromes_plus_n(
 
 
 @time_method
-def get_palindromes_multiple_of_n(
-    min: int, max: int, n: int, row: int, sd: SolutionData
-) -> None:
+def get_palindromes_multiple_of_n(min: int, max: int, n: int, row: int, sd: SolutionData) -> None:
     print(f">get_palindromes_multiple_of_n{n}")
     """
     palindromes = allPalindromes(min, max)
@@ -605,9 +578,7 @@ def sum_digits(n: int) -> int:
 
 
 @time_method
-def get_sum_of_digits_is(
-    min: int, max: int, width: int, n: int, row: int, sd: SolutionData
-) -> None:
+def get_sum_of_digits_is(min: int, max: int, width: int, n: int, row: int, sd: SolutionData) -> None:
     print(f">get_sum_of_digits_is{n}")
     for w in range(2, width + 1):
         for val in find_numbers_summing_to_value(w, n):
@@ -649,9 +620,7 @@ def find_numbers_summing_to_value(
         #   while the surplus is too large (because a[0] is too small) repeat the incrementing
         i0 = 1
         surplus = 0
-        while (
-            True
-        ):  # needs to be executed at least once, and repeated if the surplus became too large
+        while True:  # needs to be executed at least once, and repeated if the surplus became too large
             i = i0
             while True:  # increment a[i] by 1, which can carry to the left
                 if i == len(a):
@@ -703,9 +672,7 @@ def is_product_ending_one(n: int) -> bool:
 
 
 @time_method
-def get_product_digits_ends_in_one(
-    min: int, max: int, width: int, row: int, sd: SolutionData
-) -> None:
+def get_product_digits_ends_in_one(min: int, max: int, width: int, row: int, sd: SolutionData) -> None:
     print(f">get_product_digits_ends_in_one")
     # Only possible digits are 1, 3, 7, 9
     for v in sd.get_possible_values(row):
@@ -739,10 +706,7 @@ def get_solution_sum(solution: list[str]) -> int:
 
 @time_method
 def run_solver(line_patterns: list[list[int]], inputs: list[list[str]]) -> list[str]:
-
-    print(
-        f"inputs = {[len(x) for x in inputs]} = {math.prod([len(x) for x in inputs])} = {[len(set(x)) for x in inputs]}"
-    )
+    print(f"inputs = {[len(x) for x in inputs]} = {math.prod([len(x) for x in inputs])} = {[len(set(x)) for x in inputs]}")
     bad_pairs: set[tuple[str, str]] = set()
     total = math.prod([len(x) for x in inputs])
     counter = 0
@@ -769,7 +733,7 @@ def run_solver(line_patterns: list[list[int]], inputs: list[list[str]]) -> list[
     return []
 
 
-def test_example_provided() -> None:
+def test_example_provided() -> int:
     line_patterns = [
         [1, 2, 3, 4, 5],
         [1, 2, 3, 5, 5],
@@ -806,9 +770,10 @@ def test_example_provided() -> None:
     print(f"Solution_sum = {solution_sum}")
     assert solution_sum == 24898, "Example answer should be 24898"
     print(f"==========\n\n")
+    return solution_sum
 
 
-def main_problem() -> None:
+def main_problem() -> int:
     line_patterns = [
         [1, 1, 1, 2, 2, 2, 4, 4, 5, 5, 5],
         [1, 3, 3, 3, 2, 2, 4, 5, 5, 5, 7],
@@ -862,13 +827,18 @@ def main_problem() -> None:
     # Valid solution= ['11122233444', '13332.3444.', '1331.734449', '133.100411.', '13.144.4181', '1444.444889', '74444.74888', '7714177.989', '77111779999', '.1144.79992', '444443.3992'] # noqa E501
     # run_solver() executed in 14628.041546s (4hrs)
     # Solution_sum = 88243711283
+    return solution_sum
 
 
 def test0() -> None:
     pass
 
 
-if __name__ == "__main__":
+def main() -> None:
     # test0()
     test_example_provided()
     main_problem()
+
+
+if __name__ == "__main__":
+    main()

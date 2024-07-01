@@ -1,0 +1,51 @@
+California	39_538_223
+Michigan	10_077_331
+Massachusetts	7_029_917
+Maryland	6_177_224
+Missouri	6_154_913
+Minnesota	5_706_494
+Mississippi	2_961_279
+Maine	1_362_359	1_328_361
+Montana	1_084_225
+Utah	3_271_616
+Colorado	5_773_714
+New Mexico	2_117_522
+Arizona	7_151_502
+Texas	29_145_505
+Florida	21_538_187
+New York	20_201_249
+Pennsylvania	13_002_700
+Illinois	12_812_508
+Ohio	11_799_448
+Georgia	10_711_908
+North Carolina	10_439_388
+New Jersey	9_288_994
+Virginia	8_631_393
+Washington	7_705_281
+Tennessee	6_910_840
+Indiana	6_785_528
+Wisconsin	5_893_718
+South Carolina	5_118_425
+Alabama	5_024_279
+Louisiana	4_657_757
+Kentucky	4_505_836
+Oregon	4_237_256
+Oklahoma	3_959_353
+Connecticut	3_605_944
+Iowa	3_190_369
+Nevada	3_104_614
+Arkansas	3_011_524
+Kansas	2_937_880
+Nebraska	1_961_504
+Idaho	1_839_106
+West Virginia	1_793_716
+Hawaii	1_455_271	1_360_301
+New Hampshire	1_377_529
+Rhode Island	1_097_379
+Delaware	989_948
+South Dakota	886_667
+North Dakota	779_094
+Alaska	733_391
+District of Columbia	689_545
+Vermont	643_077
+Wyoming	576_851
