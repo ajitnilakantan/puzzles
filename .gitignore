@@ -43,3 +43,5 @@ requirements.lock
 requirements-dev.lock
 .python-version
 
+# dotnet
+obj/
