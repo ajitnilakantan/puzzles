@@ -8,29 +8,33 @@ authors = [
 dependencies = [
     "typing-extensions>=4.11.0",
     "keyboard>=0.13.5",
+    "sympy>=1.13.1",
+    "scipy>=1.10.1",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.13"
 
 [project.scripts]
 "js_2024_05_number_cross_4" = "js_2024_05_number_cross_4.__main__:main"
 "nc4" = "js_2024_05_number_cross_4.number_cross_4:main"
 "as2" = "js_2024_06_altered_states_2.__main__:main"
+"tet" = "js_2024_08_tree_edge_triage.__main__:main"
 
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.rye]
+[tool.uv]
 managed = true
 dev-dependencies = [
     "pytest>=8.2.2",
     "mypy>=1.10.0",
     "types-keyboard>=0.13.2.20240310",
+    "scipy-stubs>=1.15.1.0",
 ]
 
-#[tool.rye.workspace]
+#[tool.uv.workspace]
 #members = ["./js_*"]
 
 [tool.hatch.metadata]
@@ -51,3 +55,6 @@ lint.ignore = [
   "F541",    # f-string without any placeholders
   "ANN101",  # Missing type annotation for `self` in method
 ]
+
+[dependency-groups]
+lint = []
