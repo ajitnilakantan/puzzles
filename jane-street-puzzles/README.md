@@ -9,11 +9,12 @@ This project is managed with [uv](https://github.com/astral-sh/uv).
 Initialized with:
 ```
 uv init
-uv add --group lint ruff # Linting tool
 uv tool install mypy
 uv add typing-extensions keyboard
 uv add scipy
+uv add --dev scipy-stubs
 uv add --dev pytest types-keyboard
+uv tool install ruff
 uv sync # run after adding/removing packages
 ```
 
