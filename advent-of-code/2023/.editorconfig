@@ -1,0 +1,8 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*.fs]
+max_line_length = 140
+fsharp_max_if_then_else_short_width = 60
