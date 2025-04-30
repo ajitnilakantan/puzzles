@@ -1,28 +1,33 @@
 ## 2020 Advent of Code in Python
 
 ## Running
-- Install Poetry with pipx
+- Install uv
 
+- Initialization
 ```
-# https://github.com/pypa/pipx
-python -m pip install --user pipx
-cd [HOMEPATH]\AppData\Roaming\Python\PythonXX\Scripts
-.\pipx.exe ensurepath
+# uv python install --reinstall # To reinstall uv-managed python
+uv init # --bare no src directory
 
-# https://python-poetry.org/docs/
-pipx install poetry
-```
-
-- Type  
-```
-# Install dependencies
-poetry install --no-root
+uv add scipy
+uv add numpy
+uv add --dev mypy
+uv tool install ruff
+uv sync
 ```
 
-from each NN folder, run:
+- Running
 ```
-# cd NN
-poetry run python solutionX.py
+uv run ruff check NN/inputN.py
+uv run ruff format NN/inputN.py
+uv run python -mmypy NN/inputN.py
+uv run python NN/inputN.py
+```
+e.g.
+```
+uv run ruff check 01/input1.py
+uv run ruff format 01/input1.py
+uv run python -mmypy 01/input1.py
+uv run python 01/input1.py
 ```
 
 
