@@ -12,7 +12,12 @@ indoc = "1.0"
 itertools = "0.9.0"
 ndarray = "0.13.0"
 keyed_priority_queue = "0.4.1"
-z3 = {version="0.11.2", features = ["static-link-z3"]}
+
+[target.'cfg(target_os = "macos")'.dependencies]
+z3 = { version = "0.12" }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+z3 = { version = "0.12", features = ["static-link-z3"] }
 
 #[alias]
 #t = "test -- --nocapture --color always"

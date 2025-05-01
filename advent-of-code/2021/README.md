@@ -1,4 +1,15 @@
 ## Running
+
+Install z3 with 
+```
+brew install z3
+# export Z3_SYS_Z3_HEADER=/opt/homebrew/include/z3.h
+# export LIBRARY_PATH="/opt/homebrew/lib:$LIBRARY_PATH"
+# .cargo/config.toml contains env variables Z3_SYS_Z3_HEADER and LIBRARY_PATH
+cargo build
+```
+
+
 type  
 `cargo run --bin dayNN`  
 e.g.  

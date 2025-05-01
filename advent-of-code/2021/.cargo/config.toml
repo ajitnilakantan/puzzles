@@ -1,0 +1,4 @@
+[env]
+Z3_SYS_Z3_HEADER = { value = "/opt/homebrew/include/z3.h", force = true }
+LIBRARY_PATH = { value = "/opt/homebrew/lib:$LIBRARY_PATH", force = true }
+
