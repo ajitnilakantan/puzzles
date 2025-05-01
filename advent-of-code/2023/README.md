@@ -26,9 +26,9 @@ Microsoft (R) F# Interactive version 12.9.100.0 for F# 9.0
 ## Run project:
 
 Type:  
- `dotnet run --project .\src\main\main.fsproj daynn`  
+ `dotnet run --project ./src/main/main.fsproj daynn`  
 E.g.  
- `dotnet run --project .\src\main\main.fsproj day01`
+ `dotnet run --project ./src/main/main.fsproj day01`
 
 Run tests:  
  `dotnet test [--logger:"console;verbosity=detailed"] --filter "aoc2023.dayxx"`  

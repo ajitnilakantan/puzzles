@@ -10,9 +10,9 @@ go mod init aoc/ajitn/2022
 
 ## Running
 type  
-`go run .\cmd\aoc\main.go  DayNN [-verbose]`  
+`go run ./cmd/aoc/main.go  DayNN [-verbose]`  
 e.g.  
-`go run .\cmd\aoc\main.go  Day01`  
+`go run ./cmd/aoc/main.go  Day01`  
 
 
 reformat code
