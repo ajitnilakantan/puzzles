@@ -124,7 +124,7 @@ Sorry to say, finding an efficient solution to part 2 took ~2 weeks.
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround
 
-- "if let" like in Rust would be a useful addition
+- "if let" like in Rust would be a useful addition https://github.com/fsharp/fslang-suggestions/issues/705
 
 - Default int size is 32 bits. Nice to have variable size like Python, or at least 64bits
 
