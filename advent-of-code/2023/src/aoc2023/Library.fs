@@ -9,10 +9,10 @@ module fileio =
     open System.Text.RegularExpressions
     let linebreakRegex = Regex(@"\r\n?|\n", RegexOptions.Compiled)
 
-    let public linesFromString (str: string) =
+    let public linesFromString (str: string) : string list =
         linebreakRegex.Split(str) |> Array.toList
 
-    let public linesFromFile (filePath: string) =
+    let public linesFromFile (filePath: string) : string list =
         System.IO.File.ReadAllLines(System.IO.Path.Join(__SOURCE_DIRECTORY__, filePath))
         |> Array.toList
 
@@ -23,6 +23,39 @@ module fileio =
 
         let seps: char array = seps |> Seq.toArray
         data.Split(seps, splitopts) |> Array.toList
+
+    // Break list of strings (lines) into a list of list of strings
+    // broken at empty lines
+    let public chunkLines (lines: string list) : List<string list> =
+        let mutable result = []
+        let mutable chunk = []
+        for line in lines do
+            if line = "" then
+                if chunk.Length > 0 then
+                    result <- result @ [chunk]
+                chunk <- []
+            else
+                chunk <- chunk @ [line]
+        if chunk.Length > 0 then
+            result <- result @ [chunk]
+
+        result
+
+module fileiotest =
+    [<Fact>]
+    let ``test fileio`` () =
+        let data = "abc\ndef\n\nxyz\n\n\n123"
+        let lines = data |> fileio.linesFromString
+        let chunks = lines |> fileio.chunkLines
+        Assert.Equivalent ([ "abc"; "def"; "xyz"; ""; "123" ], lines)
+        Assert.Equivalent ([ ["abc"; "def"]; ["xyz"]; ["123"] ], chunks)
+        // Ignore trailing newline
+        let data = data + "\n"
+        let lines = data |> fileio.linesFromString
+        let chunks = lines |> fileio.chunkLines
+        Assert.Equivalent ([ "abc"; "def"; "xyz"; ""; "123"; ], lines)
+        Assert.Equivalent ([ ["abc"; "def"]; ["xyz"]; ["123"] ], chunks)
+        
 
 module debug =
     let enable_highlight = true 
@@ -86,6 +119,33 @@ module gridio =
     let enumerate_neighbours (y,x) window_size  =
         assert(window_size > 0)
         enumerate_coordinates  (y - window_size) (y + window_size) (x - window_size) (x + window_size) |> Seq.filter (fun x -> x <> (0,0))
+
+module gridiotest =
+    [<Fact>]
+    let ``test grid`` () =
+        let data = "123\n456\n789"
+        let data = fileio.linesFromString data
+        let grid = gridio.read_grid data false '.'
+        let width, height = grid.GetLength(1), grid.GetLength(0)
+        Assert.Equal (3, width)
+        Assert.Equal (3, height)
+        let expected = [['1';'2';'3']; ['4';'5';'6']; ['7'; '8'; '9']]
+        for index in 0..height-1 do
+            let row = grid.[index, *]
+            Assert.Equal(expected[index], row)
+        let expected = [['1';'4';'7']; ['2';'5';'8']; ['3'; '6'; '9']]
+        for index in 0..width-1 do
+            let col = grid.[*, index]
+            Assert.Equal(expected[index], col)
+
+        let grid = gridio.read_grid data true '.'
+        let expected = [['.'; '.';'.';'.'; '.'];['.'; '1';'2';'3'; '.']; ['.'; '4';'5';'6'; '.']; ['.'; '7'; '8'; '9'; '.']; ['.'; '.';'.';'.'; '.']]
+        let width, height = grid.GetLength(1), grid.GetLength(0)
+        Assert.Equal (5, width)
+        Assert.Equal (5, height)
+        for index in 0..height-1 do
+            let row = grid.[index, *]
+            Assert.Equal(expected[index], row)
 
 module math =
     let rec gcd<'T when 'T :> System.Numerics.INumber<'T> and 'T: equality> (a: 'T) (b: 'T) : 'T =

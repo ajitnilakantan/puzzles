@@ -188,7 +188,7 @@ let count_all_matches (pattern: string) (damaged: int list) (check_tail: bool) :
         try
             get_base_case pattern damaged damaged_values
         with
-            | _ -> [||]
+            | Failure(_) -> [||]
     if base_case.Length = 0 then
         0L, cache
     else
