@@ -34,19 +34,19 @@ let manacher (line: int list) : int list =
             l <- i - pos[i]
             r <- i + pos[i]
 
-    // List<pos, size>
+    // let max_pos = ret |> Array.indexed |> Array.maxBy snd |> fst
+    // Return a tuple (pos, size)
+    // If "size" is even, then the mispoint of the palindrome is between "pos-1" and "pos"
+    // If "size" is odd, the oddsized palindrome is centred at "pos"
+    // if max_pos % 2 = 1 then
+    //    // Max vlaue at position ((max_pos - 1) / 2) of length ret[max_pos]-1
+    //    ((max_pos - 1) / 2), ret[max_pos] - 1
+    // else
+    //    // Max value just before position (max_pos / 2) of length ret[max_pos]-1
+    //    (max_pos / 2), ret[max_pos] - 1
+
     let ret = pos[1..len] |> List.ofArray
     ret
-// let max_pos = ret |> Array.indexed |> Array.maxBy snd |> fst
-// Return a tuple (pos, size)
-// If "size" is even, then the mispoint of the palindrome is between "pos-1" and "pos"
-// If "size" is odd, the oddsized palindrome is centred at "pos"
-// if max_pos % 2 = 1 then
-//    // Max vlaue at position ((max_pos - 1) / 2) of length ret[max_pos]-1
-//    ((max_pos - 1) / 2), ret[max_pos] - 1
-// else
-//    // Max value just before position (max_pos / 2) of length ret[max_pos]-1
-//    (max_pos / 2), ret[max_pos] - 1
 
 
 let find_reflection (line: int list) : Option<int * int> =
@@ -54,28 +54,47 @@ let find_reflection (line: int list) : Option<int * int> =
     let is_reflection (pos: int, size: int) (len: int) : bool =
         assert (pos % 2 = 0) // Even sized palindrome
 
-        if pos/2 + size / 2 = len || pos/2 - size / 2 = 0 then
+        if pos / 2 + size / 2 = len || pos / 2 - size / 2 = 0 then
             true
         else
             false
 
     let line_len = line.Length
-    debug.printfn "line(%A) = %A" line_len line
+    let palindromes = manacher line
+
     // Find the largest even pattern that touches an edge
     let sorted_line =
-        line
+        palindromes
         |> List.indexed
-        |> List.sortBy snd
-        |> List.filter (fun x -> fst x % 2 = 0)
-    debug.printfn " sorted_line = %A" sorted_line
+        |> List.sortByDescending snd
+        |> List.filter (fun x -> fst x % 2 = 0 && snd x > 1)
 
     let pos =
         sorted_line
         |> List.tryFind (fun x -> is_reflection x line_len)
 
-    debug.printfn " pos = %A" pos
     // Option<pos, size>
     pos
+
+let find_reflection2 (line: int list) (other_line: int list) ((pos, size): int * int) : Option<int * int> =
+    debug.printfn "find_reflection2 %A pos=%A size=%A" line pos size
+    let other_line_len = other_line.Length
+    assert (pos % 2 = 0) // Must be on even to be between two grid points
+    assert (size % 2 = 1) // Must be odd
+
+    assert
+        (pos / 2 + size / 2 = other_line_len || pos / 2 - size / 2 = 0)
+
+    let line_len = line.Length
+    let range_from, range_to =
+        if pos / 2 - size / 2 = 0 then
+            0, pos / 2
+        else
+            pos / 2, line_len - 1
+
+    debug.printfn "range = %A %A" range_from range_to
+
+    None
 
 let manacher_string (line: string) : int * int =
     let m = manacher (line |> Seq.map int |> Seq.toList)
@@ -122,7 +141,7 @@ let SolvePart1 data =
     let mutable solution = 0
     let chunks = data |> fileio.chunkLines
 
-    for index, chunk in chunks |> List.indexed do
+    for chunk in chunks do
         let rows, cols = parse_chunk chunk
 
         let row_reflection = find_reflection rows
@@ -131,13 +150,13 @@ let SolvePart1 data =
         solution <-
             solution
             + match col_reflection with
-              | Some (_, n) -> n
+              | Some (n, _) -> n / 2
               | _ -> 0
 
         solution <-
             solution
             + match row_reflection with
-              | Some (_, n) -> n * 100
+              | Some (n, _) -> n / 2 * 100
               | _ -> 0
 
     solution
@@ -155,7 +174,7 @@ let public Solve () =
     printfn "Part1 = %A" solution
     stopWatch.Stop()
     printfn "Elapsed time %ims" stopWatch.ElapsedMilliseconds
-    assert (0 = solution) // 57124 too high
+    assert (32723 = solution)
 
     let stopWatch = System.Diagnostics.Stopwatch.StartNew()
     let solution = SolvePart2 data
@@ -203,7 +222,6 @@ type Tests() =
         for line, (expected_pos, expected_size) in test_data do
             let pos, size = manacher_string line
             Assert.Equal((expected_pos, expected_size), (pos, size))
-        //debug.printfn "line=%A pos=%A size=%A" line pos size
 
         let res =
             ".#.##"
@@ -225,6 +243,40 @@ type Tests() =
         Assert.Equal(11, res)
 
     [<Fact>]
+    let ``Test Reflection`` () =
+        // Convert int list to list of zero padded binary strings
+        //let toBinary (x: int list) (width: int) =
+        //    x
+        //    |> List.map (fun x -> Convert.ToString(x, 2).PadLeft(width, '0'))
+
+        let lines = fileio.linesFromString data
+        let chunks = lines |> fileio.chunkLines
+
+        Assert.Equal(2, chunks.Length)
+
+
+        let chunk = chunks[0]
+        let rows, cols = parse_chunk chunk
+        Assert.Equivalent([ 358; 90; 385; 385; 90; 102; 346 ], rows)
+        Assert.Equivalent([ 89; 24; 103; 66; 37; 37; 66; 103; 24 ], cols)
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        Assert.Equal(None, row_reflection)
+        Assert.Equal(Some(10, 9), col_reflection)
+
+        let chunk = chunks[1]
+        let rows, cols = parse_chunk chunk
+        Assert.Equivalent([ 281; 265; 103; 502; 502; 103; 265 ], rows)
+        Assert.Equivalent([ 109; 12; 30; 30; 76; 97; 30; 30; 115 ], cols)
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        Assert.Equal(Some(8, 7), row_reflection)
+        Assert.Equal(None, col_reflection)
+
+
+    [<Fact>]
     let ``Test Part1`` () =
         // Convert int list to list of zero padded binary strings
         //let toBinary (x: int list) (width: int) =
@@ -236,7 +288,7 @@ type Tests() =
 
         let mutable sum = 0
 
-        for index, chunk in chunks |> List.indexed do
+        for chunk in chunks do
             let rows, cols = parse_chunk chunk
 
             let row_reflection = find_reflection rows
@@ -245,13 +297,52 @@ type Tests() =
             sum <-
                 sum
                 + match col_reflection with
-                  | Some (_, n) -> n
+                  | Some (n, _) -> n / 2
                   | _ -> 0
 
             sum <-
                 sum
                 + match row_reflection with
-                  | Some (_, n) -> n * 100
+                  | Some (n, _) -> n / 2 * 100
                   | _ -> 0
 
         Assert.Equal(405, sum)
+
+    [<Fact>]
+    let ``Test Part2`` () =
+        // Convert int list to list of zero padded binary strings
+        //let toBinary (x: int list) (width: int) =
+        //    x
+        //    |> List.map (fun x -> Convert.ToString(x, 2).PadLeft(width, '0'))
+
+        let lines = fileio.linesFromString data
+        let chunks = lines |> fileio.chunkLines
+
+        let mutable sum = 0
+
+        Assert.Equal(2, chunks.Length)
+
+        let chunk = chunks[0]
+        let rows, cols = parse_chunk chunk
+        Assert.Equivalent([ 358; 90; 385; 385; 90; 102; 346 ], rows)
+        Assert.Equivalent([ 89; 24; 103; 66; 37; 37; 66; 103; 24 ], cols)
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        Assert.Equal(None, row_reflection)
+        Assert.Equal(Some(10, 9), col_reflection)
+        find_reflection2 rows cols col_reflection.Value |> ignore
+
+        let chunk = chunks[1]
+        let rows, cols = parse_chunk chunk
+        Assert.Equivalent([ 281; 265; 103; 502; 502; 103; 265 ], rows)
+        Assert.Equivalent([ 109; 12; 30; 30; 76; 97; 30; 30; 115 ], cols)
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        Assert.Equal(Some(8, 7), row_reflection)
+        Assert.Equal(None, col_reflection)
+
+        find_reflection2 cols rows row_reflection.Value |> ignore
+
+        // Assert.Equal(405, sum)
