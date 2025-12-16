@@ -8,14 +8,15 @@ type internal Marker =
 
 // Manacher's Algorithm - Finding all sub-palindromes in O(N)
 // The version dealing with odd length lines is simpler
-let manacher (line: int list) : int list =
+let manacher (line: int seq) : int list =
     // Insert dummy value between each element.  1;2;3 -> x;1;x;2;x;3;x
-    let sentinel3 = List.max line + 3
+    let sentinel3 = Seq.max line + 3
 
     let line =
         [ sentinel3 ]
         @ (line
-           |> List.collect (fun x -> [ x ] @ [ sentinel3 ]))
+           |> Seq.collect (fun x -> [ x ] @ [ sentinel3 ])
+           |> Seq.toList)
     // Process the "padded" list
     let len = line.Length
     let sentinel1 = List.max line + 1
@@ -49,7 +50,8 @@ let manacher (line: int list) : int list =
     ret
 
 
-let find_reflection (line: int list) : Option<int * int> =
+// Return postion,size of reflection.
+let find_reflection (line: int seq) : list<int * int> =
     // Need to have full reflections -- should extend fully to at least one side.
     let is_reflection (pos: int, size: int) (len: int) : bool =
         assert (pos % 2 = 0) // Even sized palindrome
@@ -59,7 +61,7 @@ let find_reflection (line: int list) : Option<int * int> =
         else
             false
 
-    let line_len = line.Length
+    let line_len = line |> Seq.length
     let palindromes = manacher line
 
     // Find the largest even pattern that touches an edge
@@ -71,30 +73,72 @@ let find_reflection (line: int list) : Option<int * int> =
 
     let pos =
         sorted_line
-        |> List.tryFind (fun x -> is_reflection x line_len)
+        |> List.filter (fun x -> is_reflection x line_len)
 
-    // Option<pos, size>
+    // [(pos, size)]
     pos
 
-let find_reflection2 (line: int list) (other_line: int list) ((pos, size): int * int) : Option<int * int> =
-    debug.printfn "find_reflection2 %A pos=%A size=%A" line pos size
-    let other_line_len = other_line.Length
-    assert (pos % 2 = 0) // Must be on even to be between two grid points
-    assert (size % 2 = 1) // Must be odd
+// product a b |> Seq.iter (fun x -> printf "%A " x);;
+let product xl yl =
+    seq {
+        for x in xl do
+            for y in yl do
+                yield x, y
+    }
+
+let toggle_and_find_reflections
+    (width: int)
+    (height: int)
+    (rows: int array)
+    (cols: int array)
+    (row_index: int)
+    (col_index: int)
+    : list<int * int> * list<int * int> =
+
+    // Toggle "smudge" in row and col
+    let rtmp, ctmp = rows[row_index], cols[col_index]
+
+    rows[row_index] <- rows[row_index]
+                       ^^^ (1 <<< (width - 1 - col_index))
+
+    cols[col_index] <- cols[col_index]
+                       ^^^ (1 <<< (height - 1 - row_index))
+
+    let ret = find_reflection rows, find_reflection cols
+    rows[row_index] <- rtmp
+    cols[col_index] <- ctmp
+    ret
+
+let find_reflection2
+    (width: int)
+    (height: int)
+    (rows: int seq)
+    (cols: int seq)
+    (original_row_reflection: Option<int * int>)
+    (original_col_reflection: Option<int * int>)
+    : Option<int * int> * Option<int * int> =
+    let row_reflection = find_reflection rows
+    let col_reflection = find_reflection cols
+    let rows = rows |> Seq.toArray
+    let cols = cols |> Seq.toArray
 
     assert
-        (pos / 2 + size / 2 = other_line_len || pos / 2 - size / 2 = 0)
+        (original_row_reflection <> None
+         || original_col_reflection <> None)
 
-    let line_len = line.Length
-    let range_from, range_to =
-        if pos / 2 - size / 2 = 0 then
-            0, pos / 2
-        else
-            pos / 2, line_len - 1
+    let found =
+        product [ 0 .. height - 1 ] [
+            0 .. width - 1
+        ]
+        |> Seq.pick (fun (row_index, col_index) ->
+            // Find first set of reflections that is different
+            let r_ref, c_ref =
+                toggle_and_find_reflections width height rows cols row_index col_index
+            let f = r_ref |> Seq.tryFind(fun x -> Some x <> original_row_reflection), c_ref |> Seq.tryFind(fun x -> Some x <> original_col_reflection)
+            if f = (None, None) then None else Some f)
+            
+    found
 
-    debug.printfn "range = %A %A" range_from range_to
-
-    None
 
 let manacher_string (line: string) : int * int =
     let m = manacher (line |> Seq.map int |> Seq.toList)
@@ -103,7 +147,7 @@ let manacher_string (line: string) : int * int =
     // If "size" is even, then the mispoint of the palindrome is between "pos-1" and "pos"
     // If "size" is odd, the oddsized palindrome is centred at "pos"
     if max_pos % 2 = 1 then
-        // Max vlaue at position ((max_pos - 1) / 2) of length ret[max_pos]-1
+        // Max value at position ((max_pos - 1) / 2) of length ret[max_pos]-1
         (max_pos - 1) / 2, m[max_pos] - 1
     else
         // Max value just before position (max_pos / 2) of length ret[max_pos]-1
@@ -150,19 +194,40 @@ let SolvePart1 data =
         solution <-
             solution
             + match col_reflection with
-              | Some (n, _) -> n / 2
+              | [(n, _)] -> n / 2
               | _ -> 0
 
         solution <-
             solution
             + match row_reflection with
-              | Some (n, _) -> n / 2 * 100
+              | [(n, _)] -> n / 2 * 100
               | _ -> 0
 
     solution
 
 let SolvePart2 data =
-    let solution = 0
+    let mutable solution = 0
+    let chunks = data |> fileio.chunkLines
+
+    for chunk in chunks do
+        let rows, cols = parse_chunk chunk
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
+
+        let ret = find_reflection2 cols.Length rows.Length rows cols row_reflection col_reflection
+
+        solution <-
+            solution
+            + match ret with
+              | None, None -> 0
+              | Some (r, _), Some (c, _) -> r / 2 * 100 + c / 2
+              | Some (r, _), None -> r / 2 * 100
+              | None, Some (c, _) -> c / 2
+
     solution
 
 let public Solve () =
@@ -181,7 +246,7 @@ let public Solve () =
     printfn "Part2 = %A" solution
     stopWatch.Stop()
     printfn "Elapsed time %ims" stopWatch.ElapsedMilliseconds
-    assert (0 = solution)
+    assert (34536 = solution)
 
 // #################################### //
 open Xunit
@@ -262,6 +327,9 @@ type Tests() =
 
         let row_reflection = find_reflection rows
         let col_reflection = find_reflection cols
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
         Assert.Equal(None, row_reflection)
         Assert.Equal(Some(10, 9), col_reflection)
 
@@ -272,6 +340,9 @@ type Tests() =
 
         let row_reflection = find_reflection rows
         let col_reflection = find_reflection cols
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
         Assert.Equal(Some(8, 7), row_reflection)
         Assert.Equal(None, col_reflection)
 
@@ -293,6 +364,10 @@ type Tests() =
 
             let row_reflection = find_reflection rows
             let col_reflection = find_reflection cols
+            // In Part1 there is at most 1 reflection
+            assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+            let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+            let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
 
             sum <-
                 sum
@@ -322,6 +397,8 @@ type Tests() =
 
         Assert.Equal(2, chunks.Length)
 
+        let mutable sum = 0
+
         let chunk = chunks[0]
         let rows, cols = parse_chunk chunk
         Assert.Equivalent([ 358; 90; 385; 385; 90; 102; 346 ], rows)
@@ -329,9 +406,23 @@ type Tests() =
 
         let row_reflection = find_reflection rows
         let col_reflection = find_reflection cols
+        // In Part1 there is at most 1 reflection
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
         Assert.Equal(None, row_reflection)
         Assert.Equal(Some(10, 9), col_reflection)
-        find_reflection2 rows cols col_reflection.Value |> ignore
+
+        let ret =
+            find_reflection2 cols.Length rows.Length rows cols row_reflection col_reflection
+
+        sum <-
+            sum
+            + match ret with
+              | None, None -> 0
+              | Some (r, _), Some (c, _) -> r / 2 * 100 + c / 2
+              | Some (r, _), None -> r / 2 * 100
+              | None, Some (c, _) -> c / 2
 
         let chunk = chunks[1]
         let rows, cols = parse_chunk chunk
@@ -340,9 +431,63 @@ type Tests() =
 
         let row_reflection = find_reflection rows
         let col_reflection = find_reflection cols
+        // In Part1 there is at most 1 reflection
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
         Assert.Equal(Some(8, 7), row_reflection)
         Assert.Equal(None, col_reflection)
 
-        find_reflection2 cols rows row_reflection.Value |> ignore
+        let ret =
+            find_reflection2 cols.Length rows.Length rows cols row_reflection col_reflection
 
-        // Assert.Equal(405, sum)
+        sum <-
+            sum
+            + match ret with
+              | None, None -> 0
+              | Some (r, _), Some (c, _) -> r / 2 * 100 + c / 2
+              | Some (r, _), None -> r / 2 * 100
+              | None, Some (c, _) -> c / 2
+
+        Assert.Equal(400, sum)
+
+    [<Fact>]
+    let ``Test Part3`` () =
+        let data =
+            ".##..##.#.#.#.#..\n\
+             ...##........####\n\
+             #.####.#.##.##...\n\
+             ........#.#######\n\
+             ###..###...####..\n\
+             #..##..#.##......\n\
+             ........##.#..#..\n\
+             #.#..#.####....##\n\
+             #..##..#.##.#...#\n\
+             #......#.#.###.##\n\
+             ...##...#.##..###\n\
+             ##.##.##..#......\n\
+             ..####..##.#.##..\n\
+             ..#..#....###.###\n\
+             ..####....###..##\n\
+             ###..###.###.....\n\
+             ........#####.#.."
+
+        let lines = fileio.linesFromString data
+        let chunks = lines |> fileio.chunkLines
+
+        let mutable sum = 0
+
+        let chunk = chunks[0]
+        let rows, cols = parse_chunk chunk
+
+        let row_reflection = find_reflection rows
+        let col_reflection = find_reflection cols
+        // In Part1 there is at most 1 reflection
+        assert (row_reflection.Length <= 1 && col_reflection.Length <= 1)
+        let row_reflection = if row_reflection.Length = 0 then None else Some row_reflection[0]
+        let col_reflection = if col_reflection.Length = 0 then None else Some col_reflection[0]
+
+        let ret =
+            find_reflection2 cols.Length rows.Length rows cols row_reflection col_reflection
+
+        ()

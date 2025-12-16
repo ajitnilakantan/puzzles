@@ -28,15 +28,17 @@ Microsoft (R) F# Interactive version 12.9.100.0 for F# 9.0
 Type:  
  `dotnet run --project ./src/main/main.fsproj daynn`  
 E.g.  
- `dotnet run --project ./src/main/main.fsproj day01`
+ `dotnet run --project ./src/main/main.fsproj day01`  
 
 Run tests:  
  `dotnet test [--logger:"console;verbosity=detailed"] --filter "aoc2023.dayxx"`  
 E.g.  
- `dotnet test --logger:"console;verbosity=detailed" --filter "aoc2023.day01"`
+ `dotnet test --logger:"console;verbosity=detailed" --filter "aoc2023.day01"`  
+Run a single test:  
+ `dotnet test --logger:"console" --filter "aoc2023.day13+Tests.Test Part2"`  
 
 Interactive REPL:  
- `dotnet fsi --strict-indentation-`
+ `dotnet fsi --strict-indentation-`  
 
 ## Notes
 
