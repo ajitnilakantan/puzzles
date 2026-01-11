@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- Add FSAC0004 (or 0004) to the list of suppressed warnings -->
+    <NoWarn>$(NoWarn);FSAC0004</NoWarn>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Library.fs" />
@@ -19,6 +22,10 @@
     <Compile Include="day11.fs" />
     <Compile Include="day12.fs" />
     <Compile Include="day13.fs" />
+    <Compile Include="day14.fs" />
+    <Compile Include="day15.fs" />
+    <Compile Include="day16.fs" />
+    <Compile Include="day17.fs" />
   </ItemGroup>
   <!-- ItemGroup>
     <None Include="day*.txt">

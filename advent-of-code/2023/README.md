@@ -28,17 +28,17 @@ Microsoft (R) F# Interactive version 12.9.100.0 for F# 9.0
 Type:  
  `dotnet run --project ./src/main/main.fsproj daynn`  
 E.g.  
- `dotnet run --project ./src/main/main.fsproj day01`  
+ `dotnet run --project ./src/main/main.fsproj day01`
 
 Run tests:  
  `dotnet test [--logger:"console;verbosity=detailed"] --filter "aoc2023.dayxx"`  
 E.g.  
  `dotnet test --logger:"console;verbosity=detailed" --filter "aoc2023.day01"`  
 Run a single test:  
- `dotnet test --logger:"console" --filter "aoc2023.day13+Tests.Test Part2"`  
+ `dotnet test --logger:"console" --filter "aoc2023.day13+Tests.Test Part2"`
 
 Interactive REPL:  
- `dotnet fsi --strict-indentation-`  
+ `dotnet fsi --strict-indentation-`
 
 ## Notes
 
@@ -122,6 +122,33 @@ For part 2 - keep track of when each "ghost" hits a goal position. The take the 
 The naive solution of placing one tile at a time is too slow for part 2. Instead place 1/5 of the tiles (i.e. the original problem) and keep track of the end position. Recursively place 1/5 at each end position and accumulate the count. This effectively creates a tree of all possible run-lengths (of depth 5). Use a DFS to find all paths and find the sum of products.
 Sorry to say, finding an efficient solution to part 2 took ~2 weeks.
 
+#### Day14
+
+Rotating the whole grid and reprocessing for every rotation is too slow.
+Instead calculate the "runs" of "O"s under each # (or very top). Before each rotation re-calculate based on 4 preprocessed grids (for each direction) matching each grid location with the # (or very "top") that it is under.
+
+Eventually the board confuration cycles so we can stop early.
+
+Wasted a lot of time because I assumed the "load" was based on a North orientation, so was adding a quarter counterclockwise turn from E->N at the end of the final cycle.
+
+Found out you cannot yield inside a functional .Iter() expression. Instead have to use an imperative for loop.
+
+#### Day16
+
+Use a modified flood fill algorithm to cover grid with "directions" of motion. For part 2, do not repeat the flood fill if the starting point has already been visited.
+
+#### Day17
+
+F# doesn't really have interfaces/traits. Use currying to pass in the domain specific data.
+Use A\*. A\*'s get_neighbours function normally only takes in a node, and does not depend on any history.
+However, in this case, we need to pass in the cameFrom map because we need to keep track of the path to the current node (since we cannot move back, nor can we move more than 3 spaces in the same direction). Modify A\* with:
+
+- Pass in the cameFrom map to the get_neighbours function
+- In for each node, in addtion to the (row,col) also include the history of the path to that node. Keep only the last 3 steps.
+- Add check is_goal - cannot do a structural comparison, since we should ignore the history and only compare the (row,col).
+
+Part 2 is similar - adjust get_neighbours2 with the new rules.
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround
@@ -160,3 +187,5 @@ Sorry to say, finding an efficient solution to part 2 took ~2 weeks.
 - F# Queue: https://stackoverflow.com/questions/33464319/implement-a-queue-type-in-f
 
 - F#/functional data structures: http://lepensemoi.free.fr/index.php/tag/data-structure
+
+- https://laenas.github.io/posts/01-fs-primer.html

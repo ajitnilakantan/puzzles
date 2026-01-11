@@ -147,6 +147,253 @@ module gridiotest =
             let row = grid.[index, *]
             Assert.Equal(expected[index], row)
 
+
+module FPQ =
+    /// Basic Functional Leftist Heap
+    /// All functions are pure, and the data structure Heap is immutable
+    type Heap<'a when 'a : comparison> =
+        | Empty
+        | Node of 'a * int * Heap<'a> * Heap<'a> // Value, Rank/NPL, Left Child, Right Child
+
+    // Helper function to get the rank of a queue
+    let private rank = function
+        | Empty -> 0
+        | Node(_, r, _, _) -> r
+
+    let private makeNode v l r =
+        if rank l >= rank r then
+            Node(v, rank r + 1, l, r)
+        else
+            Node(v, rank l + 1, r, l)
+
+    // A balancing function (meld or merge) is the core operation.
+    // This is the functional equivalent of the "heapify" process.
+    let rec private merge h1 h2 =
+        match h1, h2 with
+        | Empty, h -> h
+        | h, Empty -> h
+        | Node(v1, _, l1, r1), Node(v2, _, l2, r2) ->
+            if v1 <= v2 then
+                makeNode v1 l1 (merge r1 h2)
+            else
+                makeNode v2 l2 (merge r2 h1)
+
+    // Check if heap is empty
+    let is_empty h = h = Empty
+    // Inserts a new element by merging an element (as a single Node) 
+    // with the existing queue structure.
+    let enqueue v h = merge (Node(v, 1, Empty, Empty)) h
+
+    // Get the minimum element. Returns an Option type because the queue could be empty.
+    let peek = function
+        | Empty -> None
+        | Node(v, _, _, _) -> Some v
+
+    // Deletes the minimum element.
+    let dequeue = function
+        | Empty -> Empty // failwith "Queue is empty"
+        | Node(_, _, l, r) -> merge l r
+
+
+module FPQtest =
+    [<Fact>]
+    let ``test priority queue`` () =
+        let pq = FPQ.Heap.Empty |> FPQ.enqueue 1
+        let pq = FPQ.enqueue 2 pq
+        let pq = FPQ.enqueue 5 pq
+        let pq = FPQ.enqueue 2 pq
+        let pq = FPQ.enqueue 9 pq
+
+        let ret = FPQ.peek pq
+        Assert.Equal (Some(1), ret)
+        let ret = FPQ.peek pq
+        Assert.Equal (Some(1), ret)
+        let pq = FPQ.dequeue pq
+        let ret = FPQ.peek pq
+        Assert.Equal (Some(2), ret)
+        let pq = FPQ.dequeue pq
+        let ret = FPQ.peek pq
+        Assert.Equal (Some(2), ret)
+        let pq = FPQ.dequeue pq
+        let ret = FPQ.peek pq
+        Assert.Equal (Some(5), ret)
+        let pq = FPQ.dequeue pq
+        let pq = FPQ.dequeue pq
+        Assert.True(FPQ.is_empty pq)
+
+module graphsearch =
+
+    /// Purely functional A* search using immutable F# collections
+    let aStar (start: 'T) (goal: 'T) 
+            (getNeighbors: 'T ->  Map<'T, 'T> -> 'T seq) 
+            (cost: 'T -> 'T -> float) 
+            (heuristic: 'T -> float) 
+            (is_goal: 'T -> 'T -> bool) : 'T list option =
+
+        /// Reconstructs path by recursively looking up parents in the immutable Map
+        let rec reconstructPath current (cameFrom: Map<'T, 'T>) acc =
+            match cameFrom.TryFind(current) with
+            | Some parent -> reconstructPath parent cameFrom (current :: acc)
+            | None -> current :: acc
+
+        /// Core recursive search loop
+        /// openSet: Set<(float * 'T)> - Stores (fScore, position) for automatic sorting
+        /// gScores: Map<'T, float>    - Actual cost from start to node
+        /// cameFrom: Map<'T, 'T>     - Breadcrumb trail for path reconstruction
+        let rec search (openSet: FPQ.Heap<float * 'T>) (gScores: Map<'T, float>) (cameFrom: Map<'T, 'T>) =
+            if openSet |> FPQ.is_empty then None // Frontier exhausted, no path found
+            else
+                // Set.minElement acts as the priority queue's "Dequeue"
+                let (currentF, currentPos) = (FPQ.peek openSet).Value
+                let remainingOpen = FPQ.dequeue openSet
+
+                if is_goal currentPos goal then
+                    Some (reconstructPath currentPos cameFrom [])
+                else
+                    // Evaluate neighbors and fold them into the current state
+                    let (nextOpen, nextG, nextCame) =
+                        getNeighbors currentPos cameFrom
+                        |> Seq.fold (fun ((oSet: FPQ.Heap<float * 'T>), (gMap: Map<'T,float>), (cMap: Map<'T,'T>)) neighbor ->
+                            let tentativeG = gMap.[currentPos] + cost currentPos neighbor
+                            let currentNeighborG = gMap.TryFind(neighbor) |> Option.defaultValue infinity
+
+                            if tentativeG < currentNeighborG then
+                                let fScore = tentativeG + heuristic neighbor
+                                // Update maps and add new potential path to the frontier
+                                (FPQ.enqueue (fScore, neighbor) oSet, 
+                                gMap.Add(neighbor, tentativeG), 
+                                cMap.Add(neighbor, currentPos))
+                            else
+                                (oSet, gMap, cMap)
+                        ) (remainingOpen, gScores, cameFrom)
+
+                    search nextOpen nextG nextCame
+
+        // Initial state: Start node with a gScore of 0 and initial fScore
+        let initialGScores = Map.empty.Add(start, 0.0)
+        let initialOpen = FPQ.Empty |> FPQ.enqueue (heuristic start, start)
+        
+        search initialOpen initialGScores Map.empty
+
+    open System.Collections.Generic
+
+    /// Generic Dijkstra algorithm
+    /// getNeighbors: 'node -> 'node seq
+    /// getCost: 'node -> 'node -> int
+    /// source: 'node
+    let dijkstra getNeighbors getCost source =
+        let distances = Dictionary<'node, float>()
+        let pq = PriorityQueue<'node, float>()
+        
+        // Initialize source
+        distances.[source] <- 0.0
+        pq.Enqueue(source, 0)
+
+        while pq.Count > 0 do
+            let mutable u = Unchecked.defaultof<'node>
+            let mutable distU = 0.0
+            
+            if pq.TryDequeue(&u, &distU) then
+                // Only process if this is the shortest known distance to u
+                if distU <= (if distances.ContainsKey(u) then distances.[u] else System.Int32.MaxValue) then
+                    for v in getNeighbors u do
+                        let weight = getCost u v
+                        let newDist = distU + weight
+                        
+                        if not (distances.ContainsKey(v)) || newDist < distances.[v] then
+                            distances.[v] <- newDist
+                            pq.Enqueue(v, newDist)
+        distances
+
+
+    open System.Collections.Generic
+
+    /// Generic Dijkstra search that returns the shortest path to a target
+    /// getNeighbors: 'node -> 'node seq
+    /// getCost: 'node -> 'node -> int
+    let dijkstraPath getNeighbors getCost source target =
+        let distances = Dictionary<'node, float>()
+        let predecessors = Dictionary<'node, 'node>()
+        let pq = PriorityQueue<'node, float>()
+        
+        distances.[source] <- 0.0
+        pq.Enqueue(source, 0)
+
+        let mutable found = false
+
+        while pq.Count > 0 && not found do
+            let mutable u = Unchecked.defaultof<'node>
+            let mutable distU = 0.0
+            
+            if pq.TryDequeue(&u, &distU) then
+                if u = target then 
+                    found <- true
+                elif distU <= (if distances.ContainsKey(u) then distances.[u] else System.Int32.MaxValue) then
+                    for v in getNeighbors u do
+                        let weight = getCost u v
+                        let newDist = distU + weight
+                        
+                        if not (distances.ContainsKey(v)) || newDist < distances.[v] then
+                            distances.[v] <- newDist
+                            predecessors.[v] <- u
+                            pq.Enqueue(v, newDist)
+
+        if found then
+            // Reconstruct path by backtracking from target to source
+            let path = List<'node>()
+            let mutable curr = target
+            path.Add(curr)
+            while curr <> source do
+                curr <- predecessors.[curr]
+                path.Add(curr)
+            
+            let finalPath = path |> Seq.toList
+            Some (distances.[target], finalPath)
+        else 
+            None
+
+
+module graphsearchtest =
+    open System
+    [<Fact>]
+    let ``test astar`` () =
+        let graph = ".#....\n\
+                     .#....\n\
+                     ......\n\
+                     #....."
+        let graph = gridio.read_grid (fileio.linesFromString graph) false '.'
+        let width, height = graph.GetLength(1), graph.GetLength(0)
+        let goal = (height-1, width-1)
+
+        let get_neighbours (g: char array2d) (rc: int*int) =
+            let r,c = rc
+            let width, height = graph.GetLength(1), graph.GetLength(0)
+            let neighbours = [r-1,c; r + 1,c; r,c - 1; r,c + 1]  
+            let neighbours = neighbours |> Seq.filter (fun (r,c) -> r >= 0 && r < height && c >= 0 && c < width)
+            let neighbours = neighbours |> Seq.filter (fun (r,c) -> g.[r,c] <> '#')
+            neighbours
+        let get_neighbours_with_history (g: char array2d) (rc: int*int) _ =
+            get_neighbours g rc
+        let get_heuristic  (goal: int*int) (node: int*int) : float=
+            float (Math.Abs(fst node - fst goal) + Math.Abs(snd node - snd goal))
+        let get_dist_between (node: int*int) (neighbour: int*int) : float=
+            float (Math.Abs(fst node - fst neighbour) + Math.Abs(snd node - snd neighbour))
+        let is_goal current goal = current = goal
+
+        let path = graphsearch.aStar  (0,0) goal (graph |> get_neighbours_with_history) get_dist_between  (goal |> get_heuristic) is_goal
+        Assert.Equivalent (Some (Seq.ofList [(3,5);(2,5); (2,4); (2,3); (2,2); (2,1);(2,0); (1,0); (0,0)]), path)
+
+
+        let distances = graphsearch.dijkstra (graph |> get_neighbours) get_dist_between (0,0)
+        Assert.Equal(8.0, distances.[goal])
+        Assert.Equal(0.0, distances.[(0,0)])
+
+        let path = graphsearch.dijkstraPath (graph |> get_neighbours) get_dist_between (0,0) (height-1, width-1)
+        Assert.Equal (8.0, fst path.Value)
+        Assert.Equal (9, snd path.Value |> List.length)
+
+
+
 module math =
     let rec gcd<'T when 'T :> System.Numerics.INumber<'T> and 'T: equality> (a: 'T) (b: 'T) : 'T =
         match (a, b) with
@@ -200,7 +447,6 @@ module collections =
         (dictionary :> seq<_>)
         |> Seq.map (|KeyValue|)
         |> Map.ofSeq
-
 
 
 module collectionstest = 
