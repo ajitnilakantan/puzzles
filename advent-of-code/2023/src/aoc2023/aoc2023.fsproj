@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Library.fs" />
+    <Compile Include="klee.fs" />
     <Compile Include="dayNN.fs" />
     <Compile Include="day01.fs" />
     <Compile Include="day02.fs" />
@@ -26,6 +27,8 @@
     <Compile Include="day15.fs" />
     <Compile Include="day16.fs" />
     <Compile Include="day17.fs" />
+    <Compile Include="day18.fs" />
+    <Compile Include="day19.fs" />
   </ItemGroup>
   <!-- ItemGroup>
     <None Include="day*.txt">

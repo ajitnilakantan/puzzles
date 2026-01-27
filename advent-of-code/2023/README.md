@@ -149,6 +149,14 @@ However, in this case, we need to pass in the cameFrom map because we need to ke
 
 Part 2 is similar - adjust get_neighbours2 with the new rules.
 
+#### Day18
+
+Floodfill too slow for part 2, so changed to use Shoelace formula to compute polygon area.
+
+#### Day19
+
+For part 2, used Klee's union volume algorithm. Use allpaths for a multigraph to find all combinations of rules (We can have multiple paths between two states).
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround

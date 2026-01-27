@@ -352,6 +352,40 @@ module graphsearch =
         else 
             None
 
+    let rec findAllPaths get_neighbours is_target pathSoFar =
+        seq {
+            let currentNode = List.head pathSoFar
+            
+            if is_target currentNode  then
+                yield List.rev pathSoFar // Emit the completed path
+            else
+                let neighbors = get_neighbours currentNode 
+
+                for neighbor in neighbors do
+                    // Avoid cycles by checking if neighbor is in current path
+                    if not (List.contains neighbor pathSoFar) then
+                        // yield! flattens the nested sequence of paths
+                        yield! findAllPaths get_neighbours is_target (neighbor :: pathSoFar)
+        }
+
+    // type Multigraph<'n, 'e> = Map<'n, ('n * 'e) list> when 'n : comparison
+
+    // 
+    let findAllPaths_multigraph  (start: 'n) (target: 'n) (get_neighbours: 'n -> ('n*'e) list option) : ('n*'e) list list =
+        let rec search current visited path =
+            if current = target then
+                [ List.rev path ]
+            else
+                match get_neighbours current with
+                | None -> []
+                | Some edges ->
+                    edges
+                    |> List.filter (fun (next, _) -> not (Set.contains next visited))
+                    |> List.collect (fun (next, data) -> 
+                        search next (Set.add next visited) ((next, data) :: path))
+
+        search start (Set.singleton start) []
+
 
 module graphsearchtest =
     open System
@@ -392,6 +426,53 @@ module graphsearchtest =
         Assert.Equal (8.0, fst path.Value)
         Assert.Equal (9, snd path.Value |> List.length)
 
+    [<Fact>]
+    let ``test getAllPaths`` () =
+        // Example Usage:
+        let graph = Map [
+            'A', ['B'; 'C']
+            'B', ['D']
+            'C', ['B'; 'D']
+        ]
+        let get_neighbours (g: Map<'a, 'a list>) (node: 'a) =  g |> Map.tryFind node |> Option.defaultValue []
+        let is_target (goal: 'a) (node: 'a) = goal = node
+        let pathSeq = graphsearch.findAllPaths (graph |> get_neighbours) ('D'|> is_target) ['A']
+
+        // Access elements lazily
+        // pathSeq |> Seq.iter (printfn "Path found: %A")
+        Assert.Equal ( [['A'; 'B'; 'D']; ['A'; 'C'; 'B'; 'D']; ['A'; 'C'; 'D']], pathSeq )
+
+        // Example Usage:
+        let graph = Map [
+            'A', ['B'; 'C'; 'B']
+            'B', ['D']
+            'C', ['B']
+        ]
+        let get_neighbours (g: Map<'a, 'a list>) (node: 'a) =  g |> Map.tryFind node |> Option.defaultValue []
+        let pathSeq = graphsearch.findAllPaths (graph |> get_neighbours) ('D'|> is_target) ['A']
+
+        // Access elements lazily
+        // pathSeq |> Seq.iter (printfn "Path found: %A")
+        Assert.Equal ( [['A'; 'B'; 'D']; ['A'; 'C'; 'B'; 'D']; ['A'; 'B'; 'D'] ] , pathSeq  )
+
+
+    [<Fact>]
+    let ``test getAllPaths_multigraph`` () =
+        // Example Usage:
+        let graph = 
+            Map.ofList [
+                "A", [("B", "Fast Road"); ("B", "Scenic Route")]
+                "B", [("C", "Bridge")]
+            ]
+
+        let get_neighbours (g: Map<'a, 'b list>) (node: 'a) =  g |> Map.tryFind node 
+
+        let paths = graphsearch.findAllPaths_multigraph "A" "C" (graph |> get_neighbours)
+        // Output: 
+        // [ [("B", "Fast Road"); ("C", "Bridge")]; 
+        //   [("B", "Scenic Route"); ("C", "Bridge")] ]
+        
+        Assert.Equal<List<List<string*string>>>( [ [("B", "Fast Road"); ("C", "Bridge")];   [("B", "Scenic Route"); ("C", "Bridge")] ], paths)
 
 
 module math =
