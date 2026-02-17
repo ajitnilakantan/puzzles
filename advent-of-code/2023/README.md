@@ -157,6 +157,13 @@ Floodfill too slow for part 2, so changed to use Shoelace formula to compute pol
 
 For part 2, used Klee's union volume algorithm. Use allpaths for a multigraph to find all combinations of rules (We can have multiple paths between two states).
 
+#### Day20
+
+Part 2: As example 2 hints, the states eventually keep cycling. This puzzle was frustrating. No example was given.
+The solution seems "cheap" - we backtrack the inputs to "rx" and see it only depends on high pulses from 4 conjunctions.
+These 4 conjunctions just happen to have a long cycle of all Low and just one pulse of High. The solution is the LCM of the cycle lengths.
+I wasted a lot of time trying to model the circuit as a feedback shift register + finding a general solution to the problem.
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround

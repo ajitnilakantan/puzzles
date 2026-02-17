@@ -221,6 +221,28 @@ module FPQtest =
         let pq = FPQ.dequeue pq
         Assert.True(FPQ.is_empty pq)
 
+module queuelib =
+    open System.Collections.Generic
+
+    type MutableQueue<'T>() =
+        let inner = Queue<'T>()
+        
+        member _.Enqueue(x: 'T) = inner.Enqueue(x)
+        member _.Dequeue() = inner.Dequeue()
+        member _.IsEmpty = inner.Count = 0
+
+module queuetest =
+    [<Fact>]
+    let ``test queue`` () =
+        // Example Usage:
+        let mq = queuelib.MutableQueue<int>()
+        Assert.True mq.IsEmpty
+        mq.Enqueue 10
+        Assert.False mq.IsEmpty
+        let val1 = mq.Dequeue()
+        Assert.Equal (10, val1)
+        Assert.True mq.IsEmpty
+
 module graphsearch =
 
     /// Purely functional A* search using immutable F# collections
