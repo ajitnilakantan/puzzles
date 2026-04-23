@@ -1,8 +1,6 @@
 module aoc2023.day05
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type MyMap =
     | unknown = 0
@@ -21,7 +19,11 @@ type Mapping =
     { destination: int64
       source: int64
       length: int64 }
-    static member Default = { destination = 0; source = 0; length = 0 }
+
+    static member Default =
+        { destination = 0
+          source = 0
+          length = 0 }
 
 let parse_data data =
     let mutable current = MyMap.unknown
@@ -42,9 +44,7 @@ let parse_data data =
             let parts = x.Split(":", splitopts)
             assert (parts.Length = 2)
 
-            seeds <-
-                parts[ 1 ].Split(" ", splitopts)
-                |> Array.map (int64)
+            seeds <- parts[1].Split(" ", splitopts) |> Array.map (int64)
         | "seed-to-soil map:" -> current <- MyMap.seed_to_soil
         | "soil-to-fertilizer map:" -> current <- MyMap.soil_to_fertilizer
         | "fertilizer-to-water map:" -> current <- MyMap.fertilizer_to_water
@@ -58,7 +58,10 @@ let parse_data data =
             assert (vals.Length = 3)
 
             let m =
-                { Mapping.Default with destination = vals[0]; source = vals[1]; length = vals[2] }
+                { Mapping.Default with
+                    destination = vals[0]
+                    source = vals[1]
+                    length = vals[2] }
 
             maps[current |> int] <- maps[current |> int] @ [ m ]
 
@@ -70,9 +73,7 @@ let apply_map mymap value =
     let mutable finished = false
 
     for m in mymap do
-        if not finished
-           && result >= m.source
-           && result < m.source + m.length then
+        if not finished && result >= m.source && result < m.source + m.length then
             result <- m.destination + (result - m.source)
             finished <- true
 
@@ -83,9 +84,7 @@ let apply_maps (seeds: int64 array) (maps: list<Mapping> array) =
     let range = [ int MyMap.FIRST .. int MyMap.LAST ]
     // [ 2; 3; 4] |> List.map( fun v -> List.fold(fun acc f -> f acc) v ff);;
     seeds
-    |> Array.map (fun s ->
-        range
-        |> List.fold (fun acc index -> apply_map (maps[index]) acc) s)
+    |> Array.map (fun s -> range |> List.fold (fun acc index -> apply_map (maps[index]) acc) s)
 
 
 // Intersect closed/open ranges [A0..A1) with [B0..B1)
@@ -135,12 +134,12 @@ let intersect_ranges (a: (int64 * int64)) (b: (int64 * int64)) =
     // Filter out empty ranges
     intersection <-
         match intersection with
-        | Some (x, y) -> if x < y then Some(x, y) else None
+        | Some(x, y) -> if x < y then Some(x, y) else None
         | _ -> None
 
     subtraction <-
         match subtraction with
-        | Some (x) ->
+        | Some(x) ->
             let y = x |> List.filter (fun (a, b) -> a < b)
             if y.Length > 0 then Some(y) else None
         | _ -> None
@@ -179,12 +178,12 @@ let apply_map_range (mymap: Mapping list) (value: (int64 * int64) list) =
                             intersect_ranges head (m.source, m.source + m.length)
 
                         match intersection, subtraction with
-                        | Some (pair), Some (rest) when not foundMatch ->
+                        | Some(pair), Some(rest) when not foundMatch ->
                             let dest = (fst pair) + offset, (snd pair) + offset
                             processed <- processed @ [ dest ]
                             seedqueue <- seedqueue @ rest
                             foundMatch <- true
-                        | Some (pair), None when not foundMatch ->
+                        | Some(pair), None when not foundMatch ->
                             let dest = (fst pair) + offset, (snd pair) + offset
                             processed <- processed @ [ dest ]
                             foundMatch <- true
@@ -299,8 +298,7 @@ type Tests() =
 
         // Read the pairs of seed ranges.  Convert from [start, range) to [start, end)
         let seed_pairs =
-            Array.chunkBySize 2 seeds
-            |> Array.map (fun xs -> (xs.[0], xs.[0] + xs.[1]))
+            Array.chunkBySize 2 seeds |> Array.map (fun xs -> (xs.[0], xs.[0] + xs.[1]))
 
         Assert.Equal(seeds.Length / 2, seed_pairs.Length)
         ()

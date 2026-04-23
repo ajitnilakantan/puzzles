@@ -1,10 +1,8 @@
 module aoc2023.day11
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
-let parse_grid (grid: char [,]) =
+let parse_grid (grid: char[,]) =
     let height, width = grid.GetLength(0), grid.GetLength(1)
     let mutable galaxy_number = []
     let mutable positions = []
@@ -22,10 +20,10 @@ let parse_grid (grid: char [,]) =
     //  empty (galaxy-free) rows/cols at            2 and 5 - where the cound bumps up.
     // E.g. Grid = [['.'; '.'; '#']
     //              ['#'; '.'; '.']]  row_count: [0; 0] col_count: [0; 0; 1]
-    let row i (arr: 'T [,]) =
+    let row i (arr: 'T[,]) =
         arr.[i..i, *] |> Seq.cast<'T> |> Seq.toList
 
-    let col i (arr: 'T [,]) =
+    let col i (arr: 'T[,]) =
         arr.[*, i..i] |> Seq.cast<'T> |> Seq.toList
 
     let row_count, _ =
@@ -50,10 +48,8 @@ let distance_between p q (galaxy_map: collections.BiMap<int, int * int>) (row_co
     let distance: int64 =
         int64 (abs (qx - px))
         + int64 (abs (qy - py))
-        + (expansion - 1L)
-          * int64 (abs (row_count[qy] - row_count[py]))
-        + (expansion - 1L)
-          * int64 (abs (col_count[qx] - col_count[px]))
+        + (expansion - 1L) * int64 (abs (row_count[qy] - row_count[py]))
+        + (expansion - 1L) * int64 (abs (col_count[qx] - col_count[px]))
 
     distance
 
@@ -62,9 +58,7 @@ let find_distance_sum (galaxy_map: collections.BiMap<int, int * int>) (row_count
     let mutable sum = 0L
 
     for p, q in collections.all_pairs [ 1..num_galaxies ] do
-        sum <-
-            sum
-            + distance_between p q galaxy_map row_count col_count expansion
+        sum <- sum + distance_between p q galaxy_map row_count col_count expansion
 
     sum
 

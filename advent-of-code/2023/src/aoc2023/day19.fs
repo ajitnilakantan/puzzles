@@ -1,8 +1,6 @@
 module aoc2023.day19
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Category =
     | X
@@ -14,6 +12,7 @@ type State =
     | Accept
     | Reject
     | Label of string
+
     static member NA = Label ""
 
     static member FromString(s: string) =
@@ -27,6 +26,7 @@ type Rule =
     | LessThan of Category * int * State
     | GreaterThan of Category * int * State
     | SetState of State
+
     static member FromString(s) =
         match s with
         | "A" -> SetState Accept
@@ -53,15 +53,15 @@ type Rule =
 
     member this.get_state() =
         match this with
-        | LessThan (_, _, state) -> state
-        | GreaterThan (_, _, state) -> state
+        | LessThan(_, _, state) -> state
+        | GreaterThan(_, _, state) -> state
         | SetState state -> state
 
     /// Invert the rule for the else case
     member this.invert =
         match this with
-        | LessThan (category, value, state) -> GreaterThan(category, value - 1, State.NA)
-        | GreaterThan (category, value, state) -> LessThan(category, value + 1, State.NA)
+        | LessThan(category, value, state) -> GreaterThan(category, value - 1, State.NA)
+        | GreaterThan(category, value, state) -> LessThan(category, value + 1, State.NA)
         | SetState state -> SetState state
 
 
@@ -70,15 +70,12 @@ type Part =
       m: int
       a: int
       s: int }
+
     static member FromString(s) =
         let tokens = fileio.tokenize s "{},="
         assert (tokens.Length = 8)
 
-        assert
-            (tokens[0] = "x"
-             && tokens[2] = "m"
-             && tokens[4] = "a"
-             && tokens[6] = "s")
+        assert (tokens[0] = "x" && tokens[2] = "m" && tokens[4] = "a" && tokens[6] = "s")
 
         { x = int tokens[1]
           m = int tokens[3]
@@ -95,6 +92,7 @@ type AppliedRule =
       a_gt: Option<int>
       s_lt: Option<int>
       s_gt: Option<int> }
+
     static member Default =
         { x_lt = None
           x_gt = None
@@ -118,14 +116,30 @@ type AppliedRule =
             | None -> Some b
 
         match rule with
-        | LessThan (X, value, state) -> { this with x_lt = min_val this.x_lt value }
-        | LessThan (M, value, state) -> { this with m_lt = min_val this.m_lt value }
-        | LessThan (A, value, state) -> { this with a_lt = min_val this.a_lt value }
-        | LessThan (S, value, state) -> { this with s_lt = min_val this.s_lt value }
-        | GreaterThan (X, value, state) -> { this with x_gt = max_val this.x_gt value }
-        | GreaterThan (M, value, state) -> { this with m_gt = max_val this.m_gt value }
-        | GreaterThan (A, value, state) -> { this with a_gt = max_val this.a_gt value }
-        | GreaterThan (S, value, state) -> { this with s_gt = max_val this.s_gt value }
+        | LessThan(X, value, state) ->
+            { this with
+                x_lt = min_val this.x_lt value }
+        | LessThan(M, value, state) ->
+            { this with
+                m_lt = min_val this.m_lt value }
+        | LessThan(A, value, state) ->
+            { this with
+                a_lt = min_val this.a_lt value }
+        | LessThan(S, value, state) ->
+            { this with
+                s_lt = min_val this.s_lt value }
+        | GreaterThan(X, value, state) ->
+            { this with
+                x_gt = max_val this.x_gt value }
+        | GreaterThan(M, value, state) ->
+            { this with
+                m_gt = max_val this.m_gt value }
+        | GreaterThan(A, value, state) ->
+            { this with
+                a_gt = max_val this.a_gt value }
+        | GreaterThan(S, value, state) ->
+            { this with
+                s_gt = max_val this.s_gt value }
         | _ -> this
 
     member this.get_coords =
@@ -139,10 +153,7 @@ type AppliedRule =
         let gtS = this.s_gt |> Option.defaultValue 0 |> int64
 
         // Return intervals as [min, max]
-        [ gtX, ltX
-          gtM, ltM
-          gtA, ltA
-          gtS, ltS ]
+        [ gtX, ltX; gtM, ltM; gtA, ltA; gtS, ltS ]
 
 
 let parse_command_definitions (data: string list) =
@@ -168,14 +179,14 @@ let process_rule (part: Part) (commands: Map<string, Rule list>) (label: string)
     let apply_rule (rule: Rule) (part: Part) =
         match rule with
         | SetState state -> Some state
-        | LessThan (category, value, state) ->
+        | LessThan(category, value, state) ->
             match category with
             | X when part.x < value -> Some state
             | M when part.m < value -> Some state
             | A when part.a < value -> Some state
             | S when part.s < value -> Some state
             | _ -> None
-        | GreaterThan (category, value, state) ->
+        | GreaterThan(category, value, state) ->
             match category with
             | X when part.x > value -> Some state
             | M when part.m > value -> Some state
@@ -208,11 +219,9 @@ let process_rule (part: Part) (commands: Map<string, Rule list>) (label: string)
 let process_rules (part: Part) (commands: Map<string, Rule list>) =
     let mutable endstate = Some(Label "in")
 
-    while endstate <> Some Accept
-          && endstate <> Some Reject
-          && endstate <> None do
+    while endstate <> Some Accept && endstate <> Some Reject && endstate <> None do
         match endstate with
-        | Some (Label label) -> endstate <- process_rule part commands label
+        | Some(Label label) -> endstate <- process_rule part commands label
         | _ -> failwith "Error: Unexpected endstate"
 
     endstate
@@ -256,8 +265,7 @@ let SolvePart1 data =
     let parts = parse_part_definitions chunks[1]
 
     let accepted_parts =
-        parts
-        |> List.filter (fun part -> process_rules part commands = Some Accept)
+        parts |> List.filter (fun part -> process_rules part commands = Some Accept)
 
     let solution =
         accepted_parts
@@ -294,9 +302,7 @@ let SolvePart2 data =
     let intervals: klee.HyperBox list =
         boxes
         |> List.map (fun applied -> applied.get_coords)
-        |> List.map (fun coords ->
-            coords
-            |> List.map (fun (x, y) -> float x, float y - 1.0))
+        |> List.map (fun coords -> coords |> List.map (fun (x, y) -> float x, float y - 1.0))
 
     let solution = int64 (klee.computeVolume intervals) // 23214101440000
 
@@ -351,8 +357,7 @@ type Tests() =
         let parts = parse_part_definitions chunks[1]
 
         let accepted_parts =
-            parts
-            |> List.filter (fun part -> process_rules part commands = Some Accept)
+            parts |> List.filter (fun part -> process_rules part commands = Some Accept)
 
 
         let solution =
@@ -391,9 +396,7 @@ type Tests() =
         let intervals: klee.HyperBox list =
             boxes
             |> List.map (fun applied -> applied.get_coords)
-            |> List.map (fun coords ->
-                coords
-                |> List.map (fun (x, y) -> float x, float y - 1.0))
+            |> List.map (fun coords -> coords |> List.map (fun (x, y) -> float x, float y - 1.0))
 
         let solution = int64 (klee.computeVolume intervals) // 23214101440000
         Assert.Equal(167409079868000L, solution)

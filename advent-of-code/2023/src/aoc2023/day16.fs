@@ -1,8 +1,6 @@
 module aoc2023.day16
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 open System // Required for the [<Flags>] attribute and HasFlag method
 
@@ -22,52 +20,50 @@ let get_neighbors (grid: char array2d) (visited: Direction array2d) (coord: Coor
 
     // "."
     let dot_neighbors =
-        Map.ofList [ (Direction.Up, [ { x = 0; y = -1; dir = Direction.Up } ])
-                     (Direction.Right, [ { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Down, [ { x = 0; y = 1; dir = Direction.Down } ])
-                     (Direction.Left, [ { x = -1; y = 0; dir = Direction.Left } ]) ]
+        Map.ofList
+            [ (Direction.Up, [ { x = 0; y = -1; dir = Direction.Up } ])
+              (Direction.Right, [ { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Down, [ { x = 0; y = 1; dir = Direction.Down } ])
+              (Direction.Left, [ { x = -1; y = 0; dir = Direction.Left } ]) ]
     // "-"
     let hyphen_neighbors =
-        Map.ofList [ (Direction.Up,
-                      [ { x = -1; y = 0; dir = Direction.Left }
-                        { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Right, [ { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Down,
-                      [ { x = -1; y = 0; dir = Direction.Left }
-                        { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Left, [ { x = -1; y = 0; dir = Direction.Left } ]) ]
+        Map.ofList
+            [ (Direction.Up, [ { x = -1; y = 0; dir = Direction.Left }; { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Right, [ { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Down, [ { x = -1; y = 0; dir = Direction.Left }; { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Left, [ { x = -1; y = 0; dir = Direction.Left } ]) ]
 
     // "|"
     let bar_neighbors =
-        Map.ofList [ (Direction.Up, [ { x = 0; y = -1; dir = Direction.Up } ])
-                     (Direction.Right,
-                      [ { x = 0; y = -1; dir = Direction.Up }
-                        { x = 0; y = 1; dir = Direction.Down } ])
-                     (Direction.Down, [ { x = 0; y = 1; dir = Direction.Down } ])
-                     (Direction.Left,
-                      [ { x = 0; y = -1; dir = Direction.Up }
-                        { x = 0; y = 1; dir = Direction.Down } ]) ]
+        Map.ofList
+            [ (Direction.Up, [ { x = 0; y = -1; dir = Direction.Up } ])
+              (Direction.Right, [ { x = 0; y = -1; dir = Direction.Up }; { x = 0; y = 1; dir = Direction.Down } ])
+              (Direction.Down, [ { x = 0; y = 1; dir = Direction.Down } ])
+              (Direction.Left, [ { x = 0; y = -1; dir = Direction.Up }; { x = 0; y = 1; dir = Direction.Down } ]) ]
 
     // "/"
     let slash_neighbors =
-        Map.ofList [ (Direction.Up, [ { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Right, [ { x = 0; y = -1; dir = Direction.Up } ])
-                     (Direction.Down, [ { x = -1; y = 0; dir = Direction.Left } ])
-                     (Direction.Left, [ { x = 0; y = 1; dir = Direction.Down } ]) ]
+        Map.ofList
+            [ (Direction.Up, [ { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Right, [ { x = 0; y = -1; dir = Direction.Up } ])
+              (Direction.Down, [ { x = -1; y = 0; dir = Direction.Left } ])
+              (Direction.Left, [ { x = 0; y = 1; dir = Direction.Down } ]) ]
 
     // "\"
     let backslash_neighbors =
-        Map.ofList [ (Direction.Up, [ { x = -1; y = 0; dir = Direction.Left } ])
-                     (Direction.Right, [ { x = 0; y = 1; dir = Direction.Down } ])
-                     (Direction.Down, [ { x = 1; y = 0; dir = Direction.Right } ])
-                     (Direction.Left, [ { x = 0; y = -1; dir = Direction.Up } ]) ]
+        Map.ofList
+            [ (Direction.Up, [ { x = -1; y = 0; dir = Direction.Left } ])
+              (Direction.Right, [ { x = 0; y = 1; dir = Direction.Down } ])
+              (Direction.Down, [ { x = 1; y = 0; dir = Direction.Right } ])
+              (Direction.Left, [ { x = 0; y = -1; dir = Direction.Up } ]) ]
 
     let all_neighbors =
-        Map.ofList [ ('.', dot_neighbors)
-                     ('-', hyphen_neighbors)
-                     ('|', bar_neighbors)
-                     ('/', slash_neighbors)
-                     ('\\', backslash_neighbors) ]
+        Map.ofList
+            [ ('.', dot_neighbors)
+              ('-', hyphen_neighbors)
+              ('|', bar_neighbors)
+              ('/', slash_neighbors)
+              ('\\', backslash_neighbors) ]
 
     let neighbors = all_neighbors.[grid.[coord.y, coord.x]].[coord.dir]
     // Offset the delta to the current position
@@ -80,15 +76,10 @@ let get_neighbors (grid: char array2d) (visited: Direction array2d) (coord: Coor
     // Filter out off-grid neighbors
     let neighbors =
         neighbors
-        |> List.filter (fun n ->
-            n.x >= 0
-            && n.y >= 0
-            && n.x < width
-            && n.y < height)
+        |> List.filter (fun n -> n.x >= 0 && n.y >= 0 && n.x < width && n.y < height)
     // Filter out visited neighbors
     let neighbors =
-        neighbors
-        |> List.filter (fun n -> not (visited.[n.y, n.x].HasFlag n.dir))
+        neighbors |> List.filter (fun n -> not (visited.[n.y, n.x].HasFlag n.dir))
 
     neighbors
 
@@ -127,11 +118,11 @@ let max_score_all_visited (grid: char array2d) =
                 { x = x
                   y = height - 1
                   dir = Direction.Up } ]
-          @ [ for y in 0 .. height - 1 -> { x = 0; y = y; dir = Direction.Right } ]
-            @ [ for y in 0 .. height - 1 ->
-                    { x = width - 1
-                      y = y
-                      dir = Direction.Left } ]
+        @ [ for y in 0 .. height - 1 -> { x = 0; y = y; dir = Direction.Right } ]
+        @ [ for y in 0 .. height - 1 ->
+                { x = width - 1
+                  y = y
+                  dir = Direction.Left } ]
 
 
     let mutable max_score = 0
@@ -144,16 +135,12 @@ let max_score_all_visited (grid: char array2d) =
             for x in 0 .. width - 1 do
                 all_visited.[0, x] <- all_visited.[0, x] ||| visited.[0, x]
 
-                all_visited.[height - 1, x] <-
-                    all_visited.[height - 1, x]
-                    ||| visited.[height - 1, x]
+                all_visited.[height - 1, x] <- all_visited.[height - 1, x] ||| visited.[height - 1, x]
 
             for y in 0 .. height - 1 do
                 all_visited.[y, 0] <- all_visited.[y, 0] ||| visited.[y, 0]
 
-                all_visited.[y, width - 1] <-
-                    all_visited.[y, width - 1]
-                    ||| visited.[y, width - 1]
+                all_visited.[y, width - 1] <- all_visited.[y, width - 1] ||| visited.[y, width - 1]
 
             let score = score_visited visited
             if score > max_score then max_score <- score

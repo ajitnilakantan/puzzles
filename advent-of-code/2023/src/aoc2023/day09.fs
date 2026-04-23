@@ -1,8 +1,6 @@
 module aoc2023.day09
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 
 let parse_data data =
@@ -13,9 +11,7 @@ let find_differences line =
     // e.g.    3   6  10  15  21  28 => 2   3   4   5   6   7
     // e.g.    2   3   4   5   6   7 => 1   1   1   1   1
     // e.g.    1   1   1   1   1     => 0   0   0   0
-    line
-    |> List.pairwise
-    |> List.map (fun x -> snd x - fst x)
+    line |> List.pairwise |> List.map (fun x -> snd x - fst x)
 
 let find_all_differences line =
     // Keep applying find_differences until all values are zero
@@ -27,17 +23,13 @@ let find_all_differences line =
         all_differences <- all_differences @ [ current ]
 
     // Calculate the upper right value
-    let next_value_upper_right =
-        all_differences
-        |> List.sumBy (fun x -> x |> List.last)
+    let next_value_upper_right = all_differences |> List.sumBy (fun x -> x |> List.last)
 
     // Calculate the upper left value. Alternate subtract/add
     let next_value_upper_left =
         all_differences
         |> List.indexed
-        |> List.sumBy (fun (ind, x) ->
-            (List.head x)
-            * (if (ind % 2) = 0 then 1L else -1L))
+        |> List.sumBy (fun (ind, x) -> (List.head x) * (if (ind % 2) = 0 then 1L else -1L))
 
     all_differences, next_value_upper_right, next_value_upper_left
 
@@ -113,9 +105,7 @@ type Tests() =
         let data = fileio.linesFromString data
 
         let differences =
-            data
-            |> List.map (parse_data)
-            |> List.map (fun x -> find_all_differences x)
+            data |> List.map (parse_data) |> List.map (fun x -> find_all_differences x)
 
         let prev_values = differences |> List.map (fun (_, _, x) -> x)
         // debug.printfn "PREV = %A" prev_values

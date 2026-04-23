@@ -2,9 +2,7 @@ module aoc2023.day17
 
 open System
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 
 // FromDirection is the direction of how we came to the current position
@@ -40,15 +38,9 @@ let get_num_in_a_row (coord: Coord) (fromCoord: Coord) (cameFrom: Map<Coord, Coo
             get_path cameFrom fromCoord
         |> Seq.cache
 
-    let num_r =
-        coords
-        |> Seq.takeWhile (fun rc -> rc.r = coord.r)
-        |> Seq.length
+    let num_r = coords |> Seq.takeWhile (fun rc -> rc.r = coord.r) |> Seq.length
 
-    let num_c =
-        coords
-        |> Seq.takeWhile (fun rc -> rc.c = coord.c)
-        |> Seq.length
+    let num_c = coords |> Seq.takeWhile (fun rc -> rc.c = coord.c) |> Seq.length
 
     Math.Max(num_r, num_c)
 
@@ -59,10 +51,7 @@ let get_neighbours (grid: char array2d) (coord: Coord) (cameFrom: Map<Coord, Coo
     let r, c = coord.r, coord.c
 
     let n =
-        [ (r - 1, c, FromDirection.D)
-          (r + 1, c, FromDirection.U)
-          (r, c - 1, FromDirection.R)
-          (r, c + 1, FromDirection.L) ]
+        [ (r - 1, c, FromDirection.D); (r + 1, c, FromDirection.U); (r, c - 1, FromDirection.R); (r, c + 1, FromDirection.L) ]
 
     let neighbours =
         [ for (r, c, dir) in n ->
@@ -74,11 +63,7 @@ let get_neighbours (grid: char array2d) (coord: Coord) (cameFrom: Map<Coord, Coo
     // Limit to grid
     let neighbours =
         neighbours
-        |> List.filter (fun (rc) ->
-            rc.r >= 0
-            && rc.r < height
-            && rc.c >= 0
-            && rc.c < width)
+        |> List.filter (fun (rc) -> rc.r >= 0 && rc.r < height && rc.c >= 0 && rc.c < width)
 
     // Cannot move back
     let parent = cameFrom.TryFind coord
@@ -105,13 +90,9 @@ let get_neighbours2 (grid: char array2d) (goal: Coord) (coord: Coord) (cameFrom:
     let r, c = coord.r, coord.c
     let num_in_a_row = get_num_in_a_row coord coord cameFrom
 
-    let n_du =
-        [ (r - 1, c, FromDirection.D)
-          (r + 1, c, FromDirection.U) ]
+    let n_du = [ (r - 1, c, FromDirection.D); (r + 1, c, FromDirection.U) ]
 
-    let n_rl =
-        [ (r, c - 1, FromDirection.R)
-          (r, c + 1, FromDirection.L) ]
+    let n_rl = [ (r, c - 1, FromDirection.R); (r, c + 1, FromDirection.L) ]
 
     // For the first cell, we don't know which direction we came from. Set to the first direction we move to.
     let coord_is_first = coord.r = 0 && coord.c = 0
@@ -139,11 +120,7 @@ let get_neighbours2 (grid: char array2d) (goal: Coord) (coord: Coord) (cameFrom:
     // Limit to grid
     let neighbours =
         neighbours
-        |> List.filter (fun (rc) ->
-            rc.r >= 0
-            && rc.r < height
-            && rc.c >= 0
-            && rc.c < width)
+        |> List.filter (fun (rc) -> rc.r >= 0 && rc.r < height && rc.c >= 0 && rc.c < width)
 
     // Cannot move back
     let parent = cameFrom.TryFind coord

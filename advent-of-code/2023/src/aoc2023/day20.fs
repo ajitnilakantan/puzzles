@@ -2,9 +2,7 @@ module aoc2023.day20
 
 open System
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 
 type State =
@@ -25,6 +23,7 @@ type Module =
       mutable mtype: ModuleType
       mutable outputs: string list
       mutable inputs: Set<string> }
+
     static member Default =
         { name = ""
           mtype = Broadcaster
@@ -68,22 +67,20 @@ let parse_data (data: string list) =
     // Add any missing outputs, i.e. modules that have no definition on the lhs. E.g. the "output" module in example 2.
     let mutable missing: Set<string> = Set.empty
 
-    for KeyValue (name, modul) in modules do
+    for KeyValue(name, modul) in modules do
         modul.outputs
         |> List.iter (fun c -> if not (modules |> Map.containsKey c) then missing <- missing.Add c)
 
     for c in missing do
-        modules <-
-            modules
-            |> Map.add c { Module.Default with name = c }
+        modules <- modules |> Map.add c { Module.Default with name = c }
 
     // Add the inputs
-    for KeyValue (name, modul) in modules do
+    for KeyValue(name, modul) in modules do
         modul.outputs
         |> List.iter (fun c -> let input = modules |> Map.find c in input.inputs <- input.inputs.Add(name))
 
     // For Conjunction types, populate the state map
-    for KeyValue (_, modul) in modules do
+    for KeyValue(_, modul) in modules do
         match modul.mtype with
         | ModuleType.Conjunction x ->
             let state = [ for inp in modul.inputs -> (inp, Low) ]
@@ -152,17 +149,11 @@ let process_pulse (modules: Modules) =
                 // If all high inputs, send low, otherwise send high
                 let output_pulse =
                     match modul_dest.mtype with
-                    | ModuleType.Conjunction state when
-                        state
-                        |> Map.values
-                        |> Seq.forall (fun x -> x = High)
-                        ->
+                    | ModuleType.Conjunction state when state |> Map.values |> Seq.forall (fun x -> x = High) ->
                         assert (pulse <> Low)
                         Low
                     | _ ->
-                        high_pulse_count_conjunctions <-
-                            high_pulse_count_conjunctions
-                            |> Set.add modul_dest.name
+                        high_pulse_count_conjunctions <- high_pulse_count_conjunctions |> Set.add modul_dest.name
 
                         High
 
@@ -182,8 +173,10 @@ let find_cycle (pattern: int list) =
     let cycle =
         [ 1 .. pattern.Length / 2 ]
         |> List.tryPick (fun len ->
-            if [ 1 .. pattern.Length / len - 1 ]
-               |> List.forall (fun i -> pattern.[0 .. len - 1] = pattern.[i * len .. (i + 1) * len - 1]) then
+            if
+                [ 1 .. pattern.Length / len - 1 ]
+                |> List.forall (fun i -> pattern.[0 .. len - 1] = pattern.[i * len .. (i + 1) * len - 1])
+            then
                 Some len
             else
                 None)
@@ -267,10 +260,7 @@ let SolvePart2 data =
         |> Set.ofList
     // Index the inputs
     let rx_inputs_index =
-        rx_inputs
-        |> Set.toList
-        |> List.mapi (fun i x -> x, i)
-        |> Map.ofList
+        rx_inputs |> Set.toList |> List.mapi (fun i x -> x, i) |> Map.ofList
 
     // Look at the behaviour of the high pulses
     let num_runs = 1024 * 16 + 1
@@ -348,7 +338,7 @@ type Tests() =
             bits
 
     // This method iterates through the array once, tracking the current value and the count of consecutive occurrences.
-    let countConsecutive (arr: 'a []) =
+    let countConsecutive (arr: 'a[]) =
         if Array.isEmpty arr then
             []
         else
@@ -445,10 +435,7 @@ type Tests() =
         // -> This input must get a high pulse from all its inputs to send a low pulse to "rx"
         let rx_inputs = modules |> Map.find "rx" |> (fun x -> x.inputs)
 
-        Assert.True(
-            rx_inputs
-            |> Set.forall (fun x -> is_conjunction x)
-        )
+        Assert.True(rx_inputs |> Set.forall (fun x -> is_conjunction x))
 
         Assert.Equivalent(Set.ofList [ "kj" ], rx_inputs)
 
@@ -460,18 +447,12 @@ type Tests() =
             |> List.collect (fun x -> modules[x].inputs |> Set.toList)
             |> Set.ofList
 
-        Assert.True(
-            rx_inputs
-            |> Set.forall (fun x -> is_conjunction x)
-        )
+        Assert.True(rx_inputs |> Set.forall (fun x -> is_conjunction x))
 
         Assert.Equivalent(Set.ofList [ "dr"; "ln"; "vn"; "zx" ], rx_inputs)
 
         let rx_inputs_index =
-            rx_inputs
-            |> Set.toList
-            |> List.mapi (fun i x -> x, i)
-            |> Map.ofList
+            rx_inputs |> Set.toList |> List.mapi (fun i x -> x, i) |> Map.ofList
 
         // Look at the behaviour of the high pulses
         let num_runs = 1024 * 16 + 1
@@ -507,10 +488,7 @@ type Tests() =
 
         let consecutive_counts =
             [ 0 .. width - 1 ]
-            |> List.map (fun col ->
-                states[*, col][1..]
-                |> countConsecutive
-                |> List.take 8)
+            |> List.map (fun col -> states[*, col][1..] |> countConsecutive |> List.take 8)
 
         for c in consecutive_counts do
             let evens, odds =
@@ -521,17 +499,13 @@ type Tests() =
             let evens = evens |> List.map (fun pair -> snd pair)
             let odds = odds |> List.map (fun pair -> snd pair)
             // Runs of zeros
-            evens
-            |> List.iter (fun el -> Assert.Equal(0, fst el))
+            evens |> List.iter (fun el -> Assert.Equal(0, fst el))
             // Runs of ones
-            odds
-            |> List.iter (fun el -> Assert.Equal(1, fst el))
+            odds |> List.iter (fun el -> Assert.Equal(1, fst el))
             // All the zero runs have the same size
-            evens
-            |> List.iter (fun el -> Assert.Equal(evens[0], el))
+            evens |> List.iter (fun el -> Assert.Equal(evens[0], el))
             // Size of one run is one
-            odds
-            |> List.iter (fun el -> Assert.Equal(1, snd el))
+            odds |> List.iter (fun el -> Assert.Equal(1, snd el))
 
 
 // for col in [ 0 .. width - 1 ] do

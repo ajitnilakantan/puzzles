@@ -2,9 +2,7 @@ module aoc2023.day03
 
 open System.Text.RegularExpressions
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 
 let row_to_string (index: int) (grid: char array2d) =
@@ -20,9 +18,7 @@ let find_runs (grid: char array2d) =
     // Find all runs of digits
     let re = Regex(@"\d+", RegexOptions.Compiled)
 
-    let runs =
-        lines
-        |> List.map (fun l -> (re.Matches(l) |> Seq.toList))
+    let runs = lines |> List.map (fun l -> (re.Matches(l) |> Seq.toList))
 
     runs
 
@@ -48,8 +44,7 @@ let ok_run (grid: char array2d) (index: int) (m: Match) =
     // contains a special character.
     assert (m.Value.Length = m.Groups[0].Length)
     // Check all neighbours are "ok"
-    neighbours_of index m
-    |> List.forall (fun (y, x) -> ok_neighbour grid[y, x])
+    neighbours_of index m |> List.forall (fun (y, x) -> ok_neighbour grid[y, x])
 
 let ok_matches (grid: char array2d) (index: int) (matches: Match list) =
     seq {
@@ -78,9 +73,7 @@ let find_gears_around_match gears (grid: char array2d) index m match_index =
         gears
 
     neighbours_of index m
-    |> List.iter (fun (y, x) ->
-        if grid[y, x] = '*' then
-            gears <- add_gear gears (y, x) match_index)
+    |> List.iter (fun (y, x) -> if grid[y, x] = '*' then gears <- add_gear gears (y, x) match_index)
 
     gears
 
@@ -126,15 +119,9 @@ let SolvePart2 data =
     let products =
         gears
         |> Map.filter (fun _ value -> value.Count > 1)
-        |> Map.map (fun k v ->
-            v
-            |> Set.toList
-            |> List.map (fun (_, _, x) -> x)
-            |> Seq.fold (*) 1)
+        |> Map.map (fun k v -> v |> Set.toList |> List.map (fun (_, _, x) -> x) |> Seq.fold (*) 1)
 
-    let sum =
-        products
-        |> Map.fold (fun state key value -> state + value) 0
+    let sum = products |> Map.fold (fun state key value -> state + value) 0
 
     sum
 
@@ -162,30 +149,32 @@ let public Solve () =
 // #################################### //
 open Xunit
 
-[<Fact>]
-let ``Test Part1`` () =
-    let data =
-        "467..114..\n\
-         ...*......\n\
-         ..35..633.\n\
-         ......#...\n\
-         617*......\n\
-         .....+.58.\n\
-         ..592.....\n\
-         ......755.\n\
-         ...$.*....\n\
-         .664.598.."
+type Tests() =
 
-    let data = fileio.linesFromString data
-    let grid = gridio.read_grid data true '.'
-    // Add extra padding on left and right
-    Assert.Equal(".467..114...", (row_to_string 1 grid))
-    Assert.Equal("..664.598...", (row_to_string 10 grid))
-    // printfn "==="
-    // gridio.print_grid grid (fun cell -> printf "%c" cell)
-    let solution = SolvePart1 data
-    Assert.Equal(4361, solution)
+    [<Fact>]
+    let ``Test Part1`` () =
+        let data =
+            "467..114..\n\
+            ...*......\n\
+            ..35..633.\n\
+            ......#...\n\
+            617*......\n\
+            .....+.58.\n\
+            ..592.....\n\
+            ......755.\n\
+            ...$.*....\n\
+            .664.598.."
 
-    let solution = SolvePart2 data
+        let data = fileio.linesFromString data
+        let grid = gridio.read_grid data true '.'
+        // Add extra padding on left and right
+        Assert.Equal(".467..114...", (row_to_string 1 grid))
+        Assert.Equal("..664.598...", (row_to_string 10 grid))
+        // printfn "==="
+        // gridio.print_grid grid (fun cell -> printf "%c" cell)
+        let solution = SolvePart1 data
+        Assert.Equal(4361, solution)
 
-    Assert.Equal(467835, solution)
+        let solution = SolvePart2 data
+
+        Assert.Equal(467835, solution)

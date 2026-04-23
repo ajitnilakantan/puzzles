@@ -2,9 +2,7 @@ module aoc2023.day01
 
 open System.Text.RegularExpressions
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 let firstRegex = Regex(@"(\d)", RegexOptions.Compiled)
 
@@ -53,17 +51,11 @@ let lastDigitV2 str =
     let regex = $@"{pat}"
     let m = Regex.Matches(str, regex)
 
-    if m.Count = 0 then
-        None
-    else
-        Some(digits[m[m.Count - 1].Groups[1].Value])
+    if m.Count = 0 then None else Some(digits[m[m.Count - 1].Groups[1].Value])
 
 let SolvePart1 data =
     let mySum (x, y) =
-        if x <> None && y <> None then
-            Some(x.Value * 10 + y.Value)
-        else
-            None
+        if x <> None && y <> None then Some(x.Value * 10 + y.Value) else None
 
     data
     |> Seq.map (fun x -> (firstDigit x, lastDigit x))
@@ -72,10 +64,7 @@ let SolvePart1 data =
 
 let SolvePart2 data =
     let mySum (x, y) =
-        if x <> None && y <> None then
-            Some(x.Value * 10 + y.Value)
-        else
-            None
+        if x <> None && y <> None then Some(x.Value * 10 + y.Value) else None
 
     data
     |> Seq.map (fun x -> (firstDigitV2 x, lastDigitV2 x))
@@ -103,58 +92,60 @@ let public Solve () =
 // #################################### //
 open Xunit
 
-[<Theory>]
-[<InlineData(1, 2, "1abc2")>]
-[<InlineData(3, 8, "pqr3stu8vwx")>]
-[<InlineData(1, 5, "a1b2c3d4e5f")>]
-[<InlineData(7, 7, "treb7uchet")>]
-[<InlineData(-1, -1, "trebuchet")>]
-[<InlineData(-1, -1, "a")>]
-[<InlineData(-1, -1, "ab")>]
-let ``regex matches`` left right str =
-    match left with
-    | -1 ->
-        Assert.Equal(None, firstDigit str)
-        Assert.Equal(None, lastDigit str)
-    | _ ->
-        Assert.Equal(Some left, firstDigit str)
-        Assert.Equal(Some right, lastDigit str)
+type Tests() =
+
+    [<Theory>]
+    [<InlineData(1, 2, "1abc2")>]
+    [<InlineData(3, 8, "pqr3stu8vwx")>]
+    [<InlineData(1, 5, "a1b2c3d4e5f")>]
+    [<InlineData(7, 7, "treb7uchet")>]
+    [<InlineData(-1, -1, "trebuchet")>]
+    [<InlineData(-1, -1, "a")>]
+    [<InlineData(-1, -1, "ab")>]
+    let ``regex matches`` left right str =
+        match left with
+        | -1 ->
+            Assert.Equal(None, firstDigit str)
+            Assert.Equal(None, lastDigit str)
+        | _ ->
+            Assert.Equal(Some left, firstDigit str)
+            Assert.Equal(Some right, lastDigit str)
 
 
-[<Fact>]
-let ``simple test`` () =
-    let data =
-        @"1abc2\n\
-                 pqr3stu8vwx\n\
-                 a1b2c3d4e5f\n\
-                 treb7uchet"
+    [<Fact>]
+    let ``simple test`` () =
+        let data =
+            @"1abc2\n\
+                    pqr3stu8vwx\n\
+                    a1b2c3d4e5f\n\
+                    treb7uchet"
 
-    let data = fileio.linesFromString data
-    Assert.Equal(142, SolvePart1 data)
+        let data = fileio.linesFromString data
+        Assert.Equal(142, SolvePart1 data)
 
-[<Fact>]
-let ``simple test part2`` () =
-    let data =
-        "two1nine\n\
-                eightwothree\n\
-                abcone2threexyz\n\
-                xtwone3four\n\
-                4nineeightseven2\n\
-                zoneight234\n\
-                7pqrstsixteen"
+    [<Fact>]
+    let ``simple test part2`` () =
+        let data =
+            "two1nine\n\
+                    eightwothree\n\
+                    abcone2threexyz\n\
+                    xtwone3four\n\
+                    4nineeightseven2\n\
+                    zoneight234\n\
+                    7pqrstsixteen"
 
-    let data = fileio.linesFromString data
-    Assert.Equal(281, SolvePart2 data)
+        let data = fileio.linesFromString data
+        Assert.Equal(281, SolvePart2 data)
 
-[<Theory>]
-[<InlineData(2, 3, "zztwoneighthreezz")>]
-[<InlineData(8, 3, "eighthree")>]
-[<InlineData(7, 9, "sevenine")>]
-let ``regex matches overlapping`` left right str =
-    match left with
-    | -1 ->
-        Assert.Equal(None, firstDigitV2 str)
-        Assert.Equal(None, lastDigitV2 str)
-    | _ ->
-        Assert.Equal(Some left, firstDigitV2 str)
-        Assert.Equal(Some right, lastDigitV2 str)
+    [<Theory>]
+    [<InlineData(2, 3, "zztwoneighthreezz")>]
+    [<InlineData(8, 3, "eighthree")>]
+    [<InlineData(7, 9, "sevenine")>]
+    let ``regex matches overlapping`` left right str =
+        match left with
+        | -1 ->
+            Assert.Equal(None, firstDigitV2 str)
+            Assert.Equal(None, lastDigitV2 str)
+        | _ ->
+            Assert.Equal(Some left, firstDigitV2 str)
+            Assert.Equal(Some right, lastDigitV2 str)

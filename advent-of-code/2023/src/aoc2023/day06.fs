@@ -1,8 +1,6 @@
 module aoc2023.day06
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 let parse_data (data: string list) =
     assert (data.Length = 2)
@@ -12,13 +10,13 @@ let parse_data (data: string list) =
         ||| System.StringSplitOptions.RemoveEmptyEntries
 
     let times =
-        data[ 0 ].Split([| ':'; '\x20' |], splitopts)
+        data[0].Split([| ':'; '\x20' |], splitopts)
         |> Array.toList
         |> List.skip 1
         |> List.map (int64)
 
     let distances =
-        data[ 1 ].Split([| ':'; '\x20' |], splitopts)
+        data[1].Split([| ':'; '\x20' |], splitopts)
         |> Array.toList
         |> List.skip 1
         |> List.map (int64)
@@ -31,20 +29,19 @@ let find_solutions (time: int64) (distance: int64) =
     let time = double time
     assert (distance < (time * time) / 4.0)
 
-    let minValue =
-        0.5 * time
-        - 0.5 * sqrt (time * time - 4.0 * distance)
+    let minValue = 0.5 * time - 0.5 * sqrt (time * time - 4.0 * distance)
 
-    let maxValue =
-        0.5 * time
-        + 0.5 * sqrt (time * time - 4.0 * distance)
+    let maxValue = 0.5 * time + 0.5 * sqrt (time * time - 4.0 * distance)
 
 
     let mutable minValue = System.Math.Ceiling(minValue) |> int64
     let mutable maxValue = System.Math.Floor(maxValue) |> int64
     // Take care of edge cases
-    if minValue * ((int64 time) - minValue) = int64 distance then minValue <- minValue + 1L
-    if maxValue * ((int64 time) - maxValue) = int64 distance then maxValue <- maxValue - 1L
+    if minValue * ((int64 time) - minValue) = int64 distance then
+        minValue <- minValue + 1L
+
+    if maxValue * ((int64 time) - maxValue) = int64 distance then
+        maxValue <- maxValue - 1L
 
     (minValue, maxValue)
 
@@ -53,27 +50,16 @@ let SolvePart1 data =
     let times, distances = parse_data data
     let results = List.map2 (fun t d -> find_solutions t d) times distances
 
-    let solution =
-        results
-        |> List.map (fun x -> snd x - fst x + 1L)
-        |> List.fold (*) 1L
+    let solution = results |> List.map (fun x -> snd x - fst x + 1L) |> List.fold (*) 1L
 
     solution
 
 let SolvePart2 data =
     let times, distances = parse_data data
     // Concatenate strings
-    let time =
-        times
-        |> List.map (string)
-        |> List.fold (+) ""
-        |> int64
+    let time = times |> List.map (string) |> List.fold (+) "" |> int64
 
-    let distance =
-        distances
-        |> List.map (string)
-        |> List.fold (+) ""
-        |> int64
+    let distance = distances |> List.map (string) |> List.fold (+) "" |> int64
 
     let result = find_solutions time distance
 
@@ -117,9 +103,6 @@ type Tests() =
         Assert.Equal((2L, 5L), result)
         let results = List.map2 (fun t d -> find_solutions t d) times distances
 
-        let solution =
-            results
-            |> List.map (fun x -> snd x - fst x + 1L)
-            |> List.fold (*) 1L
+        let solution = results |> List.map (fun x -> snd x - fst x + 1L) |> List.fold (*) 1L
 
         Assert.Equal(288L, solution)

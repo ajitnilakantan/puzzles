@@ -1,8 +1,6 @@
 module aoc2023.dayxx
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 let SolvePart1 data =
     let solution = 0

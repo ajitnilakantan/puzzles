@@ -1,12 +1,11 @@
 module aoc2023.day07
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Bet =
     { mutable hand: string
       mutable bet: int64 }
+
     static member Default = { hand = "11111"; bet = 0L }
 
 let rank_hand1 (hand: string) card_value_function =
@@ -21,10 +20,7 @@ let rank_hand1 (hand: string) card_value_function =
     assert (hand.Length = 5)
 
     let card_counts =
-        hand
-        |> Seq.toList
-        |> List.countBy id
-        |> List.sortBy (fun x -> -1 * snd x)
+        hand |> Seq.toList |> List.countBy id |> List.sortBy (fun x -> -1 * snd x)
     // E.g. "T55J5"  -> [('5', 3); ('T', 1); ('J', 1)]
     let score =
         match card_counts with
@@ -61,25 +57,13 @@ let rank_hand2 (hand: string) card_value_function =
     rank_hand1 new_hand card_value_function
 
 let card_value1 c =
-    let vals =
-        [ 'A', 14
-          'K', 13
-          'Q', 12
-          'J', 11
-          'T', 10 ]
-        |> Map.ofList
+    let vals = [ 'A', 14; 'K', 13; 'Q', 12; 'J', 11; 'T', 10 ] |> Map.ofList
 
     if vals.ContainsKey c then vals.[c] else c |> string |> int
 
 let card_value2 c =
     // For part 2, J has lowest value
-    let vals =
-        [ 'A', 14
-          'K', 13
-          'Q', 12
-          'J', 0
-          'T', 10 ]
-        |> Map.ofList
+    let vals = [ 'A', 14; 'K', 13; 'Q', 12; 'J', 0; 'T', 10 ] |> Map.ofList
 
     if vals.ContainsKey c then vals.[c] else c |> string |> int
 
@@ -111,7 +95,10 @@ let parse_data data =
     let bets =
         data
         |> List.map (fun (x: string) -> x.Split([| '\x20' |], splitopts))
-        |> List.map (fun x -> { Bet.Default with hand = x[0]; bet = int x[1] })
+        |> List.map (fun x ->
+            { Bet.Default with
+                hand = x[0]
+                bet = int x[1] })
 
     bets
 

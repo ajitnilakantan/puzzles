@@ -1,8 +1,6 @@
 module aoc2023.day08
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 let parse_data (data: string list) =
     assert (data.Length > 2)
@@ -49,22 +47,19 @@ let count_path_length_for_ghosts (start: string) (goal: string) (paths: string) 
     let mutable goal_positions: int64 array = Array.zeroCreate<int64> current.Length
 
     while not finished
-          && not (
-              current
-              |> List.forall (fun (x: string) -> x.EndsWith(goal))
-          ) do
+          && not (current |> List.forall (fun (x: string) -> x.EndsWith(goal))) do
         let mymap: Map<string, string> =
             if paths[int (counter % len)] = 'L' then left else right
 
 
-        current <-
-            (current
-             |> List.map (fun (x: string) -> mymap |> Map.find x))
+        current <- (current |> List.map (fun (x: string) -> mymap |> Map.find x))
 
         counter <- counter + 1L
 
         current
-        |> List.iteri (fun index x -> if x.EndsWith(goal) && goal_positions[index] = 0 then goal_positions[index] <- counter)
+        |> List.iteri (fun index x ->
+            if x.EndsWith(goal) && goal_positions[index] = 0 then
+                goal_positions[index] <- counter)
 
         if goal_positions |> Array.forall (fun x -> x <> 0) then
             finished <- true
@@ -74,8 +69,7 @@ let count_path_length_for_ghosts (start: string) (goal: string) (paths: string) 
             // If the goal is found too soon, add the length of the search pattern to make
             // the module operations correct for the LCM later
             let goal_positions =
-                goal_positions
-                |> List.map (fun x -> if x < len then x + len else x)
+                goal_positions |> List.map (fun x -> if x < len then x + len else x)
 
             counter <- math.lcmList (goal_positions)
 

@@ -67,16 +67,9 @@ module klee =
                     let sliceAt v =
                         boxes
                         |> List.filter (fun b -> fst b.[axis] <= v && snd b.[axis] >= v)
-                        |> List.map (fun b ->
-                            b
-                            |> List.indexed
-                            |> List.filter (fun (i, _) -> i <> axis)
-                            |> List.map snd)
+                        |> List.map (fun b -> b |> List.indexed |> List.filter (fun (i, _) -> i <> axis) |> List.map snd)
 
-                    abs (
-                        computeVolume (sliceAt (x + eps))
-                        - computeVolume (sliceAt (x - eps))
-                    )))
+                    abs (computeVolume (sliceAt (x + eps)) - computeVolume (sliceAt (x - eps)))))
 
 module klee_test =
     [<Fact>]

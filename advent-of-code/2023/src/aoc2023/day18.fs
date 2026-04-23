@@ -2,9 +2,7 @@ module aoc2023.day18
 
 open System
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Direction =
     | U
@@ -77,10 +75,7 @@ let get_vertices (commands: Command list) get_delta =
         current <- current + d
         vertices <- List.append vertices [ current ]
 
-        perimeter <-
-            perimeter
-            + Math.Abs(int64 d.x)
-            + Math.Abs(int64 d.y)
+        perimeter <- perimeter + Math.Abs(int64 d.x) + Math.Abs(int64 d.y)
 
     vertices |> List.toArray, perimeter
 
@@ -95,15 +90,11 @@ let shoelace (vertices: Position array) =
 
     let sum1 =
         [ 0 .. len - 1 ]
-        |> Seq.sumBy (fun i ->
-            int64 vertices[i].x
-            * int64 vertices[(i + 1) % len].y)
+        |> Seq.sumBy (fun i -> int64 vertices[i].x * int64 vertices[(i + 1) % len].y)
 
     let sum2 =
         [ 0 .. len - 1 ]
-        |> Seq.sumBy (fun i ->
-            int64 vertices[(i + 1) % len].x
-            * int64 vertices[i].y)
+        |> Seq.sumBy (fun i -> int64 vertices[(i + 1) % len].x * int64 vertices[i].y)
 
     Math.Abs(sum1 - sum2) / 2L
 

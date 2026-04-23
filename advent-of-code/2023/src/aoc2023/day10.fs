@@ -1,8 +1,6 @@
 module aoc2023.day10
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Coord = int * int
 let CoordDefault = Coord(0, 0)
@@ -14,7 +12,7 @@ let add_to_map (key: 'a) (value: 'b) (map: Map<'a, 'b list>) =
     map <- map |> Map.add key (v @ [ value ])
     map
 
-let parse_grid (grid: char [,]) =
+let parse_grid (grid: char[,]) =
     let height, width = grid.GetLength(0), grid.GetLength(1)
     // let mutable incoming = Map.empty<Coord, Coord list>
     let mutable outgoing = Map.empty<Coord, Coord list>
@@ -41,7 +39,7 @@ let parse_grid (grid: char [,]) =
         let add_delta a b = (fst a + fst b, snd a + snd b)
 
         match dirs with
-        | Some (d) ->
+        | Some(d) ->
             d
             |> List.iter (fun v -> outgoing <- add_to_map (y, x) (add_delta (y, x) v) outgoing)
         | None -> ()
@@ -50,21 +48,19 @@ let parse_grid (grid: char [,]) =
     for (y, x) in gridio.enumerate_neighbours start 1 do
         let is_linked neighbour start outgoing =
             outgoing |> Map.containsKey neighbour
-            && outgoing
-               |> Map.find neighbour
-               |> List.contains start
+            && outgoing |> Map.find neighbour |> List.contains start
 
         let neighbour = (y, x)
-        if is_linked neighbour start outgoing then outgoing <- add_to_map start neighbour outgoing
+
+        if is_linked neighbour start outgoing then
+            outgoing <- add_to_map start neighbour outgoing
 
     // "S" should have only 2 paths in/out
-    assert
-        (Map.containsKey start outgoing
-         && (Map.find start outgoing).Length = 2)
+    assert (Map.containsKey start outgoing && (Map.find start outgoing).Length = 2)
 
     start, outgoing
 
-let find_closed_path (grid: char [,]) (outgoing: Map<Coord, Coord list>) (start: Coord) =
+let find_closed_path (grid: char[,]) (outgoing: Map<Coord, Coord list>) (start: Coord) =
     // Loop around until we end up back at start. Return pathlen
     let mutable current = start
     let mutable visited = Set.singleton start
@@ -77,15 +73,14 @@ let find_closed_path (grid: char [,]) (outgoing: Map<Coord, Coord list>) (start:
     let next_neighbour pos (outgoing: Map<Coord, Coord list>) (visited: Set<Coord>) start =
         outgoing[pos]
         |> Seq.tryFind (fun (neighbour: Coord) ->
-            (outgoing_count neighbour outgoing = 2
-             && not (visited.Contains neighbour))
+            (outgoing_count neighbour outgoing = 2 && not (visited.Contains neighbour))
             || (visited.Count > 2 && neighbour = start))
 
     while not finished do
         let next = next_neighbour current outgoing visited start
 
         match next with
-        | Some (v) -> current <- v
+        | Some(v) -> current <- v
         | None -> failwithf "Error: Cannot find loop"
 
         visited <- visited |> Set.add current
@@ -114,17 +109,12 @@ let node_type node visited outgoing =
     let up = (row - 1, col)
     let down = (row + 1, col)
 
-    if is_linked node prev outgoing
-       && is_linked node next outgoing then
-        Horizontal
-    elif is_linked node up outgoing
-         && is_linked node down outgoing then
-        Vertical
-    else
-        Corner
+    if is_linked node prev outgoing && is_linked node next outgoing then Horizontal
+    elif is_linked node up outgoing && is_linked node down outgoing then Vertical
+    else Corner
 
 
-let count_interior (grid: char [,]) (visited: Set<Coord>) (outgoing: Map<Coord, Coord list>) =
+let count_interior (grid: char[,]) (visited: Set<Coord>) (outgoing: Map<Coord, Coord list>) =
     // Scan horizontally, row by row transitioning outside/inside
     // whem we hit a path coordinate.  Ignore moving horizonally or vertically along a wall, i.e. when
     // the incoming neighbour is on the same row or column.
@@ -170,10 +160,10 @@ let count_interior (grid: char [,]) (visited: Set<Coord>) (outgoing: Map<Coord, 
                 assert (on_edge)
                 on_edge <- false
 
-                if ((on_edge_from_below
-                     && is_linked (row, col) up outgoing)
-                    || (not on_edge_from_below
-                        && is_linked (row, col) down outgoing)) then
+                if
+                    ((on_edge_from_below && is_linked (row, col) up outgoing)
+                     || (not on_edge_from_below && is_linked (row, col) down outgoing))
+                then
                     state <- toggle_state state
 
                 //debug.printfn "toggle(%A)" (row, col)

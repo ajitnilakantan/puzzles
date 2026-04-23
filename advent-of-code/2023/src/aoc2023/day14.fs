@@ -1,8 +1,6 @@
 module aoc2023.day14
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Direction =
     | N = 0
@@ -19,8 +17,7 @@ let sum_column width height (stones: Map<int, int>) : int =
         let o_top = wall + 1
         let o_bottom = o_top + count - 1
 
-        [ height - o_top .. -1 .. height - o_bottom ]
-        |> List.sum)
+        [ height - o_top .. -1 .. height - o_bottom ] |> List.sum)
     |> Seq.sum
 
 /// Get the row,col positions of the stones in the given direction
@@ -56,8 +53,7 @@ let grid_from_columns (grid: char array2d) (columns: Map<int, int> list) (dir: D
 
     let stone_coords = get_stones columns dir
 
-    stone_coords
-    |> Seq.iter (fun (row, col) -> newgrid[row, col] <- 'O')
+    stone_coords |> Seq.iter (fun (row, col) -> newgrid[row, col] <- 'O')
 
     newgrid
 
@@ -86,10 +82,7 @@ let parse_column_north (grid: char array2d) (col: int) : Map<int, int> =
         | '#' ->
             current_wall <- row
             walls <- walls |> Map.add current_wall 0
-        | 'O' ->
-            walls <-
-                walls
-                |> Map.add current_wall (1 + (walls |> Map.find current_wall))
+        | 'O' -> walls <- walls |> Map.add current_wall (1 + (walls |> Map.find current_wall))
         | _ -> ())
 
     walls
@@ -176,8 +169,7 @@ let perform_cycle (grid: char array2d) (rounds: int) : Map<int, int> list =
 
     // Initialize to "N"
     let mutable columns =
-        [ 0 .. width - 1 ]
-        |> List.map (fun col -> col |> parse_column_north grid)
+        [ 0 .. width - 1 ] |> List.map (fun col -> col |> parse_column_north grid)
 
     let mutable cache =
         Map.empty<Map<int, int> list * Direction, Map<int, int> list * int> // hash -> columns, round
@@ -195,28 +187,26 @@ let perform_cycle (grid: char array2d) (rounds: int) : Map<int, int> list =
             let mutable newcolumns = [] // = [||]
 
             match cache |> Map.tryFind (columns, dir) with
-            | Some (c, lastround) ->
+            | Some(c, lastround) ->
                 newcolumns <- c
 
-                if dir = Direction.E
-                   && round <> lastround
-                   && (rounds - round - 1) % (round - lastround) = 0 then
+                if
+                    dir = Direction.E
+                    && round <> lastround
+                    && (rounds - round - 1) % (round - lastround) = 0
+                then
 
                     ok <- false
 
             | None ->
                 if round = 0 && dir = Direction.N then
                     // Bootstrap cache
-                    newcolumns <-
-                        [ 0 .. width - 1 ]
-                        |> List.map (fun col -> col |> parse_column_north grid)
+                    newcolumns <- [ 0 .. width - 1 ] |> List.map (fun col -> col |> parse_column_north grid)
                 else
                     let stone_coords = get_stones columns prevdir
                     newcolumns <- fill_map numcolumns g stone_coords dir
 
-                    cache <-
-                        cache
-                        |> Map.add (columns, dir) (newcolumns, round)
+                    cache <- cache |> Map.add (columns, dir) (newcolumns, round)
 
             columns <- newcolumns // for dir loop
 
@@ -238,10 +228,7 @@ let SolvePart1 data =
 
     let solution =
         [ 0 .. width - 1 ]
-        |> List.map (fun col ->
-            col
-            |> parse_column_north grid
-            |> sum_column width height)
+        |> List.map (fun col -> col |> parse_column_north grid |> sum_column width height)
         |> List.sum
 
     solution
@@ -296,10 +283,7 @@ type Tests() =
 
         let ret =
             [ 0 .. width - 1 ]
-            |> List.map (fun col ->
-                col
-                |> parse_column_north grid
-                |> sum_column width height)
+            |> List.map (fun col -> col |> parse_column_north grid |> sum_column width height)
             |> List.sum
 
         Assert.Equal(136, ret)

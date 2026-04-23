@@ -1,13 +1,9 @@
 module aoc2023.day15
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Lens =
-    { label: string
-      value: int
-      hash: int }
+    { label: string; value: int; hash: int }
 
 type Remove = { label: string; hash: int }
 
@@ -24,16 +20,14 @@ let hash (s: string) =
     hash
 
 let add_token (token: Lens) (box: list<Lens>) : list<Lens> =
-    if box
-       |> List.exists (fun item -> item.label = token.label) then
+    if box |> List.exists (fun item -> item.label = token.label) then
         box
         |> List.map (fun item -> if item.label = token.label then { item with value = token.value } else item)
     else
         box @ [ token ]
 
 let remove_token (token: Remove) (box: list<Lens>) : list<Lens> =
-    box
-    |> List.filter (fun item -> item.label <> token.label)
+    box |> List.filter (fun item -> item.label <> token.label)
 
 let parse_tokens (tokens: list<string>) : list<Token> =
     tokens

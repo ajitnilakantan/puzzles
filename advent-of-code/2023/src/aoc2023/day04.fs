@@ -1,13 +1,12 @@
 module aoc2023.day04
 
-type internal Marker =
-    interface
-    end
+type internal Marker = interface end
 
 type Card =
     { number: int
       winning: int Set
       picked: int Set }
+
     static member Default =
         { number = 0
           winning = Set.empty
@@ -22,18 +21,18 @@ let read_cards data =
         let parts = line.Split([| ':'; '|' |], splitopts)
         assert (parts.Length = 3)
 
-        let tokens = parts[ 0 ].Split("\x20", splitopts)
+        let tokens = parts[0].Split("\x20", splitopts)
 
         assert (tokens.Length = 2)
         assert (tokens[0] = "Card")
         let number = tokens[1] |> int
 
-        let tokens = parts[ 1 ].Split("\x20", splitopts)
+        let tokens = parts[1].Split("\x20", splitopts)
 
         assert (tokens.Length = 5 || tokens.Length = 10) // demo vs real
         let winning = tokens |> Array.map (int) |> Set.ofSeq
 
-        let tokens = parts[ 2 ].Split("\x20", splitopts)
+        let tokens = parts[2].Split("\x20", splitopts)
 
         assert (tokens.Length = 8 || tokens.Length = 25) // demo vs real
         let picked = tokens |> Array.map (int) |> Set.ofSeq
@@ -48,10 +47,7 @@ let read_cards data =
 
 let SolvePart1 data =
     let score (s: int Set) =
-        if s.Count = 0 then
-            0
-        else
-            pown 2 (s.Count - 1)
+        if s.Count = 0 then 0 else pown 2 (s.Count - 1)
 
     let cards = read_cards data
 
@@ -109,19 +105,21 @@ let public Solve () =
 // #################################### //
 open Xunit
 
-[<Fact>]
-let ``Test Part1`` () =
-    let data =
-        "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53\n\
-         Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19\n\
-         Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1\n\
-         Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83\n\
-         Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36\n\
-         Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
+type Tests() =
 
-    let data = fileio.linesFromString data
-    let result = SolvePart1 data
-    Assert.Equal(13, result)
+    [<Fact>]
+    let ``Test Part1`` () =
+        let data =
+            "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53\n\
+            Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19\n\
+            Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1\n\
+            Card 4: 41 92 73 84 69 | 59 84 76 51 58  5 54 83\n\
+            Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36\n\
+            Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
 
-    let result = SolvePart2 data
-    Assert.Equal(30, result)
+        let data = fileio.linesFromString data
+        let result = SolvePart1 data
+        Assert.Equal(13, result)
+
+        let result = SolvePart2 data
+        Assert.Equal(30, result)

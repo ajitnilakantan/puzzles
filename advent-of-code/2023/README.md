@@ -164,6 +164,21 @@ The solution seems "cheap" - we backtrack the inputs to "rx" and see it only dep
 These 4 conjunctions just happen to have a long cycle of all Low and just one pulse of High. The solution is the LCM of the cycle lengths.
 I wasted a lot of time trying to model the circuit as a feedback shift register + finding a general solution to the problem.
 
+#### Day21
+
+For N steps we have a series of taxicab circles (https://en.wikipedia.org/wiki/Taxicab_geometry) of radii N, N-2, N-4, ... 1-or-0
+There are floor(N/2) "circles". The "perimeter" or number of grid points for a "circle" or radius r is 4\*r.
+With no # marks, the total is $\sum_{r=N,N-2,N-4,..,0} 4r$ which simplifies to $N^2$
+For part 2 there are some simplifications:
+
+- The grid is square and the start point is at the center
+- number of steps % height = 26501365 % 131 = 65 -- and 26501365 // 131 = 202300
+  i.e. starting at the center we steps will reach exactly to the edge 202300 repetitions out
+
+We run a simulation on the test grid, expanding it with a "tile radius" of 1..n (so the repetition is $2r+1$ x $2r+1$.  We keep track of the total for each "tile", i.e. original grid that has been duplicated.
+The pattern repeats (this is an offset depending on wherer the "repetition radius" is even or odd -- for us it is 202300, even)
+Can caluclate by summing the value of all tiles
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround
