@@ -666,6 +666,22 @@ module collections =
     let toMap dictionary =
         (dictionary :> seq<_>) |> Seq.map (|KeyValue|) |> Map.ofSeq
 
+    // Merge multiple maps, handling collisions by creating a list
+    let mergeMaps maps =
+        let addOrAppend map key value =
+            map |> Map.change key (function
+                | Some list -> Some (value :: list)
+                | None -> Some [value])
+
+        let folder acc map =
+            Map.fold addOrAppend acc map
+
+        List.fold folder Map.empty maps
+    // Folder function to handle collisions by creating a list of values
+    let multiListToMap acc (key, value) =
+        match Map.tryFind key acc with
+        | Some existingValues -> Map.add key (value :: existingValues) acc
+        | None -> Map.add key [value] acc    
 
 module collections_test =
     [<Fact>]
@@ -695,6 +711,26 @@ module collections_test =
         let expected = [ (1, 2); (1, 3); (1, 4); (2, 3); (2, 4); (3, 4) ]
         Assert.Equivalent(expected, collections.all_pairs data)
 
+    [<Fact>]
+    let ``test mergeMaps`` () =
+        let list1 = Map [ "a", 1; "b", 2 ]
+        let list2 = Map [ "a", 3; "c", 4 ]
+        let list3 = Map [ "b", 5; "a", 6 ]
+        let merged = collections.mergeMaps [list1; list2; list3]
+        let expected = Map.ofList [("a", [6; 3; 1]); ("b", [5; 2]); ("c", [4])]
+        Assert.Equivalent(expected, merged)
+    [<Fact>]
+    let ``test multiListToMap`` () =
+        let data = [("a", 1); ("b", 2); ("a", 3); ("c", 4); ("b", 5)]
+        // Fold over the list of pairs to create the map
+        let finalMap = 
+            data 
+            |> List.fold collections.multiListToMap Map.empty
+            |> Map.map (fun _ v -> List.rev v) // Optional: reverse to keep original order
+        let expected = Map.ofList [("a", [1; 3]); ("b", [2; 5]); ("c", [4])]
+        Assert.Equivalent(expected, finalMap)
+
+// Result: Map [("a", [1; 3]); ("b", [2; 5]); ("c", [4])]
 module dayxxtest =
     type Marker = interface end
 

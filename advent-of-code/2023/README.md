@@ -169,15 +169,20 @@ I wasted a lot of time trying to model the circuit as a feedback shift register 
 For N steps we have a series of taxicab circles (https://en.wikipedia.org/wiki/Taxicab_geometry) of radii N, N-2, N-4, ... 1-or-0
 There are floor(N/2) "circles". The "perimeter" or number of grid points for a "circle" or radius r is 4\*r.
 With no # marks, the total is $\sum_{r=N,N-2,N-4,..,0} 4r$ which simplifies to $N^2$
+
 For part 2 there are some simplifications:
 
 - The grid is square and the start point is at the center
-- number of steps % height = 26501365 % 131 = 65 -- and 26501365 // 131 = 202300
+- Number of steps % height = 26501365 % 131 = 65 -- and 26501365 // 131 = 202300
   i.e. starting at the center we steps will reach exactly to the edge 202300 repetitions out
+- The tiles have an empty border around them. This ensures that there are no "blockages" and the steps can continue out to the edges
 
 We run a simulation on the test grid, expanding it with a "tile radius" of 1..n (so the repetition is $2r+1$ x $2r+1$.  We keep track of the total for each "tile", i.e. original grid that has been duplicated.
 The pattern repeats (this is an offset depending on wherer the "repetition radius" is even or odd -- for us it is 202300, even)
-Can caluclate by summing the value of all tiles
+Can calculate by summing the value of all tiles.
+
+#### Day22
+Find all intersection in the xy plane (ignoring z height) using a sweep alogorithm, instead of a brute force O(n^2) all-pairs check. Then sort by z to see what is above/below. Part2 is straightforward. Remove each single support and see which blocks have no support and fall, and repeat until nothing falls.
 
 ### F# Annoyances
 

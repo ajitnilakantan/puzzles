@@ -109,9 +109,9 @@ let calculate_totel (n_o, s_o, e_o, w_o, n_i, s_i, e_i, w_i, nw_o, nw_i, ne_o, n
         + int64 (n_i + s_i + e_i + w_i)
         + int64 tile_radius * int64 (nw_o + ne_o + sw_o + se_o)
         + int64 (tile_radius - 1) * int64 (nw_i + ne_i + sw_i + se_i)
-        + 4L * (half - 1L) * (half) * int64 centre
+        + 4L * (half - 1L) * half * int64 centre
         + int64 centre
-        + 4L * (half * half) * int64 off_centre
+        + 4L * half * half * int64 off_centre
         - 4L * int64 off_centre
 
     total
@@ -249,7 +249,7 @@ type Tests() =
             //     (reachable |> Set.count)
 
             // gridio.print_grid tileSummary (fun cell -> printf "%2d " cell)
-            Assert.Equal(tileCount, int64(reachable |> Set.count))
+            Assert.Equal(tileCount, int64 (reachable |> Set.count))
 
             if tile_radius >= 6 && tile_radius % 2 = 0 then
                 let total = calculate_totel simulation tile_radius
@@ -286,4 +286,4 @@ type Tests() =
                 Assert.Equal(tileCount, total)
 
             gridio.print_grid tileSummary (fun cell -> printf "%4d " cell)
-            Assert.Equal(tileCount, int64(reachable |> Set.count))
+            Assert.Equal(tileCount, int64 (reachable |> Set.count))
