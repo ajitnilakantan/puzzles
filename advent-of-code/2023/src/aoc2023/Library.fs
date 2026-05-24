@@ -90,12 +90,58 @@ module debug =
 
 
 module itertools =
+    open System.Collections.Concurrent
+
     let product xs ys =
         seq {
             for x in xs do
                 for y in ys do
                     yield x, y
         }
+    // Simple memoize function
+    let memoize f =
+        let dict = System.Collections.Generic.Dictionary<_, _>()
+
+        fun c ->
+            match dict.TryGetValue c with
+
+            | true, value -> value
+            | _ ->
+                let value = f c
+                dict.Add(c, value)
+                value
+    // Specific memoizer for 2 curried arguments
+    let memoize2 f =
+        let m = memoize (fun (a, b) -> f a b)
+        fun a b -> m (a, b)
+
+    // Specific memoizer for 3 curried arguments
+    let memoize3 f =
+        let m = memoize (fun (a, b, c) -> f a b c)
+        fun a b c -> m (a, b, c)
+
+    // 1. Define the recursive memoization wrapper
+    let memoizeRec2 f =
+        // Type annotations on the dictionary clarify what 'a and 'b are
+        let cache = ConcurrentDictionary<'a, Lazy<'b>>()
+
+        let rec g x =
+            // Uses Lazy to prevent duplicate computations on concurrent threads
+            // Wrap the anonymous function explicitly into a System.Func delegate
+            let factory = Func<'a, Lazy<'b>>(fun key -> lazy (f g key))
+            cache.GetOrAdd(x, factory).Value
+
+        g
+
+    let memoizeRec (f: ('a -> 'b) -> 'a -> 'b) =
+        let cache = ConcurrentDictionary<'a, Lazy<'b>>()
+
+        let rec g (x: 'a) : 'b =
+            // F# converts the closure automatically if the generic signatures match cleanly
+            cache.GetOrAdd(x, fun (key: 'a) -> lazy (f g key)).Value
+
+        g
+
 
 module itertools_test =
     [<Fact>]
@@ -104,6 +150,33 @@ module itertools_test =
         let b = [ "a"; "b" ]
         let expected = [ (1, "a"); (1, "b"); (2, "a"); (2, "b"); (3, "a"); (3, "b") ]
         Assert.Equivalent(expected, itertools.product a b)
+
+    [<Fact>]
+    let ``test memoize`` () =
+        // Example usage. single tuple argument
+        let expensiveFunc (x, y, z) = x * y * z // Single tuple argument
+        let memoizedFunc = itertools.memoize expensiveFunc
+        Assert.Equal(30, memoizedFunc (2, 3, 5)) // Computes
+        Assert.Equal(30, memoizedFunc (2, 3, 5)) // Returns cached value
+
+        // Three arguments
+        let expensiveFunc x y z = x + y + z
+        let memoizedFunc = itertools.memoize expensiveFunc // Three arguments
+        Assert.Equal(10, memoizedFunc 2 3 5) // Computes
+        Assert.Equal(10, memoizedFunc 2 3 5) // Returns cached value
+
+        // Recursive memoization
+        // Define the Fibonacci logic using the wrapper's loop variable (g)
+        let fibMem =
+            itertools.memoizeRec (fun g n ->
+                match n with
+                | x when x = 0I -> 0I // Using BigInteger (I) to handle large numbers
+                | x when x = 1I -> 1I
+                | _ -> g (n - 1I) + g (n - 2I))
+
+        // 3. Execution: Should be quick
+        Assert.Equal(354224848179261915075I, fibMem 100I)
+
 
 module gridio =
     let read_grid (lines: string list) isPadded default_value : char[,] =
@@ -475,7 +548,7 @@ module graphsearch =
         else
             None
 
-    let rec findAllPaths get_neighbours is_target pathSoFar =
+    let rec findAllPathsRecursive get_neighbours is_target pathSoFar =
         seq {
             let currentNode = List.head pathSoFar
 
@@ -488,8 +561,307 @@ module graphsearch =
                     // Avoid cycles by checking if neighbor is in current path
                     if not (List.contains neighbor pathSoFar) then
                         // yield! flattens the nested sequence of paths
-                        yield! findAllPaths get_neighbours is_target (neighbor :: pathSoFar)
+                        yield! findAllPathsRecursive get_neighbours is_target (neighbor :: pathSoFar)
         }
+
+    let findAllPaths (neighbors: 'a -> 'a seq) (isGoal: 'a -> bool) (start: 'a) : seq<'a list> =
+        // Each state in our stack tracks:
+        // (current_node, path_so_far_reversed, unvisited_neighbors_list, visited_set)
+        let initialNeighbors = neighbors start |> Seq.toList
+        let initialVisited = Set.singleton start
+        let initialPath = [ start ]
+        let initialStack = [ (start, initialPath, initialNeighbors, initialVisited) ]
+
+        // State machine function for Seq.unfold
+        let rec nextState stack =
+            match stack with
+
+            | [] -> None // Stack is empty, terminates the sequence
+            | (curr, path, remainingNeighbors, visited) :: tail ->
+                if isGoal curr then
+                    // Goal found: pop it to prevent infinite loops, return path, and update stack
+                    Some(List.rev path, tail)
+                else
+                    match remainingNeighbors with
+
+                    | [] ->
+                        // No neighbors left to explore at this level: backtrack
+                        nextState tail
+                    | next :: restNeighbors ->
+                        let updatedCurrentState = (curr, path, restNeighbors, visited)
+
+                        if Set.contains next visited then
+                            // Cycle detected: skip this neighbor and continue evaluation
+                            nextState (updatedCurrentState :: tail)
+                        else
+                            let nextNeighbors = neighbors next |> Seq.toList
+                            let nextVisited = Set.add next visited
+                            let nextPath = next :: path
+                            let nextStateNode = (next, nextPath, nextNeighbors, nextVisited)
+                            // Push next node and updated current node back to stack
+                            nextState (nextStateNode :: updatedCurrentState :: tail)
+
+        seq {
+            if isGoal start then yield [ start ]
+            yield! Seq.unfold nextState initialStack
+        }
+    let findAllPathsWithWeights (neighbors: 'a -> ('a * int) seq) (isGoal: 'a -> bool) (start: 'a) : seq<'a list * int> =
+        // Each stack frame holds: (CurrentNode, CurrentPath, CurrentWeight, RemainingNeighborsList)
+        let initialState = 
+            let firstFrame = (start, [start], 0, neighbors start |> Seq.toList)
+            ([firstFrame], Set.singleton start)
+
+        initialState
+
+        |> Seq.unfold (fun (stack, visited) ->
+            match stack with
+            | [] -> None // Stack is empty; termination condition
+            | (curr, path, weight, neighborsLeft) :: restStack ->
+                match neighborsLeft with
+
+                | [] -> 
+                    // No neighbors left for this node. Backtrack.
+                    let nextVisited = Set.remove curr visited
+                    Some (None, (restStack, nextVisited))
+                | (next, edgeWeight) :: remainingNeighbors ->
+                    // Fix: Update the current frame to reflect remaining neighbors
+                    let updatedCurrentFrame = (curr, path, weight, remainingNeighbors)
+                    let updatedStack = updatedCurrentFrame :: restStack
+
+                    if Set.contains next visited then
+                        // Cycle detected: skip this neighbor
+                        Some (None, (updatedStack, visited))
+                    else
+                        let nextPath = next :: path
+                        let nextWeight = weight + edgeWeight
+                        let nextVisited = Set.add next visited
+
+                        // FIXED: Removed the assignment operator '=' that caused the type error
+                        let nextNeighbors = neighbors next |> Seq.toList
+                        let nextFrame = (next, nextPath, nextWeight, nextNeighbors)
+                        let nextStack = nextFrame :: updatedStack
+
+                        if isGoal next then
+                            Some (Some (List.rev nextPath, nextWeight), (nextStack, nextVisited))
+                        else
+                            Some (None, (nextStack, nextVisited))
+        )
+        |> Seq.choose id
+
+
+    let findAllPathsWithWeights2 (neighbors: 'a -> ('a * int) seq) (isGoal: 'a -> bool) (start: 'a) : seq<'a list * int> =
+        seq {
+            // Stack stores: (current_node, current_path, current_weight, remaining_neighbors_enumerator)
+            // Using an enumerator lets us resume processing exactly where we left off.
+            let initialEnum = (neighbors start).GetEnumerator()
+            let stack = System.Collections.Generic.Stack<'a * 'a list * int * System.Collections.Generic.IEnumerator<'a * int>>()
+
+            stack.Push((start, [start], 0, initialEnum))
+
+            // Check if the start node itself satisfies the goal condition
+            if isGoal start then
+                yield ([start], 0)
+
+            while stack.Count > 0 do
+                let (curr, path, weight, enum) = stack.Peek()
+
+                if enum.MoveNext() then
+                    let (next, edgeWeight) = enum.Current
+
+                    // Avoid cycles by checking if the node is already in the path
+                    if not (List.contains next path) then
+                        let nextPath = next :: path
+                        let nextWeight = weight + edgeWeight
+
+                        if isGoal next then
+                            // Found a valid path; reverse it to restore correct chronological order
+                            yield (List.rev nextPath, nextWeight)
+
+                        // Push the next node's transitions onto the stack to explore deeper (DFS)
+                        let nextEnum = (neighbors next).GetEnumerator()
+                        stack.Push((next, nextPath, nextWeight, nextEnum))
+                else
+                    // Clean up the iterator resources when a node's neighbors are fully exhausted
+                    enum.Dispose()
+                    stack.Pop() |> ignore
+        }
+
+    /// <summary>
+    /// Finds the longest path(s) from a starting node to any valid goal node iteratively,
+    /// utilizing dynamic programming and memoization via immutable F# structures.
+    /// </summary>
+    /// <param name="neighbors">A function that takes a node and returns a sequence of its neighbors along with their respective edge weights.</param>
+    /// <param name="isGoal">A predicate function that returns true if a given node is a destination goal.</param>
+    /// <param name="start">The starting node for the path exploration.</param>
+    /// <returns>A sequence of lists, where each list represents an optimal (longest) path from the start node to a goal node.</returns>
+    let findLongestPathIterative (neighbors: 'a -> ('a * int) seq) (isGoal: 'a -> bool) (start: 'a) : seq<'a list> =
+
+        // DP Memoization Table: Maps a node to its (current_max_distance, path_taken_in_reverse)
+        // Initialized with the start node at distance 0
+        let mutable distances = Map.empty |> Map.add start (0, [ start ])
+
+        // Frontier list acting as our iterative stack/queue to explore nodes
+        let mutable frontier = [ start ]
+
+        // Tracks the absolute longest distance found to any goal node so far
+        let mutable maxGoalDist = System.Int32.MinValue
+
+        // Accumulator holding all paths that achieve the maxGoalDist
+        let mutable optimalPaths = []
+
+        // Strictly iterative loop replacing traditional call-stack recursion
+        while not (List.isEmpty frontier) do
+            match frontier with
+            | current :: rest ->
+                // Dequeue/pop the current node and update the tracking frontier pointer
+                frontier <- rest
+
+                // Retrieve the verified longest distance and path to the current node
+                let currentDist, currentPath = Map.find current distances
+
+                // Explore all immediate outbound paths from the current node
+                for (neighbor, weight) in neighbors current do
+                    let newDist = currentDist + weight
+                    let newPath = neighbor :: currentPath
+
+                    // Dynamic Programming Lookup: Determine if the newly calculated path
+                    // is strictly longer than any previously recorded path to this neighbor.
+                    let shouldUpdate =
+                        match Map.tryFind neighbor distances with
+                        | Some(existingDist, _) -> newDist > existingDist
+                        | None -> true // First time discovering this node
+
+                    // If it's a better path, memoize the new distance and queue the neighbor
+                    if shouldUpdate then
+                        distances <- Map.add neighbor (newDist, newPath) distances
+                        frontier <- neighbor :: frontier
+
+                // Goal State Evaluation: Check if the current node satisfies the objective
+                if isGoal current then
+                    if currentDist > maxGoalDist then
+                        // Found a path that strictly beats our historical maximum distance
+                        maxGoalDist <- currentDist
+                        optimalPaths <- [ currentPath ]
+                    elif currentDist = maxGoalDist then
+                        // Found an alternative path that ties the current maximum distance
+                        optimalPaths <- currentPath :: optimalPaths
+
+            | [] -> () // Safety catch-all for an empty frontier state
+
+        // Post-processing: Because paths are constructed efficiently by prepending items (O(1)),
+        // they must be reversed back to chronological order (Start -> Goal) before returning.
+        optimalPaths |> List.map List.rev |> Seq.ofList
+
+
+    /// <summary>
+    /// Compresses a graph by collapsing all linear paths of degree-2 nodes into single weighted edges.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// This version utilizes an optimized multi-source flood fill (BFS) to map old nodes to 
+    /// compressed core nodes, eliminating processing bottlenecks on long linear chains.
+    /// </remarks>
+    /// 
+    /// <param name="nodes">The complete list of all vertices/nodes present in the graph.</param>
+    /// <param name="getNeighbors">A function that returns the immediate neighbors for any given node.</param>
+    /// 
+    /// <typeparam name="'Node">The type of the vertex. Must support structural comparison for Map keys.</typeparam>
+    /// 
+    /// <returns>
+    /// A tuple containing:
+    /// <br/>1. <c>'Node list</c>: The remaining core nodes.
+    /// <br/>2. <c>Map&lt;'Node, ('Node * int) list&gt;</c>: The new compressed adjacency list.
+    /// <br/>3. <c>Map&lt;'Node, 'Node&gt;</c>: Optimized lookup table mapping every original node to its closest core node.
+    /// </returns>
+    let compressGraph (nodes: 'Node list) (getNeighbors: 'Node -> 'Node list) : 'Node list * Map<'Node, ('Node * int) list> * Map<'Node, 'Node> =
+
+        // Step 1: Pre-calculate neighbor counts for every node to establish topology.
+        let degreeMap = 
+            nodes 
+
+            |> List.map (fun node -> node, getNeighbors node)
+            |> Map.ofList
+
+        // Step 2: Core nodes are junctions (degree != 2).
+        let coreNodes = 
+            nodes |> List.filter (fun n -> 
+                match Map.tryFind n degreeMap with
+
+                | Some neighbors -> List.length neighbors <> 2
+                | None -> false
+            )
+
+        // Step 3: Iteratively trace a path from a core node into a specific direction.
+        let tracePath (startNode: 'Node) (firstStep: 'Node) : 'Node * int =
+            let (endNode, _, totalWeight) =
+                Seq.initInfinite (fun i -> i)
+
+                |> Seq.scan (fun (curr, prev, weight) _ ->
+                    match Map.tryFind curr degreeMap with
+                    | Some neighbors when List.length neighbors = 2 ->
+                        let nextNode = neighbors |> List.find (fun n -> n <> prev)
+                        (nextNode, curr, weight + 1)
+
+                    | _ -> 
+                        (curr, prev, weight)
+                ) (firstStep, startNode, 1) // Pass the initial state tuple here
+                |> Seq.pairwise
+                |> Seq.find (fun (state1, state2) -> state1 = state2)
+
+                |> fst
+
+            (endNode, totalWeight)
+
+        // Step 4: Construct the compressed adjacency list for the surviving core nodes.
+        let compressedEdges =
+            coreNodes
+            |> List.map (fun node ->
+                let neighbors = Map.tryFind node degreeMap |> Option.defaultValue []
+                let edges = neighbors |> List.map (fun nextNode -> tracePath node nextNode)
+                node, edges
+            )
+
+            |> Map.ofList
+
+        // Step 5: Multi-source BFS/Flood Fill to map old nodes to core nodes.
+        let initialMap = coreNodes |> List.map (fun n -> n, n) |> Map.ofList
+
+        let initialQueue = 
+            coreNodes 
+
+            |> List.collect (fun core -> 
+                let neighbors = Map.tryFind core degreeMap |> Option.defaultValue []
+                neighbors 
+
+                |> List.filter (fun n -> Map.tryFind n degreeMap |> Option.map List.length |> Option.defaultValue 0 = 2)
+                |> List.map (fun neighbor -> neighbor, core)
+            )
+
+        let finalOldToNewMap =
+            initialQueue
+
+            |> List.fold (fun (currentMap, activeQueue) _ ->
+                match activeQueue with
+                | [] -> (currentMap, [])
+                | (currNode, coreOwner) :: restQueue ->
+                    if Map.containsKey currNode currentMap then
+                        (currentMap, restQueue)
+                    else
+                        let updatedMap = Map.add currNode coreOwner currentMap
+                        let neighbors = Map.tryFind currNode degreeMap |> Option.defaultValue []
+                        let nextSteps = 
+                            neighbors
+
+                            |> List.filter (fun n -> Map.tryFind n degreeMap |> Option.map List.length |> Option.defaultValue 0 = 2)
+                            |> List.filter (fun n -> not (Map.containsKey n updatedMap))
+
+                            |> List.map (fun n -> n, coreOwner)
+
+                        (updatedMap, restQueue @ nextSteps)
+            ) (initialMap, initialQueue)
+            |> fst
+
+        (coreNodes, compressedEdges, finalOldToNewMap)
 
     // type Multigraph<'n, 'e> = Map<'n, ('n * 'e) list> when 'n : comparison
     let findAllPaths_multigraph (start: 'n) (target: 'n) (get_neighbours: 'n -> ('n * 'e) list option) : ('n * 'e) list list =
@@ -567,17 +939,21 @@ module graphsearch_test =
         // Example Usage:
         let graph = Map [ 'A', [ 'B'; 'C' ]; 'B', [ 'D' ]; 'C', [ 'B'; 'D' ] ]
 
-        let get_neighbours (g: Map<'a, 'a list>) (node: 'a) =
+        let get_neighbours (g: Map<'a, 'a list>) (node: 'a) : 'a list =
             g |> Map.tryFind node |> Option.defaultValue []
 
         let is_target (goal: 'a) (node: 'a) = goal = node
 
-        let pathSeq =
-            graphsearch.findAllPaths (graph |> get_neighbours) ('D' |> is_target) [ 'A' ]
+        let pathSeqRec =
+            graphsearch.findAllPathsRecursive (graph |> get_neighbours) ('D' |> is_target) [ 'A' ]
+
+        let pathSeqIterative =
+            graphsearch.findAllPaths (graph |> get_neighbours >> Seq.ofList) ('D' |> is_target) 'A'
 
         // Access elements lazily
         // pathSeq |> Seq.iter (printfn "Path found: %A")
-        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'C'; 'D' ] ], pathSeq)
+        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'C'; 'D' ] ], pathSeqRec)
+        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'C'; 'D' ] ], pathSeqIterative)
 
         // Example Usage:
         let graph = Map [ 'A', [ 'B'; 'C'; 'B' ]; 'B', [ 'D' ]; 'C', [ 'B' ] ]
@@ -585,12 +961,16 @@ module graphsearch_test =
         let get_neighbours (g: Map<'a, 'a list>) (node: 'a) =
             g |> Map.tryFind node |> Option.defaultValue []
 
-        let pathSeq =
-            graphsearch.findAllPaths (graph |> get_neighbours) ('D' |> is_target) [ 'A' ]
+        let pathSeqRec =
+            graphsearch.findAllPathsRecursive (graph |> get_neighbours) ('D' |> is_target) [ 'A' ]
+
+        let pathSeqIterative =
+            graphsearch.findAllPaths (graph |> get_neighbours >> Seq.ofList) ('D' |> is_target) 'A'
 
         // Access elements lazily
         // pathSeq |> Seq.iter (printfn "Path found: %A")
-        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'B'; 'D' ] ], pathSeq)
+        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'B'; 'D' ] ], pathSeqRec)
+        Assert.Equal([ [ 'A'; 'B'; 'D' ]; [ 'A'; 'C'; 'B'; 'D' ]; [ 'A'; 'B'; 'D' ] ], pathSeqIterative)
 
 
     [<Fact>]
@@ -607,6 +987,31 @@ module graphsearch_test =
         //   [("B", "Scenic Route"); ("C", "Bridge")] ]
 
         Assert.Equal<List<List<string * string>>>([ [ ("B", "Fast Road"); ("C", "Bridge") ]; [ ("B", "Scenic Route"); ("C", "Bridge") ] ], paths)
+
+    [<Fact>]
+    let ``test compressGraph`` () =
+        let nodes = ["A"; "B"; "C"; "D"]
+        // A - B - C - D
+        let getNeighbors node =
+            match node with
+
+            | "A" -> ["B"]
+            | "B" -> ["A"; "C"]
+            | "C" -> ["B"; "D"]
+
+            | "D" -> ["C"]
+            | _   -> []
+
+        let (newNodes, edges, oldToNew) = graphsearch.compressGraph nodes getNeighbors
+
+        // Remaining merged nodes
+        Assert.Equivalent(["A"; "D"], newNodes)
+
+        // Weighted Edges
+        Assert.Equivalent(Map.ofList [("A", [("D", 3)]); ("D", [("A", 3)])], edges)
+
+        // Old to merged node mapping
+        Assert.Equivalent( Map.ofList[("A", "A"); ("B", "A"); ("C", "D"); ("D", "D")],  oldToNew)
 
 
 module math =
@@ -669,19 +1074,19 @@ module collections =
     // Merge multiple maps, handling collisions by creating a list
     let mergeMaps maps =
         let addOrAppend map key value =
-            map |> Map.change key (function
-                | Some list -> Some (value :: list)
-                | None -> Some [value])
+            map
+            |> Map.change key (function
+                | Some list -> Some(value :: list)
+                | None -> Some [ value ])
 
-        let folder acc map =
-            Map.fold addOrAppend acc map
+        let folder acc map = Map.fold addOrAppend acc map
 
         List.fold folder Map.empty maps
     // Folder function to handle collisions by creating a list of values
     let multiListToMap acc (key, value) =
         match Map.tryFind key acc with
         | Some existingValues -> Map.add key (value :: existingValues) acc
-        | None -> Map.add key [value] acc    
+        | None -> Map.add key [ value ] acc
 
 module collections_test =
     [<Fact>]
@@ -716,18 +1121,20 @@ module collections_test =
         let list1 = Map [ "a", 1; "b", 2 ]
         let list2 = Map [ "a", 3; "c", 4 ]
         let list3 = Map [ "b", 5; "a", 6 ]
-        let merged = collections.mergeMaps [list1; list2; list3]
-        let expected = Map.ofList [("a", [6; 3; 1]); ("b", [5; 2]); ("c", [4])]
+        let merged = collections.mergeMaps [ list1; list2; list3 ]
+        let expected = Map.ofList [ ("a", [ 6; 3; 1 ]); ("b", [ 5; 2 ]); ("c", [ 4 ]) ]
         Assert.Equivalent(expected, merged)
+
     [<Fact>]
     let ``test multiListToMap`` () =
-        let data = [("a", 1); ("b", 2); ("a", 3); ("c", 4); ("b", 5)]
+        let data = [ ("a", 1); ("b", 2); ("a", 3); ("c", 4); ("b", 5) ]
         // Fold over the list of pairs to create the map
-        let finalMap = 
-            data 
+        let finalMap =
+            data
             |> List.fold collections.multiListToMap Map.empty
             |> Map.map (fun _ v -> List.rev v) // Optional: reverse to keep original order
-        let expected = Map.ofList [("a", [1; 3]); ("b", [2; 5]); ("c", [4])]
+
+        let expected = Map.ofList [ ("a", [ 1; 3 ]); ("b", [ 2; 5 ]); ("c", [ 4 ]) ]
         Assert.Equivalent(expected, finalMap)
 
 // Result: Map [("a", [1; 3]); ("b", [2; 5]); ("c", [4])]

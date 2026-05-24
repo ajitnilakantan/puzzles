@@ -309,6 +309,7 @@ let SolvePart2 data =
 
     let directlyBelow, topmost, multipleSupports, singleSupports, singleParents =
         drop_bars bars
+
     let result =
         singleSupports
         |> Set.toSeq
@@ -333,7 +334,7 @@ let SolvePart2 data =
 
             id, fallenBars)
 
-    let solution = result |> Seq.sumBy(fun (_, fallen) -> fallen |> Set.count)
+    let solution = result |> Seq.sumBy (fun (_, fallen) -> fallen |> Set.count)
     solution
 
 let public Solve () =
@@ -561,6 +562,7 @@ type Tests() =
 
         let directlyBelow, topmost, multipleSupports, singleSupports, singleParents =
             drop_bars bars
+
         let result =
             singleSupports
             |> Set.toSeq
@@ -585,6 +587,13 @@ type Tests() =
 
                 id, fallenBars)
 
-        Assert.Equivalent(seq {(0, set [1; 2; 3; 4; 5; 6]); (5, set [6])}, result)
-        let solution = result |> Seq.sumBy(fun (_, fallen) -> fallen |> Set.count)
+        Assert.Equivalent(
+            seq {
+                (0, set [ 1; 2; 3; 4; 5; 6 ])
+                (5, set [ 6 ])
+            },
+            result
+        )
+
+        let solution = result |> Seq.sumBy (fun (_, fallen) -> fallen |> Set.count)
         Assert.Equal(7, solution)

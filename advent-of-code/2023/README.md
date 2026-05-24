@@ -184,6 +184,21 @@ Can calculate by summing the value of all tiles.
 #### Day22
 Find all intersection in the xy plane (ignoring z height) using a sweep alogorithm, instead of a brute force O(n^2) all-pairs check. Then sort by z to see what is above/below. Part2 is straightforward. Remove each single support and see which blocks have no support and fall, and repeat until nothing falls.
 
+#### Day23
+Reuse graphsearch.findAllPaths from day 19.  Longest path is NP complete...Running the naive solution from part1 on Part 2 takes 6hrs.
+
+To speed up, run Tarjan's graph splitting algorithm to split the graph into "islands" connected by "bridges".  Create a "meta-graph" of the
+islands (to nodes are the island index, the edges are the bridges) and run "all paths" on the meta graph.  Next run "longest path" on each island
+and find the longest path.  If the graph can be split, this is faster because "all paths" and "longest path" are run on smaller graphs. Unfortunately,
+this still too slow.  There is a huge ~9334 node graph in the middle which slows everything down.
+Thinking about it, Tarjan won't help since the DFS path search would naturally find all the bridges, and there would be no speed advantage.
+Unsuccessful experiment with Kernighan Lin partitioning.
+
+Take a different tack. Notice most of the nodes follow narrow linear chain paths. Compress these into single nodes and have weighted edges between the compressed nodes. The weight is the number of nodes collapsed into one. This reduces the number of nodes from 9438 to 36 and we get a solution quickly by enumerating all paths with edge weights.
+
+#### Day24
+The naive all pairs check for line intersectons in O(n^2). Instead use the Bentley Ottmann line sweep alogrithm which is O((n + k) log n), with k intersections
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround
@@ -224,3 +239,5 @@ Find all intersection in the xy plane (ignoring z height) using a sweep alogorit
 - F#/functional data structures: http://lepensemoi.free.fr/index.php/tag/data-structure
 
 - https://laenas.github.io/posts/01-fs-primer.html
+
+- F# Graph algorithms: https://github.com/code-shoily/yog-fsharp
