@@ -605,11 +605,12 @@ module graphsearch =
             if isGoal start then yield [ start ]
             yield! Seq.unfold nextState initialStack
         }
+
     let findAllPathsWithWeights (neighbors: 'a -> ('a * int) seq) (isGoal: 'a -> bool) (start: 'a) : seq<'a list * int> =
         // Each stack frame holds: (CurrentNode, CurrentPath, CurrentWeight, RemainingNeighborsList)
-        let initialState = 
-            let firstFrame = (start, [start], 0, neighbors start |> Seq.toList)
-            ([firstFrame], Set.singleton start)
+        let initialState =
+            let firstFrame = (start, [ start ], 0, neighbors start |> Seq.toList)
+            ([ firstFrame ], Set.singleton start)
 
         initialState
 
@@ -619,10 +620,10 @@ module graphsearch =
             | (curr, path, weight, neighborsLeft) :: restStack ->
                 match neighborsLeft with
 
-                | [] -> 
+                | [] ->
                     // No neighbors left for this node. Backtrack.
                     let nextVisited = Set.remove curr visited
-                    Some (None, (restStack, nextVisited))
+                    Some(None, (restStack, nextVisited))
                 | (next, edgeWeight) :: remainingNeighbors ->
                     // Fix: Update the current frame to reflect remaining neighbors
                     let updatedCurrentFrame = (curr, path, weight, remainingNeighbors)
@@ -630,7 +631,7 @@ module graphsearch =
 
                     if Set.contains next visited then
                         // Cycle detected: skip this neighbor
-                        Some (None, (updatedStack, visited))
+                        Some(None, (updatedStack, visited))
                     else
                         let nextPath = next :: path
                         let nextWeight = weight + edgeWeight
@@ -642,10 +643,9 @@ module graphsearch =
                         let nextStack = nextFrame :: updatedStack
 
                         if isGoal next then
-                            Some (Some (List.rev nextPath, nextWeight), (nextStack, nextVisited))
+                            Some(Some(List.rev nextPath, nextWeight), (nextStack, nextVisited))
                         else
-                            Some (None, (nextStack, nextVisited))
-        )
+                            Some(None, (nextStack, nextVisited)))
         |> Seq.choose id
 
 
@@ -654,13 +654,14 @@ module graphsearch =
             // Stack stores: (current_node, current_path, current_weight, remaining_neighbors_enumerator)
             // Using an enumerator lets us resume processing exactly where we left off.
             let initialEnum = (neighbors start).GetEnumerator()
-            let stack = System.Collections.Generic.Stack<'a * 'a list * int * System.Collections.Generic.IEnumerator<'a * int>>()
 
-            stack.Push((start, [start], 0, initialEnum))
+            let stack =
+                System.Collections.Generic.Stack<'a * 'a list * int * System.Collections.Generic.IEnumerator<'a * int>>()
+
+            stack.Push((start, [ start ], 0, initialEnum))
 
             // Check if the start node itself satisfies the goal condition
-            if isGoal start then
-                yield ([start], 0)
+            if isGoal start then yield ([ start ], 0)
 
             while stack.Count > 0 do
                 let (curr, path, weight, enum) = stack.Peek()
@@ -756,17 +757,17 @@ module graphsearch =
     /// <summary>
     /// Compresses a graph by collapsing all linear paths of degree-2 nodes into single weighted edges.
     /// </summary>
-    /// 
+    ///
     /// <remarks>
-    /// This version utilizes an optimized multi-source flood fill (BFS) to map old nodes to 
+    /// This version utilizes an optimized multi-source flood fill (BFS) to map old nodes to
     /// compressed core nodes, eliminating processing bottlenecks on long linear chains.
     /// </remarks>
-    /// 
+    ///
     /// <param name="nodes">The complete list of all vertices/nodes present in the graph.</param>
     /// <param name="getNeighbors">A function that returns the immediate neighbors for any given node.</param>
-    /// 
+    ///
     /// <typeparam name="'Node">The type of the vertex. Must support structural comparison for Map keys.</typeparam>
-    /// 
+    ///
     /// <returns>
     /// A tuple containing:
     /// <br/>1. <c>'Node list</c>: The remaining core nodes.
@@ -776,35 +777,35 @@ module graphsearch =
     let compressGraph (nodes: 'Node list) (getNeighbors: 'Node -> 'Node list) : 'Node list * Map<'Node, ('Node * int) list> * Map<'Node, 'Node> =
 
         // Step 1: Pre-calculate neighbor counts for every node to establish topology.
-        let degreeMap = 
-            nodes 
+        let degreeMap =
+            nodes
 
             |> List.map (fun node -> node, getNeighbors node)
             |> Map.ofList
 
         // Step 2: Core nodes are junctions (degree != 2).
-        let coreNodes = 
-            nodes |> List.filter (fun n -> 
+        let coreNodes =
+            nodes
+            |> List.filter (fun n ->
                 match Map.tryFind n degreeMap with
 
                 | Some neighbors -> List.length neighbors <> 2
-                | None -> false
-            )
+                | None -> false)
 
         // Step 3: Iteratively trace a path from a core node into a specific direction.
         let tracePath (startNode: 'Node) (firstStep: 'Node) : 'Node * int =
             let (endNode, _, totalWeight) =
                 Seq.initInfinite (fun i -> i)
 
-                |> Seq.scan (fun (curr, prev, weight) _ ->
-                    match Map.tryFind curr degreeMap with
-                    | Some neighbors when List.length neighbors = 2 ->
-                        let nextNode = neighbors |> List.find (fun n -> n <> prev)
-                        (nextNode, curr, weight + 1)
+                |> Seq.scan
+                    (fun (curr, prev, weight) _ ->
+                        match Map.tryFind curr degreeMap with
+                        | Some neighbors when List.length neighbors = 2 ->
+                            let nextNode = neighbors |> List.find (fun n -> n <> prev)
+                            (nextNode, curr, weight + 1)
 
-                    | _ -> 
-                        (curr, prev, weight)
-                ) (firstStep, startNode, 1) // Pass the initial state tuple here
+                        | _ -> (curr, prev, weight))
+                    (firstStep, startNode, 1) // Pass the initial state tuple here
                 |> Seq.pairwise
                 |> Seq.find (fun (state1, state2) -> state1 = state2)
 
@@ -818,47 +819,48 @@ module graphsearch =
             |> List.map (fun node ->
                 let neighbors = Map.tryFind node degreeMap |> Option.defaultValue []
                 let edges = neighbors |> List.map (fun nextNode -> tracePath node nextNode)
-                node, edges
-            )
+                node, edges)
 
             |> Map.ofList
 
         // Step 5: Multi-source BFS/Flood Fill to map old nodes to core nodes.
         let initialMap = coreNodes |> List.map (fun n -> n, n) |> Map.ofList
 
-        let initialQueue = 
-            coreNodes 
+        let initialQueue =
+            coreNodes
 
-            |> List.collect (fun core -> 
+            |> List.collect (fun core ->
                 let neighbors = Map.tryFind core degreeMap |> Option.defaultValue []
-                neighbors 
+
+                neighbors
 
                 |> List.filter (fun n -> Map.tryFind n degreeMap |> Option.map List.length |> Option.defaultValue 0 = 2)
-                |> List.map (fun neighbor -> neighbor, core)
-            )
+                |> List.map (fun neighbor -> neighbor, core))
 
         let finalOldToNewMap =
             initialQueue
 
-            |> List.fold (fun (currentMap, activeQueue) _ ->
-                match activeQueue with
-                | [] -> (currentMap, [])
-                | (currNode, coreOwner) :: restQueue ->
-                    if Map.containsKey currNode currentMap then
-                        (currentMap, restQueue)
-                    else
-                        let updatedMap = Map.add currNode coreOwner currentMap
-                        let neighbors = Map.tryFind currNode degreeMap |> Option.defaultValue []
-                        let nextSteps = 
-                            neighbors
+            |> List.fold
+                (fun (currentMap, activeQueue) _ ->
+                    match activeQueue with
+                    | [] -> (currentMap, [])
+                    | (currNode, coreOwner) :: restQueue ->
+                        if Map.containsKey currNode currentMap then
+                            (currentMap, restQueue)
+                        else
+                            let updatedMap = Map.add currNode coreOwner currentMap
+                            let neighbors = Map.tryFind currNode degreeMap |> Option.defaultValue []
 
-                            |> List.filter (fun n -> Map.tryFind n degreeMap |> Option.map List.length |> Option.defaultValue 0 = 2)
-                            |> List.filter (fun n -> not (Map.containsKey n updatedMap))
+                            let nextSteps =
+                                neighbors
 
-                            |> List.map (fun n -> n, coreOwner)
+                                |> List.filter (fun n -> Map.tryFind n degreeMap |> Option.map List.length |> Option.defaultValue 0 = 2)
+                                |> List.filter (fun n -> not (Map.containsKey n updatedMap))
 
-                        (updatedMap, restQueue @ nextSteps)
-            ) (initialMap, initialQueue)
+                                |> List.map (fun n -> n, coreOwner)
+
+                            (updatedMap, restQueue @ nextSteps))
+                (initialMap, initialQueue)
             |> fst
 
         (coreNodes, compressedEdges, finalOldToNewMap)
@@ -990,28 +992,34 @@ module graphsearch_test =
 
     [<Fact>]
     let ``test compressGraph`` () =
-        let nodes = ["A"; "B"; "C"; "D"]
+        let nodes = [ "A"; "B"; "C"; "D" ]
         // A - B - C - D
         let getNeighbors node =
             match node with
 
-            | "A" -> ["B"]
-            | "B" -> ["A"; "C"]
-            | "C" -> ["B"; "D"]
+            | "A" -> [ "B" ]
+            | "B" -> [ "A"; "C" ]
+            | "C" -> [ "B"; "D" ]
 
-            | "D" -> ["C"]
-            | _   -> []
+            | "D" -> [ "C" ]
+            | _ -> []
 
         let (newNodes, edges, oldToNew) = graphsearch.compressGraph nodes getNeighbors
 
         // Remaining merged nodes
-        Assert.Equivalent(["A"; "D"], newNodes)
+        Assert.Equivalent([ "A"; "D" ], newNodes)
 
         // Weighted Edges
-        Assert.Equivalent(Map.ofList [("A", [("D", 3)]); ("D", [("A", 3)])], edges)
+        Assert.Equivalent(Map.ofList [ ("A", [ ("D", 3) ]); ("D", [ ("A", 3) ]) ], edges)
 
         // Old to merged node mapping
-        Assert.Equivalent( Map.ofList[("A", "A"); ("B", "A"); ("C", "D"); ("D", "D")],  oldToNew)
+        Assert.Equivalent(
+            Map.ofList[("A", "A")
+                       ("B", "A")
+                       ("C", "D")
+                       ("D", "D")],
+            oldToNew
+        )
 
 
 module math =

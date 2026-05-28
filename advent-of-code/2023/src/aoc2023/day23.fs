@@ -146,11 +146,15 @@ let SolvePart2 data =
         |> List.ofSeq
 
 
-    let newNodes, edges, oldToNew = graphsearch.compressGraph nodes (grid |> get_neighbours2)
+    let newNodes, edges, oldToNew =
+        graphsearch.compressGraph nodes (grid |> get_neighbours2)
+
     let is_target (goal: 'a) (node: 'a) = goal = node
     let get_neighbours edges node = edges |> Map.find node
     // Get all paths
-    let paths = graphsearch.findAllPathsWithWeights2 (edges |> get_neighbours >> Seq.ofList) (goal |> is_target) start
+    let paths =
+        graphsearch.findAllPathsWithWeights2 (edges |> get_neighbours >> Seq.ofList) (goal |> is_target) start
+
     let solution = snd (paths |> Seq.maxBy snd)
     solution
 
@@ -378,13 +382,16 @@ type Tests() =
             |> List.ofSeq
 
 
-        let newNodes, edges, oldToNew = graphsearch.compressGraph nodes (grid |> get_neighbours2)
+        let newNodes, edges, oldToNew =
+            graphsearch.compressGraph nodes (grid |> get_neighbours2)
+
         Assert.True(oldToNew |> Map.find start = start)
         Assert.True(oldToNew |> Map.find goal = goal)
         let is_target (goal: 'a) (node: 'a) = goal = node
         let get_neighbours edges node = edges |> Map.find node
         // Get all paths
-        let paths = graphsearch.findAllPathsWithWeights (edges |> get_neighbours >> Seq.ofList) (goal |> is_target) start
+        let paths =
+            graphsearch.findAllPathsWithWeights (edges |> get_neighbours >> Seq.ofList) (goal |> is_target) start
+
         let solution = snd (paths |> Seq.maxBy snd)
         Assert.Equal(154, solution)
-

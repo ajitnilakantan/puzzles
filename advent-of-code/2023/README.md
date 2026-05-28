@@ -177,27 +177,63 @@ For part 2 there are some simplifications:
   i.e. starting at the center we steps will reach exactly to the edge 202300 repetitions out
 - The tiles have an empty border around them. This ensures that there are no "blockages" and the steps can continue out to the edges
 
-We run a simulation on the test grid, expanding it with a "tile radius" of 1..n (so the repetition is $2r+1$ x $2r+1$.  We keep track of the total for each "tile", i.e. original grid that has been duplicated.
+We run a simulation on the test grid, expanding it with a "tile radius" of 1..n (so the repetition is $2r+1$ x $2r+1$. We keep track of the total for each "tile", i.e. original grid that has been duplicated.
 The pattern repeats (this is an offset depending on wherer the "repetition radius" is even or odd -- for us it is 202300, even)
 Can calculate by summing the value of all tiles.
 
 #### Day22
+
 Find all intersection in the xy plane (ignoring z height) using a sweep alogorithm, instead of a brute force O(n^2) all-pairs check. Then sort by z to see what is above/below. Part2 is straightforward. Remove each single support and see which blocks have no support and fall, and repeat until nothing falls.
 
 #### Day23
-Reuse graphsearch.findAllPaths from day 19.  Longest path is NP complete...Running the naive solution from part1 on Part 2 takes 6hrs.
 
-To speed up, run Tarjan's graph splitting algorithm to split the graph into "islands" connected by "bridges".  Create a "meta-graph" of the
-islands (to nodes are the island index, the edges are the bridges) and run "all paths" on the meta graph.  Next run "longest path" on each island
-and find the longest path.  If the graph can be split, this is faster because "all paths" and "longest path" are run on smaller graphs. Unfortunately,
-this still too slow.  There is a huge ~9334 node graph in the middle which slows everything down.
+Reuse graphsearch.findAllPaths from day 19. Longest path is NP complete...Running the naive solution from part1 on Part 2 takes 6hrs.
+
+To speed up, run Tarjan's graph splitting algorithm to split the graph into "islands" connected by "bridges". Create a "meta-graph" of the
+islands (to nodes are the island index, the edges are the bridges) and run "all paths" on the meta graph. Next run "longest path" on each island
+and find the longest path. If the graph can be split, this is faster because "all paths" and "longest path" are run on smaller graphs. Unfortunately,
+this still too slow. There is a huge ~9334 node graph in the middle which slows everything down.
 Thinking about it, Tarjan won't help since the DFS path search would naturally find all the bridges, and there would be no speed advantage.
 Unsuccessful experiment with Kernighan Lin partitioning.
 
 Take a different tack. Notice most of the nodes follow narrow linear chain paths. Compress these into single nodes and have weighted edges between the compressed nodes. The weight is the number of nodes collapsed into one. This reduces the number of nodes from 9438 to 36 and we get a solution quickly by enumerating all paths with edge weights.
 
 #### Day24
-The naive all pairs check for line intersectons in O(n^2). Instead use the Bentley Ottmann line sweep alogrithm which is O((n + k) log n), with k intersections
+
+The naive all pairs check for line intersectons in O(n^2). Instead use the Bentley Ottmann line sweep alogrithm which is O((n + k) log n), with k intersections.
+
+For part2 - calculate the minimum distance between two lines: E.g.
+
+$$
+L_1 : r_1 = p_1 + v_1t \\
+L_2 : r_2 = p_2 + v_2s
+$$
+
+$ p_1, p_2$ are positions and $v_1, v_2$ are the direction vectors and $t, s$ the parametrization.
+
+Shortest distance $D$ is:
+
+$$
+{| (p_2-p_1) \cdot (v_1 \times v_2) |} \over {| v_1 \times v_2 | } \\
+$$
+
+If the lines are parallel, the cross-product is zero, so the formula is:
+
+$$
+{ |(p_2-p_1) \times v_1 | } \over { |v_1| }
+$$
+
+So given a set of lines $L_i(s_i) = A_i + s_i\vec{v}_i$ and an unknown line $L(t) = P + t\vec{d}$ the distance from $P$ to $L_i$ is
+$$D_i^2 = | (P-A_i) \times \vec{v}_i| ^2$$
+
+So we need to do a least squares minimization of the sum of the distances:
+
+$$
+f(P, \vec{d}) = \sum_{i=1}^n D_i^2 \\
+    = \sum_{i=1}^n (| (P-A_i) \times \vec{v}_i| ^2)
+$$
+
+Where the unknowns are $P$ and $\vec{d}$.
 
 ### F# Annoyances
 
@@ -241,3 +277,10 @@ The naive all pairs check for line intersectons in O(n^2). Instead use the Bentl
 - https://laenas.github.io/posts/01-fs-primer.html
 
 - F# Graph algorithms: https://github.com/code-shoily/yog-fsharp
+
+- Record specifiers:
+  e.g. type Fruits = {Name: string; Count: int}
+  with
+  static member create name count = { Name = name; Count = count }
+  or: let f = { Name = "Banana"; Count = 20 } : Fruits // note ":"
+  or: let f : Fruits = { Name = "Banana"; Count = 20 } // note ":"
