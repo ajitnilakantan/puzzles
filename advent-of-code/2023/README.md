@@ -202,38 +202,8 @@ Take a different tack. Notice most of the nodes follow narrow linear chain paths
 
 The naive all pairs check for line intersectons in O(n^2). Instead use the Bentley Ottmann line sweep alogrithm which is O((n + k) log n), with k intersections.
 
-For part2 - calculate the minimum distance between two lines: E.g.
-
-$$
-L_1 : r_1 = p_1 + v_1t \\
-L_2 : r_2 = p_2 + v_2s
-$$
-
-$ p_1, p_2$ are positions and $v_1, v_2$ are the direction vectors and $t, s$ the parametrization.
-
-Shortest distance $D$ is:
-
-$$
-{| (p_2-p_1) \cdot (v_1 \times v_2) |} \over {| v_1 \times v_2 | } \\
-$$
-
-If the lines are parallel, the cross-product is zero, so the formula is:
-
-$$
-{ |(p_2-p_1) \times v_1 | } \over { |v_1| }
-$$
-
-So given a set of lines $L_i(s_i) = A_i + s_i\vec{v}_i$ and an unknown line $L(t) = P + t\vec{d}$ the distance from $P$ to $L_i$ is
-$$D_i^2 = | (P-A_i) \times \vec{v}_i| ^2$$
-
-So we need to do a least squares minimization of the sum of the distances:
-
-$$
-f(P, \vec{d}) = \sum_{i=1}^n D_i^2 \\
-    = \sum_{i=1}^n (| (P-A_i) \times \vec{v}_i| ^2)
-$$
-
-Where the unknowns are $P$ and $\vec{d}$.
+For part 2, got terribly sidetracked by trying a least squares minimization. It blows up because the coordinates are huge and far apart, impossible to normalize.
+Easy solution: Given 4 non parallel 3D lines can find 1-2 solutions for a line that passes through all. Simplified because we know the intersection is a whole number, so can skip irrational square roots in the bigint calculations. Apply this line to all line and find the first intersection and offset it appropriately.
 
 ### F# Annoyances
 
