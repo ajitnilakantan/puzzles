@@ -235,7 +235,6 @@ module bentleyOttmann_test =
                 DY = -1.0 } ] // y = 10 - x
 
         let res1 = findIntersections test1Lines box
-        printfn "ZZZTest 1 (Standard Cross): Expected 1 at (5,5). Found: %A" res1
         Assert.Equal(1, res1 |> List.length)
         Assert.Equal((5.0, 5.0), res1[0].Point)
 
