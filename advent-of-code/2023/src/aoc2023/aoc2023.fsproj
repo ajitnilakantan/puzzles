@@ -14,7 +14,7 @@
     <Compile Include="bentleyOttmann.fs" />
     <Compile Include="klee.fs" />
     <Compile Include="tarjan.fs" />
-    <Compile Include="kernighanLin.fs" />
+    <Compile Include="fordFulkerson.fs" />
     <Compile Include="dayNN.fs" />
     <Compile Include="day01.fs" />
     <Compile Include="day02.fs" />
@@ -40,6 +40,7 @@
     <Compile Include="day22.fs" />
     <Compile Include="day23.fs" />
     <Compile Include="day24.fs" />
+    <Compile Include="day25.fs" />
   </ItemGroup>
   <!-- ItemGroup>
     <None Include="day*.txt">

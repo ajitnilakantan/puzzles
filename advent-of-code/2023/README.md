@@ -205,6 +205,10 @@ The naive all pairs check for line intersectons in O(n^2). Instead use the Bentl
 For part 2, got terribly sidetracked by trying a least squares minimization. It blows up because the coordinates are huge and far apart, impossible to normalize.
 Easy solution: Given 4 non parallel 3D lines can find 1-2 solutions for a line that passes through all. Simplified because we know the intersection is a whole number, so can skip irrational square roots in the bigint calculations. Apply this line to all line and find the first intersection and offset it appropriately.
 
+#### Day24
+
+Straightforward application of Ford Fulkerson. A bit slow though.
+
 ### F# Annoyances
 
 - No early return/continue/break. Forces you to have nested if/else/match or artifically introduce awkward recursive solution. See https://tomasp.net/blog/imperative-i-return.aspx/ for a workaround
