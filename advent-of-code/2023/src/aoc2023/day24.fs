@@ -61,6 +61,8 @@ let parse_data<'T when 'T :> INumber<'T>> data =
     |> List.map (List.map (fun x -> fromInt64Generic<'T> x))
     |> List.map (fun x -> HailStone<'T>.create x[0] x[1] x[2] x[3] x[4] x[5])
 
+
+
 let parse_data2 data =
     data
     |> List.map (fun line -> fileio.tokenize line ",@\x20")
@@ -626,8 +628,6 @@ type Tests() =
 
     [<Fact>]
     let ``Test Part22`` () =
-
-        // [Include the type definitions and helper code provided in the previous response here...]
 
         // Helper to easily construct BigRational vectors from integer literals
         let createVec x y z =
