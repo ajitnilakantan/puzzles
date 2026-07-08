@@ -19,6 +19,7 @@ requires-python = ">= 3.13"
 "nc4" = "js_2024_05_number_cross_4.number_cross_4:main"
 "as2" = "js_2024_06_altered_states_2.__main__:main"
 "tet" = "js_2024_08_tree_edge_triage.__main__:main"
+"km7" = "js_2026_07_knight_moves_7.__main__:main"
 
 
 [build-system]
