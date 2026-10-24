@@ -13,7 +13,7 @@ function parseData(lines: string[]) : [locks: number[][], keys: number[][], heig
   for (const chunk of chunks) {
     const grid =  Grid.fromLines(chunk, ".");
     assert(grid.numrows === 7 && grid.numcols === 5);
-    const values = Array(grid.numcols).fill(-1);
+    const values:number[] = Array<number>(grid.numcols).fill(-1);
     grid.forEach((val, _row, col, _grid):void => {if (val === "#") values[col]++;});
     if (Grid.range(grid.numcols).every(c => grid[0][c] === "#")) {
       locks.push(values);
