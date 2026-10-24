@@ -1,7 +1,7 @@
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { isDayPlugin, type DayPlugin } from "./plugin";
+import { type DayPlugin, isDayPlugin } from "./plugin";
 
 const dayPattern = /^day\d{2}\.ts$/;
 const dayDirectory = join(import.meta.dir, "..", "day");
@@ -24,7 +24,7 @@ export async function loadPlugin(day: string): Promise<DayPlugin> {
   }
 
   const modulePath = pathToFileURL(join(dayDirectory, fileName)).href;
-  const module = await import(modulePath) as { default?: unknown };
+  const module = (await import(modulePath)) as { default?: unknown };
   if (!isDayPlugin(module.default)) {
     throw new Error(`${fileName} must default-export an object with name and run()`);
   }

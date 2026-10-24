@@ -14,7 +14,7 @@ export async function runCli(args: readonly string[]): Promise<number> {
     return 0;
   }
 
-  if (options.day === null) {
+  if (options.days.length === 0) {
     const plugins = await discoverPlugins();
     console.log(plugins.length === 0 ? "No plugins available." : "Available plugins:");
     for (const name of plugins) {
@@ -24,15 +24,20 @@ export async function runCli(args: readonly string[]): Promise<number> {
     return 0;
   }
 
-  try {
-    const plugin = await loadPlugin(options.day);
-    if (options.verbose) console.log(`Loading ${options.day} (${plugin.name})`);
-    await plugin.run({ verbose: options.verbose });
-    return 0;
-  } catch (error) {
-    console.error(error instanceof Error ? error.message : String(error));
-    return 1;
+  const toRun = options.days.includes("all") ? await discoverPlugins() : options.days;
+
+  let hadError = false;
+  for (const day of toRun) {
+    try {
+      const plugin = await loadPlugin(day);
+      if (options.verbose) console.log(`Loading ${day} (${plugin.name})`);
+      await plugin.run({ verbose: options.verbose });
+    } catch (error) {
+      hadError = true;
+      console.error(error instanceof Error ? error.message : String(error));
+    }
   }
+  return hadError ? 1 : 0;
 }
 
 if (import.meta.main) {
