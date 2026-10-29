@@ -17,12 +17,17 @@ dependencies = [
     "scipy>=1.15",
 ]
 
+[dependency-groups]
+dev = [
+    "mypy>=1.15",
+]
+lint = [
+    "ruff>=0.11",
+]
+
 [tool.uv]
 python-preference = "managed"
 managed = true
-dev-dependencies = [
-    "mypy>=1.15",
-]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -30,7 +35,3 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["src/2020"]
 
-[dependency-groups]
-lint = [
-    "ruff>=0.11",
-]
